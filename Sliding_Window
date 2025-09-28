@@ -140,3 +140,145 @@ class Solution:
 
         return count
 
+# 1208. Get Equal Substrings Within Budget
+
+## Problem Description
+
+You are given two strings `s` and `t` of the same length and an integer `maxCost`.
+
+You want to change `s` to `t`. Changing the i-th character of `s` to the i-th character of `t` costs `|s[i] - t[i]|` (absolute difference of ASCII values).
+
+Return the maximum length of a substring of `s` that can be changed to the same as the corresponding substring of `t` with a cost less than or equal to `maxCost`. If no substring can be changed, return 0.
+
+---
+
+## Examples
+
+**Example 1:**
+Input: s = "abcd", t = "bcdf", maxCost = 3
+Output: 3
+Explanation: "abc" of s can change to "bcd". That costs 3. 
+
+class Solution:
+    def equalSubstring(self, s: str, t: str, maxCost: int) -> int:
+        left = maxc = total_cost = 0
+        for right in range(len(s)):
+            total_cost += abs(ord(s[right]) - ord(t[right]))
+            while total_cost > maxCost:
+                total_cost -= abs(ord(s[left]) - ord(t[left]))
+                left += 1
+            maxc = max(maxc, right - left + 1)
+        return maxc
+
+# Example usage
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.equalSubstring("abcd", "bcdf", 3))  # 3
+    print(sol.equalSubstring("abcd", "cdef", 3))  # 1
+    print(sol.equalSubstring("abcd", "acde", 0))  # 1
+
+##  1493. Longest Subarray of 1's After Deleting One Element
+ 
+## Problem Description
+
+Given a binary array `nums`, you should delete **one element** from it.  
+
+Return the size of the **longest non-empty subarray** containing only 1's in the resulting array. Return 0 if there is no such subarray.
+
+---
+
+## Examples
+
+**Example 1:**
+Input: nums = [1,1,0,1]
+Output: 3
+Explanation: Delete the 0 at position 2. The resulting array [1,1,1] has length 3.
+# CODE 
+from typing import List
+
+class Solution:
+    def longestSubarray(self, nums: List[int]) -> int:
+        left = 0
+        zero_count = 0
+        max_len = 0
+        n = len(nums)
+        
+        for right in range(n):
+            if nums[right] == 0:
+                zero_count += 1
+            
+            while zero_count > 1:
+                if nums[left] == 0:
+                    zero_count -= 1
+                left += 1
+            
+            # Subtract 1 because we must delete one element
+            max_len = max(max_len, right - left)
+        
+        return max_len
+
+# Example usage
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.longestSubarray([1,1,0,1]))              # Output: 3
+    print(sol.longestSubarray([0,1,1,1,0,1,1,0,1]))    # Output: 5
+    print(sol.longestSubarray([1,1,1]))                # Output: 2
+
+# 1695. Maximum Erasure Value
+
+## Problem Description
+
+You are given an array of positive integers `nums` and want to **erase a subarray containing unique elements**.  
+
+The score you get by erasing the subarray is equal to the sum of its elements.  
+
+Return the **maximum score** you can get by erasing exactly one subarray.
+
+An array `b` is called a subarray of `a` if it forms a contiguous subsequence of `a`, i.e., it is equal to `a[l], a[l+1], ..., a[r]` for some indices `(l,r)`.
+
+---
+
+## Examples
+
+**Example 1:**
+
+Input: nums = [4,2,4,5,6]
+Output: 17
+Explanation: The optimal subarray is [2,4,5,6]. 
+## CODE 
+from typing import List
+from collections import defaultdict
+
+class Solution:
+    def maximumUniqueSubarray(self, nums: List[int]) -> int:
+        count = defaultdict(int)
+        total = 0
+        left = 0
+        max_sum = 0
+
+        for right in range(len(nums)):
+            total += nums[right]
+            count[nums[right]] += 1
+
+            while count[nums[right]] > 1:
+                count[nums[left]] -= 1
+                total -= nums[left]
+                if count[nums[left]] == 0:
+                    del count[nums[left]]
+                left += 1
+
+            max_sum = max(max_sum, total)
+
+        return max_sum
+
+# Example usage
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.maximumUniqueSubarray([4,2,4,5,6]))          # Output: 17
+    print(sol.maximumUniqueSubarray([5,2,1,2,5,2,1,2,5]))  # Output: 8
+
+
+
+
+
+
