@@ -41,6 +41,10 @@ Track the result while moving the window.
 
 Sliding window logic involves two pointers moving independently (start/end).
 
+## TRICK TO REMEMBER 
+IF QUESTION SAYS -- find maximum length -- (maxi = max(maxi,r-l+1)
+IF QUESTION SAYS -- find all subarrays -- (maxi+=r-l+1)
+
 ##### PROBLEMS
 ## VARIABLE SIZE WINDOW 
 ### 3. Longest Substring Without Repeating Characters
