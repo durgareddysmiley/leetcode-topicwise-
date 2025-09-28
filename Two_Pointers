@@ -1,0 +1,33 @@
+# Two Pointers Problems In Linked List 
+1st Pattern -- slow = 1x 
+               fast 2x 
+leet code sum numbers = 2095 , 876
+2095 --  
+
+## Easy
+
+### 1. Middle of the Linked List
+**Problem:** Given the head of a singly linked list, return the middle node.  
+If there are two middle nodes, return the second middle node.  
+
+**Example 1:**  
+Input: head = [1,2,3,4,5]
+Output: [3,4,5]
+
+
+**Solution (Python Example):**
+```python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        return slow
+
