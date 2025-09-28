@@ -42,7 +42,7 @@ Track the result while moving the window.
 Sliding window logic involves two pointers moving independently (start/end).
 
 ##### PROBLEMS
-
+## VARIABLE SIZE WINDOW 
 ### 3. Longest Substring Without Repeating Characters
 **Problem:** Given a string `s`, find the length of the longest substring without duplicate characters.  
 
@@ -60,7 +60,6 @@ class Solution:
         ad = defaultdict(int)
         left = 0
         maxi = 0
-
         for r in range(len(s)):
             ad[s[r]] += 1
             while ad[s[r]] == 2:
@@ -69,8 +68,43 @@ class Solution:
                     del ad[s[left]]
                 left += 1
             maxi = max(maxi, r - left + 1)
-
         return maxi
 
-
 Common problems: subarrays with at most k distinct elements, permutations, anagrams.
+
+## 424. Longest Repeating Character Replacement
+**Problem:** You are given a string `s` and an integer `k`. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most `k` times.  
+
+Return the length of the longest substring containing the same letter after performing the operations.  
+
+**Examples:**  
+
+**Example 1:**  
+Input: s = "ABAB", k = 2
+Output: 4
+Explanation: Replace the two 'A's with two 'B's or vice versa.
+
+from collections import defaultdict
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        count = defaultdict(int)  # stores frequency of letters in current window
+        l = 0                      # left pointer of the window
+        max_count = 0              # max frequency of a single char in window
+        res = 0                    # result: max window length
+
+        for r in range(len(s)):    # r is the right pointer
+            count[s[r]] += 1
+            max_count = max(max_count, count[s[r]])
+
+            # shrink window if more than k replacements needed
+            if (r - l + 1) - max_count > k:
+                count[s[l]] -= 1
+                if count[s[l]] == 0:
+                    del count[s[l]]
+                l += 1
+
+            res = max(res, r - l + 1)
+
+        return res
+
