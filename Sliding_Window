@@ -177,9 +177,9 @@ class Solution:
 # Example usage
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.equalSubstring("abcd", "bcdf", 3))  # 3
-    print(sol.equalSubstring("abcd", "cdef", 3))  # 1
-    print(sol.equalSubstring("abcd", "acde", 0))  # 1
+    print(sol.equalSubstring("abcd", "bcdf", 3))  
+    print(sol.equalSubstring("abcd", "cdef", 3))  
+    print(sol.equalSubstring("abcd", "acde", 0))  
 
 ##  1493. Longest Subarray of 1's After Deleting One Element
  
@@ -224,9 +224,9 @@ class Solution:
 # Example usage
 if __name__ == "__main__":
     sol = Solution()
-    print(sol.longestSubarray([1,1,0,1]))              # Output: 3
-    print(sol.longestSubarray([0,1,1,1,0,1,1,0,1]))    # Output: 5
-    print(sol.longestSubarray([1,1,1]))                # Output: 2
+    print(sol.longestSubarray([1,1,0,1]))             
+    print(sol.longestSubarray([0,1,1,1,0,1,1,0,1]))    
+    print(sol.longestSubarray([1,1,1]))               
 
 # 1695. Maximum Erasure Value
 
@@ -280,6 +280,63 @@ if __name__ == "__main__":
     sol = Solution()
     print(sol.maximumUniqueSubarray([4,2,4,5,6]))          # Output: 17
     print(sol.maximumUniqueSubarray([5,2,1,2,5,2,1,2,5]))  # Output: 8
+
+## ANOTHER PATTERN THAT IS ALSO VARIABLE SIZE BUT USING FUNCTIONS
+WHY WE USE THIS PATTERN -- 🔑 Rule
+
+We use two functions (atMost(goal) and atMost(goal-1)) in situations where:
+
+We want the count of subarrays with sum exactly equal to goal.
+
+It’s easier to count “sum ≤ X” using a sliding window.
+
+Numbers are non-negative (so sliding window works).
+
+🛠 Why goal and goal-1
+
+atMost(goal) → counts subarrays with sum ≤ goal
+(this includes subarrays with sum = 0, 1, 2 … up to goal)
+
+atMost(goal-1) → counts subarrays with sum ≤ goal-1
+(this includes subarrays with sum = 0, 1 … up to goal-1, but not goal)
+
+👉 Subtracting removes everything less than goal, leaving only those with sum = goal:
+
+exactly goal
+=
+atMost(goal)
+−
+atMost(goal-1)
+exactly goal=atMost(goal)−atMost(goal-1)
+
+## LeetCode 930 — Binary Subarrays With Sum
+
+Problem:
+Given a binary array nums and an integer goal, return the number of non-empty subarrays with a sum equal to goal.
+Input: nums = [1,0,1,0,1], goal = 2
+Output: 4
+Explanation: The 4 subarrays are bolded and underlined below:
+[1,0,1,0,1]
+[1,0,1,0,1]
+[1,0,1,0,1]
+[1,0,1,0,1]
+## CODE 
+class Solution:
+    def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
+        def atMost(k: int) -> int:
+            if k < 0:
+                return 0
+            l = total = count = 0
+            for r in range(len(nums)):
+                total += nums[r]
+                while total > k:
+                    total -= nums[l]
+                    l += 1
+                count += r - l + 1   # all subarrays ending at r
+            return count
+        
+        return atMost(goal) - atMost(goal - 1)
+
 
 
 
