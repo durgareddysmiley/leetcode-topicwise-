@@ -323,20 +323,24 @@ Explanation: The 4 subarrays are bolded and underlined below:
 ## CODE 
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        def atMost(k: int) -> int:
-            if k < 0:
+        def ak(goal):
+            if goal < 0:
                 return 0
-            l = total = count = 0
+            l = a = maxi = 0
             for r in range(len(nums)):
-                total += nums[r]
-                while total > k:
-                    total -= nums[l]
-                    l += 1
-                count += r - l + 1   # all subarrays ending at r
-            return count
-        
-        return atMost(goal) - atMost(goal - 1)
+                a+=nums[r]
+                while a > goal:
+                    a= a -nums[l]
+                    l+=1
+                maxi += r - l + 1 
+            return maxi
+        return ak(goal) - ak(goal - 1)
 
+
+        
+
+
+        
 
 
 
