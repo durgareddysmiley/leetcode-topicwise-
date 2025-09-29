@@ -407,6 +407,16 @@ class Solution:
         
         return atMost(k) - atMost(k-1)
 
+## HERE WE USE 
+IF K < 0:
+   RETURN 0 SOME TIMES FOR THSI TYPE OF DUNCTION SUMS AND WE NOT USE FOR SOME SUMS 
+
+WHEN TO NOT USE:
+IF INPUT SAYS K IS COMPULSARY STARTS WITH 1 
+WHEN TO USE:
+IF INPUT SAYS K IS COMPULSARY STARTS WITH 0 
+
+
                 
             
         
