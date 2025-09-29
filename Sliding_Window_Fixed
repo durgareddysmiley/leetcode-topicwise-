@@ -9,9 +9,23 @@ Window size is fixed.
 Common problems: maximum sum of k-length subarray, average of subarrays, etc.
 
 Example: Find the maximum sum of any 3 consecutive elements in an array.
+
+2. When do we know it is fixed type?
+
+You know it’s a fixed-size sliding window if the problem explicitly or implicitly tells you the window size (k, n, etc.).
+
+Clues in the problem:
+
+“Find the maximum sum of k consecutive elements.”
+
+“Longest substring of size n with certain properties.”
+
+“Compute the average of every 5 elements in the array.”
+
+✅ Key point: The window size is given or constant.
  ## PROBLEMS
 
-# 876. Substrings of Size Three with Distinct Characters
+# 1876. Substrings of Size Three with Distinct Characters
 
 ## Problem
 
@@ -66,6 +80,36 @@ class Solution:
                 count += 1
         return count
 
-        
+# 1343: Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold
+
+**Problem Statement:**  
+Given an array of integers `arr` and two integers `k` and `threshold`, return the number of sub-arrays of size `k` whose average is greater than or equal to `threshold`.
+
+   Example 1:
+
+Input: arr = [2,2,2,2,5,5,5,8], k = 3, threshold = 4
+Output: 3
+Explanation: Sub-arrays [2,5,5],[5,5,5] and [5,5,8] have averages 4, 5 and 6 respectively. All other sub-arrays of size 3 have averages less than 4 (the threshold).
+##CODE
+
+    def numOfSubarrays(self, arr: List[int], k: int, threshold: int) -> int:
+        # Calculate the sum of the first window
+        window_sum = sum(arr[:k])
+        count = 0
+
+        if window_sum // k >= threshold:
+            count += 1
+
+        for i in range(k, len(arr)):
+            window_sum += arr[i] - arr[i - k]  # remove leftmost, add new rightmost
+            if window_sum // k >= threshold:
+                count += 1
+
+        return count
+
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.numOfSubarrays([2,2,2,2,5,5,5,8], 3, 4))  
+    print(sol.numOfSubarrays([11,13,17,23,29,31,7,5,2,3], 3, 5))  
 
         
