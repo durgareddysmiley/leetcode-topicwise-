@@ -9,3 +9,63 @@ Window size is fixed.
 Common problems: maximum sum of k-length subarray, average of subarrays, etc.
 
 Example: Find the maximum sum of any 3 consecutive elements in an array.
+ ## PROBLEMS
+
+# 876. Substrings of Size Three with Distinct Characters
+
+## Problem
+
+A string is **good** if there are no repeated characters.  
+Given a string `s`, return the number of good substrings of **length 3** in `s`.  
+
+A substring is a contiguous sequence of characters in a string.  
+Each occurrence of a substring counts separately.
+
+### Example 1
+Input: `s = "xyzzaz"`  
+Output: `1`  
+Explanation: substrings of size 3: `"xyz"`, `"yzz"`, `"zza"`, `"zaz"`. Only `"xyz"` is good.
+
+### Example 2
+Input: `s = "aababcabc"`  
+Output: `4`  
+Explanation: `"abc"`, `"bca"`, `"cab"`, `"abc"` are good substrings.
+
+### Constraints
+- 1 <= s.length <= 100  
+- `s` consists of lowercase English letters
+
+## Solution
+## APPROACH 1 
+class Solution:
+    def countGoodSubstrings(self, s: str) -> int:
+        a = defaultdict(int)
+        c = 0
+        l = 0 
+        if len(s) < 3:
+            return 0
+        for r in range(0,3):
+            a[s[r]]+=1
+        if len(a) == 3:
+            c+=1
+        for r in range(3,len(s)):
+            a[s[l]]-=1
+            if a[s[l]] == 0:
+                del a[s[l]]
+            l+=1
+            a[s[r]]+=1
+            if len(a) == 3:
+                c+=1
+        return c
+## APPROACH 2 
+class Solution:
+    def countGoodSubstrings(self, s: str) -> int:
+        count = 0
+        for i in range(len(s) - 2):
+            if len({s[i], s[i+1], s[i+2]}) == 3:
+                count += 1
+        return count
+
+        
+
+        
