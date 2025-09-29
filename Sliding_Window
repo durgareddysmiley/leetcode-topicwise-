@@ -15,14 +15,6 @@ Size: Can be fixed (e.g., 3 elements) or variable (expand/shrink as needed).
 
 Sliding Window problems generally follow these patterns:
 
-## 1. Fixed-Size Sliding Window
-
-Window size is fixed.
-
-Common problems: maximum sum of k-length subarray, average of subarrays, etc.
-
-Example: Find the maximum sum of any 3 consecutive elements in an array.
-
 ## 2. Variable-Size Sliding Window
 
 Window size can grow or shrink based on conditions.
@@ -75,6 +67,31 @@ class Solution:
         return maxi
 
 Common problems: subarrays with at most k distinct elements, permutations, anagrams.
+
+# 209: Minimum Size Subarray Sum
+
+**Problem Statement:**  
+Given an array of positive integers `nums` and a positive integer `target`, find the minimal length of a contiguous subarray of which the sum ≥ target. Return 0 if no such subarray exists.
+Example 1:
+
+Input: target = 7, nums = [2,3,1,2,4,3]
+Output: 2
+Explanation: The subarray [4,3] has the minimal length under the problem constraint.
+
+## CODE 
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        l = c = t = 0 
+        ma = float('inf')
+        for r in range(len(nums)):
+            t+=nums[r]
+            while t >= target:
+                ma = min(ma,r-l+1)
+                t-=nums[l]
+                l+=1
+        if ma == float('inf'):
+            return 0
+        return ma
 
 ## 424. Longest Repeating Character Replacement
 **Problem:** You are given a string `s` and an integer `k`. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most `k` times.  
