@@ -20,6 +20,9 @@ The sum of elements in a range (l...r), quickly.
 
 👉 Idea: Precompute cumulative totals so that later queries are fast (O(1)) instead of recalculating every time.
 
+## REMEMBER TO DO ONE THING WHEN DOING PREFIX SUM PROBLEM 
+IF WE DO PREFIX SUM PROBLEM RUNNING SUM PATTERN AFTER CALCLULATING PREFIX(LEFT OR RIGHT) THEN WE SEE CALCLUATED PREFIX AS INPUT TO WRITE LOGIC NOT INPUT GIVEN IN QUESTION 
+
 2574. Left and Right Sum Differences
 ------------------------------------
 You are given a 0-indexed integer array nums of size n.
@@ -149,6 +152,45 @@ class Solution:
             right_sum = prefix[n] - prefix[x-1]
             if left_sum == right_sum:
                 return x
-        
         return -1
+LeetCode Problem 1588: Sum of All Odd Length Subarrays
+
+Problem:
+Given an array of positive integers arr, return the sum of all possible odd-length subarrays of arr.
+
+Example 1:
+Input: arr = [1,4,2,5,3]
+Output: 58
+Explanation: Odd-length subarrays are:
+[1], [4], [2], [5], [3], [1,4,2], [4,2,5], [2,5,3], [1,4,2,5,3]
+Sum = 58
+
+## CODE TIME COMPLEXITY 0(N * 2) 
+class Solution:
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        n = len(arr)
+        prefix = [0] * (n + 1)  # prefix sum array
+        total = 0
+        
+        # Build prefix sum array
+        for i in range(n):
+            prefix[i + 1] = prefix[i] + arr[i]
+        
+        # Iterate over all odd lengths
+        for length in range(1, n + 1, 2):
+            for start in range(n - length + 1):
+                total += prefix[start + length] - prefix[start]  # sum of subarray
+
+        return total
+OPTIMISED CODE 0(N) 
+class Solution:
+    def sumOddLengthSubarrays(self, arr: List[int]) -> int:
+        n = len(arr)
+        total = 0
+        for i, val in enumerate(arr):
+            total_subarrays = (i + 1) * (n - i)
+            odd_subarrays = (total_subarrays + 1) // 2
+            total += val * odd_subarrays
+        return total
+
 
