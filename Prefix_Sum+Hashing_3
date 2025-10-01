@@ -46,6 +46,13 @@ Equal number of 0s and 1s (can be turned into sum = 0)
 
 3. You need counting or longest length
 
+##TRICK 
+🔑 Key Difference
+
+Target sum is given (560, 930) → use prefix - goal
+
+Target sum is not given, only divisibility (974) → use prefix % k
+
 ##PROBLEM 
 974. Subarray Sums Divisible by K
 
@@ -87,6 +94,7 @@ def subarraySum(nums, k):
     return count
 
 ##BIG DOUBT IN PREFIX SUM -- IS WE DO  (prefix_sum - k)  AND ADDING TO COUNT HOW IT IS WILL BE SUBARAY NOT SUBSEQUENCE 
+$$ DOUBT ANSWER === BELOW 
 Array: arr = [1, 2, 3, 4], K = 5
 
 We want subarrays whose sum = 5.
@@ -147,22 +155,22 @@ Explanation: The 4 subarrays are:
 [1,0,1], [0,1,0,1], [1,0,1,0], [1,0,1]
 
 ## CODE 
-from collections import defaultdict
-from typing import List
-
 class Solution:
     def numSubarraysWithSum(self, nums: List[int], goal: int) -> int:
-        prefix_map = defaultdict(int)
-        prefix_map[0] = 1
-        prefix_sum = 0
-        ans = 0
+        hash = defaultdict(int)
+        hash[0] = 1
+        pre = rem = count = 0
+        for i in range(len(nums)):
+            pre+=nums[i]
+            if pre - goal in hash:
+                count+=hash[pre-goal]
+            hash[pre]+=1
+        return count
+## MY DOUBTS IN ABOVE SUM 
+  ans += prefix_map[prefix_sum - goal] WE CAN WRITE THIS USING IF ALSO ANY HOW NO PROBLEM..  ans += prefix_map[prefix_sum - goal] WE WILL ADD IN ANS INSTANTLY 
+LETS ASSUME ANS IS 5 and pre - goal is again satisfied then ans is 5 + 5 i think that how it will increases beacause the new element added and add 5 new pairs beacause 
+all 5 have same remainder then we get 5 + 5 = 10
 
-        for num in nums:
-            prefix_sum += num
-            ans += prefix_map[prefix_sum - goal]
-            prefix_map[prefix_sum] += 1
-
-        return ans
 
 ## UPTO ABOVE SUM WE SEEN COUNTING THEN WE USE prefix_sum[0] = 1 BUT NOW WE ARE DOING prefix_sum[0] = -1 BECAUSE NOW WE ARE DEALING WITH TO FIND LENGTH LIKE LONGEST AND SHORTEST 
 ## WHEN ASK ABOUT LONGEST THEN  WE  WRITE  INSIDE  ELSE  hash[rem] = i..IF WE WANT SHORTEST  WE DOESNOT WRITE IN ELSE  WE WRITE IN IF BELOW 
