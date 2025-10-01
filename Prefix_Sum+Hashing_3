@@ -163,3 +163,49 @@ class Solution:
             prefix_map[prefix_sum] += 1
 
         return ans
+
+## UPTO ABOVE SUM WE SEEN COUNTING THEN WE USE prefix_sum[0] = 1 BUT NOW WE ARE DOING prefix_sum[0] = -1 BECAUSE NOW WE ARE DEALING WITH TO FIND LENGTH LIKE LONGEST AND SHORTEST 
+## WHEN ASK ABOUT LONGEST THEN  WE  WRITE  INSIDE  ELSE  hash[rem] = i..IF WE WANT SHORTEST  WE DOESNOT WRITE IN ELSE  WE WRITE IN IF BELOW 
+1590. Make Sum Divisible by P
+Problem
+
+Given an array of positive integers nums, remove the smallest subarray (possibly empty) such that the sum of the remaining elements is divisible by p. It is not allowed to remove the whole array.
+
+Return the length of the smallest subarray that you need to remove, or -1 if it's impossible.
+
+A subarray is defined as a contiguous block of elements in the array.
+
+Examples
+
+Example 1:
+
+Input: nums = [3,1,4,2], p = 6
+Output: 1
+Explanation: Remove [4]. Remaining sum = 6, divisible by 6.
+
+## CODE 
+from collections import defaultdict
+from typing import List
+
+class Solution:
+    def minSubarray(self, nums: List[int], p: int) -> int:
+        total_mod = sum(nums) % p
+        if total_mod == 0:
+            return 0
+        
+        prefix_sum = 0
+        min_len = float('inf')
+        mod_index = {0: -1}
+        
+        for i, num in enumerate(nums):
+            prefix_sum += num
+            rem = prefix_sum % p
+            target = (rem - total_mod) % p
+            if target in mod_index:
+                min_len = min(min_len, i - mod_index[target])
+            mod_index[rem] = i
+        return min_len if min_len < len(nums) else -1
+
+## DOUBTS IN ABOVE SUM    target = (rem - total_mod) % p.. WE ARE DOING %p just to avoid negatives  
+
+
