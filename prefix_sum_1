@@ -196,6 +196,18 @@ class Solution:
 MY CONFUSION IS CANT UNDER STAND PREFIX SUM FORMULAS LIKE   (pref[r+1] - pref[l]) NOW I WANT TO GET CLARITY 
 
 """
+✅ LOGIC TO REMEMBER:
+
+Always store prefix like: pref[i+1] = pref[i] + nums[i]
+
+Subarray sum formula: sum(l..r) = pref[r+1] - pref[l]
+
+## WHY DOES THIS WORK?
+
+pref[r+1] = sum of first (r+1) elements = nums[0] + ... + nums[r]
+
+pref[l] = sum of first l elements = nums[0] + ... + nums[l-1]
+// PROBLEM 
 LeetCode 1838. Frequency of the Most Frequent Element
 
 The frequency of an element is the number of times it occurs in an array.
