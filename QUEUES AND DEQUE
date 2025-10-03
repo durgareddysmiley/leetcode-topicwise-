@@ -1,0 +1,113 @@
+##🌀 Queue
+
+A queue is like a line in front of a shop.
+
+It follows FIFO (First In, First Out) → the first element added is the first one to be removed.
+
+Operations:
+
+enqueue() → add element at the back
+
+dequeue() → remove element from the front
+
+
+# 🌀 Deque (Double-Ended Queue)
+
+A **deque** is like a flexible queue where you can add/remove from **both ends** (front and back).
+
+---
+
+## 🔹 Operations
+- `addFirst()` / `addLast()` → insert at front or back  
+- `removeFirst()` / `removeLast()` → remove from front or back  
+
+---
+
+## 🔹 Behaves Like
+- A **Queue (FIFO)** → if you only use `addLast()` + `removeFirst()`  
+- A **Stack (LIFO)** → if you only use one side  
+
+---
+
+## 🔹 Example Use Cases
+- 📝 Undo/Redo functionality in editors  
+- 📊 Sliding window maximum/minimum in arrays  
+- 🔄 Palindrome checking (compare both ends)  
+
+---
+
+## 🔹 When to Use?
+- ✅ Use a **Queue** when you only need **First-In → First-Out (FIFO)** order.  
+- ✅ Use a **Deque** when you need **flexibility** (insert/remove from both sides).  
+##PROBLEMS
+# 1700. Number of Students Unable to Eat Lunch
+# Problem: https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/
+# Difficulty: Easy
+#
+# The school cafeteria offers circular (0) and square (1) sandwiches.
+# Students are in a queue and each prefers either 0 or 1.
+# At each step:
+#   - If the front student prefers the top sandwich, they take it and leave.
+#   - Otherwise, the student moves to the end of the queue.
+# Process ends when no student can take the top sandwich.
+# Return the number of students unable to eat.
+#
+# Example 1:
+# Input:  students = [1,1,0,0], sandwiches = [0,1,0,1]
+# Output: 0
+#
+# Example 2:
+# Input:  students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
+# Output: 3
+
+from collections import deque
+from typing import List
+
+class Solution:
+    def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
+        q = deque(range(len(students)))
+        i = 0
+        c = 0
+        attempts = 0
+        while q and attempts < len(q):
+            a = q.popleft()
+            if students[a] != sandwiches[i]:
+                q.append(a)
+                attempts += 1
+            else:
+                c += 1
+                i += 1
+                attempts = 0
+        return len(students) - c
+##PROBLEMS
+# 950. Reveal Cards In Increasing Order
+# Problem: https://leetcode.com/problems/reveal-cards-in-increasing-order/
+# Difficulty: Medium
+#
+# You are given an integer array 'deck'. There is a deck of cards where every card has a unique integer.
+# You can reorder the deck in any order you want. Initially, all cards start face down.
+# You repeatedly do the following until all cards are revealed:
+# 1. Take the top card of the deck, reveal it, and remove it from the deck.
+# 2. If there are still cards, put the next top card at the bottom of the deck.
+# 3. Repeat until all cards are revealed.
+# Return an ordering of the deck that would reveal the cards in increasing order.
+#
+# Example 1:
+# Input:  deck = [17,13,11,2,3,5,7]
+# Output: [2,13,3,11,5,17,7]
+
+from collections import deque
+from typing import List
+
+class Solution:
+    def deckRevealedIncreasing(self, deck: List[int]) -> List[int]:
+        deck.sort()  # Sort the deck in increasing order
+        a = deque(range(len(deck)))  # Index positions queue
+        result = [0] * len(deck)
+        for i in range(len(deck)):
+            result[a.popleft()] = deck[i]  # Place smallest remaining card
+            if a:
+                a.append(a.popleft())  # Move next index to bottom
+        return result
+
+
