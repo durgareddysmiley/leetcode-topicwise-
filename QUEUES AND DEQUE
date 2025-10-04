@@ -10,92 +10,117 @@ enqueue() → add element at the back
 
 dequeue() → remove element from the front
 
-
 # 🌀 Deque (Double-Ended Queue)
 
-A **deque** is like a flexible queue where you can add/remove from **both ends** (front and back).
+A **deque** (pronounced *deck*) is a data structure that allows insertion and deletion from **both ends** — **front** and **rear**.
 
 ---
 
 ## 🔹 Operations
-- `addFirst()` / `addLast()` → insert at front or back  
-- `removeFirst()` / `removeLast()` → remove from front or back  
+
+| Operation | Description |
+|------------|--------------|
+| `append(x)` | Insert element at the **rear** (addLast) |
+| `appendleft(x)` | Insert element at the **front** (addFirst) |
+| `pop()` | Remove element from the **rear** (removeLast) |
+| `popleft()` | Remove element from the **front** (removeFirst) |
 
 ---
 
-## 🔹 Behaves Like
-- A **Queue (FIFO)** → if you only use `addLast()` + `removeFirst()`  
-- A **Stack (LIFO)** → if you only use one side  
+## 🔹 Behavior Modes
 
----
+### ➤ Acts like a **Queue (FIFO)**
+If you use:
+```python
+dq.append(x)
+dq.popleft()
 
-## 🔹 Example Use Cases
-- 📝 Undo/Redo functionality in editors  
-- 📊 Sliding window maximum/minimum in arrays  
-- 🔄 Palindrome checking (compare both ends)  
-
----
-
-## 🔹 When to Use?
-- ✅ Use a **Queue** when you only need **First-In → First-Out (FIFO)** order.  
-- ✅ Use a **Deque** when you need **flexibility** (insert/remove from both sides).  
 ##PROBLEMS
-# 1700. Number of Students Unable to Eat Lunch
-# Problem: https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/
-# Difficulty: Easy
-#
-# The school cafeteria offers circular (0) and square (1) sandwiches.
-# Students are in a queue and each prefers either 0 or 1.
-# At each step:
-#   - If the front student prefers the top sandwich, they take it and leave.
-#   - Otherwise, the student moves to the end of the queue.
-# Process ends when no student can take the top sandwich.
-# Return the number of students unable to eat.
-#
-# Example 1:
-# Input:  students = [1,1,0,0], sandwiches = [0,1,0,1]
-# Output: 0
-#
-# Example 2:
-# Input:  students = [1,1,1,0,0,1], sandwiches = [1,0,0,0,1,1]
-# Output: 3
+# 🍱 LeetCode #1700 — Number of Students Unable to Eat Lunch
 
-from collections import deque
-from typing import List
+---
 
+## 🧩 Problem Description
+The school cafeteria offers **circular** and **square** sandwiches at lunch break, represented by numbers `0` and `1`, respectively.  
+All students stand in a queue, and each student either prefers circular (`0`) or square (`1`) sandwiches.
+
+The number of sandwiches in the cafeteria is equal to the number of students.  
+The sandwiches are placed in a **stack**, where `sandwiches[0]` is the top of the stack.
+
+At each step:
+
+1. If the student at the front of the queue prefers the sandwich on top of the stack,  
+   they take it and leave the queue.  
+2. Otherwise, they go to the **end of the queue**.  
+3. The process continues until **no student** wants the top sandwich.
+
+Return the **number of students unable to eat**.
+
+---
+
+## 🧮 Example 1
+
+### Input
+```python
+students = [1, 1, 0, 0]
+sandwiches = [0, 1, 0, 1]
+
+Output
+0
+
+##CODE 
 class Solution:
     def countStudents(self, students: List[int], sandwiches: List[int]) -> int:
         q = deque(range(len(students)))
         i = 0
         c = 0
-        attempts = 0
+        attempts= 0
         while q and attempts < len(q):
             a = q.popleft()
             if students[a] != sandwiches[i]:
                 q.append(a)
-                attempts += 1
+                attempts+=1
+                
             else:
-                c += 1
-                i += 1
+                c+=1
+                i+=1
                 attempts = 0
-        return len(students) - c
-##PROBLEMS
-# 950. Reveal Cards In Increasing Order
-# Problem: https://leetcode.com/problems/reveal-cards-in-increasing-order/
-# Difficulty: Medium
-#
-# You are given an integer array 'deck'. There is a deck of cards where every card has a unique integer.
-# You can reorder the deck in any order you want. Initially, all cards start face down.
-# You repeatedly do the following until all cards are revealed:
-# 1. Take the top card of the deck, reveal it, and remove it from the deck.
-# 2. If there are still cards, put the next top card at the bottom of the deck.
-# 3. Repeat until all cards are revealed.
-# Return an ordering of the deck that would reveal the cards in increasing order.
-#
-# Example 1:
-# Input:  deck = [17,13,11,2,3,5,7]
-# Output: [2,13,3,11,5,17,7]
+        return len(students)-c
 
+##PROBLEMS
+# 🃏 LeetCode #950 — Reveal Cards In Increasing Order
+
+---
+
+## 🧩 Problem Description
+You are given an integer array `deck`.  
+Each element represents a unique card with a number written on it.
+
+Initially, all cards are **face down** in a deck.  
+You can arrange the cards in any order you want.
+
+You repeatedly perform the following steps **until all cards are revealed**:
+
+1. Take the **top card** of the deck, **reveal it**, and remove it from the deck.  
+2. If there are still cards in the deck, move the **next top card** to the **bottom** of the deck.  
+3. Repeat until all cards are revealed.
+
+Your task is to **reorder the deck** such that the cards are **revealed in increasing order**.
+
+Return the deck **ordering** that will achieve this.
+
+> The first element in the output represents the top of the deck.
+
+---
+
+## 🧮 Example 1
+
+### Input
+```python
+deck = [17, 13, 11, 2, 3, 5, 7]
+Output
+[2, 13, 3, 11, 5, 17, 7]
+##CODE
 from collections import deque
 from typing import List
 
@@ -109,5 +134,111 @@ class Solution:
             if a:
                 a.append(a.popleft())  # Move next index to bottom
         return result
+##PROBLEM
+# 🎟 LeetCode #2073 — Time Needed to Buy Tickets
+
+---
+
+## 🧩 Problem Description
+There are `n` people in a line to buy tickets, where:
+
+- The **0th person** is at the front
+- The **(n-1)th person** is at the back
+
+You are given a 0-indexed array `tickets` of length `n`:
+
+- `tickets[i]` = number of tickets the ith person wants to buy.
+
+Each person:
+
+1. Takes **1 second** to buy **1 ticket**.
+2. If they need more tickets, they go to the **end of the line**.
+3. Leaves the line once they bought all tickets.
+
+Return the **time taken** for the person initially at position `k` to finish buying tickets.
+
+---
+
+## 🧮 Example 1
+
+### Input
+```python
+tickets = [2, 3, 2]
+k = 2
+Output
+6
+##CODE 
+from collections import deque
+from typing import List
+
+class Solution:
+    def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+        q = deque(range(len(tickets)))  # Queue of indices
+        time = 0
+
+        while tickets[k] > 0:
+            idx = q.popleft()
+            tickets[idx] -= 1
+            time += 1
+            if tickets[idx] > 0:
+                q.append(idx)  # Person goes to end if tickets remain
+
+        return time
+ROTATE IN DEQUE 
+1. What is rotate?
+
+In Python, rotate is a method of the deque (double-ended queue) from the collections module. It shifts elements in the deque left or right by a specified number of steps.
+d = deque([1, 2, 3, 4, 5])
+
+d.rotate(2)   # rotate right by 2
+print(d)      # Output: deque([4, 5, 1, 2, 3])
+
+d.rotate(-3)  # rotate left by 3
+print(d)      # Output: deque([2, 3, 4, 5, 1])
+
+## PROBEM 
+# 🔄 LeetCode #1823 — Find the Winner of the Circular Game
+
+---
+
+## 🧩 Problem Description
+There are `n` friends sitting in a **circle**, numbered `1` to `n` clockwise.  
+
+Game rules:
+
+1. Start at friend `1`.
+2. Count the next `k` friends clockwise **including the starting friend**. Counting wraps around the circle.
+3. The last friend counted **leaves the circle**.
+4. Repeat starting from the friend immediately clockwise of the removed friend.
+5. The **last remaining friend** is the winner.
+
+Return the number of the winner.
+
+---
+
+## 🧮 Example 1
+
+### Input
+```python
+n = 5
+k = 2
+Output
+3
+##CODE 
+from collections import deque
+
+def findTheWinner(n, k):
+    friends = deque(range(1, n + 1))  # friends numbered 1 to n
+    
+    while len(friends) > 1:
+        friends.rotate(-(k - 1))  # rotate so that the k-th friend comes to the front
+        friends.popleft()          # remove the friend who loses
+
+    return friends[0]
+
+# Example usage:
+print(findTheWinner(5, 2))  # Output: 3
+print(findTheWinner(6, 5))  # Output: 1
+
 
 
