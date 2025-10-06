@@ -1,0 +1,158 @@
+## Linked List:
+
+A linked list is a way to store a sequence of elements (like numbers) one after another, but unlike arrays, they are not stored in continuous memory.
+
+Each element in a linked list is called a node, and each node has:
+
+Value (val) → the data it holds.
+
+Pointer (next) → a reference to the next node in the list.
+
+## Node in Python
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val    # stores value
+        self.next = next  # points to next node
+
+
+head = ListNode(1) → creates first node with value 1.
+
+head.next = ListNode(2) → second node linked to first.
+
+##PATTERNS 
+4️⃣ Two Pointers / Slow-Fast Pattern
+
+Use two pointers to solve problems efficiently.
+
+Examples:
+
+Detect cycle (Floyd’s algorithm)
+
+Find middle node
+
+Check palindrome
+
+slow = fast = head
+while fast and fast.next:
+    slow = slow.next
+    fast = fast.next.next
+
+# 876. Middle of the Linked List
+
+## Problem
+Given the head of a singly linked list, return the middle node of the linked list. 
+If there are two middle nodes, return the second middle node.
+
+### Example 1:
+Input: head = [1,2,3,4,5]  
+Output: [3,4,5]  
+Explanation: The middle node of the list is node 3.
+
+##CODE 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def middleNode(self, head: ListNode) -> ListNode:
+        slow = head
+        fast = head
+        while fast and fast.next:
+            slow = slow.next 
+            fast = fast.next.next
+        return slow 
+## PROBLEM 
+# 2095. Delete the Middle Node of a Linked List
+
+## Problem
+Given the head of a linked list, delete the middle node and return the head of the modified linked list.  
+
+The middle node of a linked list of size n is the ⌊n / 2⌋th node (0-based indexing).  
+
+### Examples
+
+**Example 1:**  
+Input: head = [1,3,4,7,1,2,6]  
+Output: [1,3,4,1,2,6]  
+##CODE 
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        slow = head
+        fast = head
+        prev = None
+        if fast.next == None:
+            return None
+        while fast and fast.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+        prev.next = slow.next
+        return head
+##LINKED LIST USING HASHING 
+## TO REMEMBER WHEN WE USE HASHING IN LINKED LIST 
+Hashing in linked list is used to store  values not nodes
+##CORRECT ONE 
+while b:
+            curr = b.next
+            hasi[b.val]+=1
+            b = curr
+        return hasi
+##WRONG ONE 
+while b:
+            curr = b.next
+            hasi[b]+=1
+            b = curr
+        return hasi ## IT WILL GIVE ERRORS BECAUSE WE ARE STORING NODES 
+## PROBLEM 
+# 82. Remove Duplicates from Sorted List II
+
+## Problem
+Given the head of a sorted linked list, delete **all nodes that have duplicate numbers**, leaving only distinct numbers from the original list. Return the linked list **sorted** as well.
+
+### Examples
+
+**Example 1:**  
+Input: head = [1,2,3,3,4,4,5]  
+Output: [1,2,5]  
+ ## CODE 
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def deleteDuplicates(self, head):
+        """
+        :type head: Optional[ListNode]
+        :rtype: Optional[ListNode]
+        """
+        a = ListNode(0)
+        current = a 
+        hasi = defaultdict(int)
+        b = head 
+        while b:
+            curr = b.next
+            hasi[b.val]+=1
+            b = curr
+        l = head 
+        while l:
+            m = l.next 
+            if hasi[l.val] < 2:
+                current.next = ListNode(l.val)
+                current  = current.next
+            l = m 
+        return a.next
+            
+
+
+        
+
+            
+            
+        
