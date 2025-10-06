@@ -95,8 +95,11 @@ class Solution:
         prev.next = slow.next
         return head
 ##LINKED LIST USING HASHING 
+  DEF :Use a set or dict to solve problems:
+1.Remove duplicates
+2.Detect cycle
 ## TO REMEMBER WHEN WE USE HASHING IN LINKED LIST 
-Hashing in linked list is used to store  values not nodes
+Hashing in linked list is used to store  values not nodes (BOTH FOR HASH SET AND HASH TABLE) ONLY STORE VALUES 
 ##CORRECT ONE 
 while b:
             curr = b.next
