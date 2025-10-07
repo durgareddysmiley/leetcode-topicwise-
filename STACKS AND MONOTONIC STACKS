@@ -143,9 +143,78 @@ class Solution:
             while st and nums[st[-1]] < nums[r]:
                 res[st.pop()] = nums[r]
             st.append(r)
-    
         return res
-    
+# 84 Largest Rectangle in Histogram
+
+## Problem Description
+Given an array of integers `heights` representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
+
+### Example 1:
+Input: [2,1,5,6,2,3]
+Output: 10
+ 5 * 2 = 10
+
+### Constraints:
+- 1 <= heights.length <= 10^5  
+- 0 <= heights[i] <= 10^4  
+
+## Solution
+We use a **stack-based approach** to efficiently find the largest rectangle area.
+
+##CODE 
+class Solution:
+    def largestRectangleArea(self, heights):
+        """
+        :type heights: List[int]
+        :rtype: int
+        """
+        heights.append(0)  # Sentinel to pop remaining bars
+        st = []
+        maxi = 0 
+
+        for i in range(len(heights)):
+            while st and heights[st[-1]] >= heights[i]:
+                h = heights[st.pop()]
+                if not st:
+                    w = i
+                else:
+                    w = i - st[-1] - 1
+                maxi = max(maxi, h * w)
+            st.append(i)
+        return maxi
+##DOUBTS 
+ if not st:
+        w = i 
+Here y we wrote w = i instead of w  = 1 
+1️⃣ Case 1: Stack is empty → w = i
+
+When we pop a bar and the stack is empty after popping, it means:
+
+There is no smaller bar to the left of the popped bar.
+
+That means the rectangle can extend all the way to index 0 (the very left).
+
+The right boundary is current index i, which is the first bar smaller than the popped bar.
+
+So width = i - 0 = i ✅
+
+Example:
+
+heights = [1,1,2,2,0]
+
+Pop index 1 (height=1) at i=2
+
+Stack empty → width = i = 2
+
+Rectangle spans indices [0,1] → width = 2
+
+##CASE 2 
+If stack not empty → width = i - stack[-1] - 1
+
+Why? Because stack[-1] = last smaller on left, i = first smaller on right → bars between them form rectangle
+Y -1 : So the -1 is not arbitrary, it’s to exclude the left boundary bar. LEFT BOUNDARY COUNTS IT SELF SO WE WANT TO EXCLUDE USING -1 
+
+
         
             
         
