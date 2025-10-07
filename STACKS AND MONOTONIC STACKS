@@ -208,6 +208,24 @@ Stack empty → width = i = 2
 
 Rectangle spans indices [0,1] → width = 2
 
+##CASE 1 
+✅ Width formula:
+
+width = i
+
+
+i = 1 → width = 1? Wait, let's see carefully
+
+Rectangle spans indices:
+
+Popped index = 0
+
+Current i = 1 (first smaller on right = current bar, or equal bar)
+
+Since stack is empty → no smaller on left → rectangle extends to index 0
+
+Width = i - 0 = 1?
+
 ##CASE 2 
 If stack not empty → width = i - stack[-1] - 1
 
