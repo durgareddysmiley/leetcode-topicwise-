@@ -151,11 +151,101 @@ class Solution(object):
                 current  = current.next
             l = m 
         return a.next
+##LINKED LIST USING MERGE SORT 
+1️⃣ Idea
+
+1.Find the middle of the list (use slow and fast pointer).
+
+2.Split the list into two halves.
+
+3.Recursively sort left and right halves.
+
+4.Merge the two sorted halves.
+
+##CODE 
+# Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+class Solution(object):
+    def sortList(self, head):
+        if not head or not head.next:
+            return head 
+        mid = self.mid1(head)
+        left = self.sortList(head)
+        right = self.sortList(mid)
+        return self.mer(left,right)
+    def mid1(self,head):
+        slow = head
+        fast = head.next
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+        mid = slow.next
+        slow.next = None 
+        return mid 
+    def mer(self,left,right):
+        a = ListNode(0)
+        cur = a 
+        while left and right:
+            if left.val <= right.val:
+                cur.next = left
+                cur = cur.next 
+                left = left.next 
+            else:
+                cur.next = right
+                cur = cur.next 
+                right = right.next 
+        if left:
+            cur.next = left 
+        if right:
+            cur.next = right 
+        return a.next
+MY DOUBTS = TO FIND MID THERE IS ANOTHER CODE LIKE SLOW = HEAD FAST IS ALSO HEAD ... BUT IN ABOVE MID CODE WE WROTE SLOW = HEAD FAST = HEAD.NEXT 
             
+1.Y IT IS NOT WORK WHEN WE ARE WRITING SLOW = HEAD AND FAST = HEAD ..Works for most cases, but sometimes with 2 nodes, the split might result in BALANCE
+3️⃣ Why balance matters
 
+Merge sort recursively splits the list in half.
 
-        
+If the left half is much bigger than the right, the recursion can never reach base case properly, causing infinite recursion.
 
+Starting fast = head.next ensures the left and right halves are balanced, even for even-length lists.
+
+Input: head = 1 → 2
+
+Dry-run:
+
+slow = 1, fast = 1
+
+Loop: slow → 2, fast → None → exit
+
+mid = slow.next = None ✅ Problem!
+
+head still = 1 → 2
+
+Left recursion: sortList(head) → 1 → 2 again → infinite recursion
+
+Reason: slow moves too far; left half is not reduced correctly. ## SO IT IS WRONG So we must use slow = head , fast = head.next While dealing with sorts.. 
+
+##ANOTHER DOUBT 
+mer(self,left,right): IN THIS FUNTION   while left and right:
+            if left.val <= right.val:
+                cur.next = left
+                cur = cur.next 
+                left = left.next  USE LIKE THIS NOT LIKE 
+                                       if left.val <= right.val:
+                                           cur.next = ListNode(left.val)
+                                           cur = cur.next 
+                                           left = left.next
+                BECAUSE 🔹 Why this may cause issues
+
+                        2.In some LeetCode problems (like Sort Linked List), the problem expects you to return nodes from the original list, not new nodes.
+
+                        3.Using ListNode(left.val) creates brand-new nodes, which can cause TypeError or fail hidden tests.
+                                         
             
             
         
