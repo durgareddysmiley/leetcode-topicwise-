@@ -245,6 +245,110 @@ mer(self,left,right): IN THIS FUNTION   while left and right:
                         2.In some LeetCode problems (like Sort Linked List), the problem expects you to return nodes from the original list, not new nodes.
 
                         3.Using ListNode(left.val) creates brand-new nodes, which can cause TypeError or fail hidden tests.
+##PROBLEM 92 
+# LeetCode Problem 92: Reverse Linked List II
+# Medium
+# Given the head of a singly linked list and two integers left and right
+# where left <= right, reverse the nodes of the list from position left to position right,
+# and return the reversed list.
+
+# Example 1:
+# Input: head = [1,2,3,4,5], left = 2, right = 4
+# Output: [1,4,3,2,5]
+
+# Example 2:
+# Input: head = [5], left = 1, right = 1
+# Output: [5]
+
+# Constraints:
+# - The number of nodes in the list is n.
+# - 1 <= n <= 500
+# - -500 <= Node.val <= 500
+# - 1 <= left <= right <= n
+
+# Follow up: Can you do it in one pass?
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution(object):
+    def reverseBetween(self, head, left, right):
+        """
+        Reverse a sublist of a singly linked list from position 'left' to 'right'.
+
+        :param head: head of the linked list
+        :param left: start position of reversal (1-based index)
+        :param right: end position of reversal (1-based index)
+        :return: head of the updated linked list
+        """
+
+        # Step 0: Create a dummy node to simplify edge cases
+        a = ListNode(0)
+        a.next = head
+        b = a
+        prev = None
+
+        # Step 1: Move `b` to the node just before 'left'
+        for i in range(left-1):
+            b = b.next
+
+        # Step 2: `curr` points to the first node in the sublist to reverse
+        curr = b.next
+
+        # Step 3: Reverse the sublist from left to right
+        for i in range(right-left+1):
+            c = curr.next      # temporarily store the next node
+            curr.next = prev   # reverse the link
+            prev = curr        # move prev forward
+            curr = c           # move curr forward
+
+        # Step 4: Connect the tail of reversed sublist to the remaining list
+        b.next.next = curr
+
+        # Step 5: Connect the node before sublist to the new head of reversed sublist
+        b.next = prev
+
+        # Step 6: Return the new head (skip dummy node)
+        return a.next
+
+##DOUBTS 
+INPUT -- 1->2->3->4->5 
+  # ----------------------------
+# Key Trick in Reverse Linked List II (step-by-step)
+# ----------------------------
+
+# Input: 1 -> 2 -> 3 -> 4 -> 5
+# Reverse from left=2 to right=4
+##AFTER ALL ITERATIONS 
+# Step 0: After reversing the sublist (2->3->4 becomes 4->3->2)
+# prev -> 4 -> 3 -> 2
+# curr -> 5
+# b -> 1
+# b.next -> 2 (tail of reversed sublist)
+
+# Step 1: Connect tail of reversed sublist to the rest of the list
+b.next.next = curr
+# 2.next = 5
+# Now sublist looks like: prev = 4 -> 3 -> 2 -> 5
+but my doubt is 2 is at starting by and we not assgin prev how it changes the prev 
+## but 1 points to 2 ... 2 is at prev so 2 .next = 5 we got prev = 4->3->2> 5 
+
+# Step 2: Connect node before sublist to head of reversed sublist
+b = 1 ->2 
+prev =  4->3->2> 5 
+b.next = prev
+# 1.next = 4
+# Now the full list: 1 -> 4 -> 3 -> 2 -> 5
+2 in b overrides but that 2 already present in prev so no loss 
+
+# Step 3: Return updated head
+return a.next
+# Skip dummy node 'a' to get real head: 1 -> 4 -> 3 -> 2 -> 5
+
+
                                          
             
             
