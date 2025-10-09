@@ -170,6 +170,44 @@ class Solution(object):
             return half * half
         else:
             return half * half * x
+##DOUBTS 
+if n % 2 == 0:
+    return half * half
+else:
+    return half * half * x
+Y WE ARE MULTIPLYING X WHEN N IS ODD:
+Example:
+
+𝑥
+5
+=
+𝑥
+×
+𝑥
+×
+𝑥
+×
+𝑥
+×
+𝑥
+x
+5
+=x×x×x×x×x
+
+So there are 5 x’s multiplied together.
+
+💡 Step 2: Dividing n by 2
+
+When we use n // 2,
+we are cutting n into two equal halves — but only full halves, no decimals.
+
+Now, if n is odd, like 5:
+
+5 // 2 = 2
+
+So we can only make 2 full pairs of x² —
+but one x is left over because 5 is not evenly divisible by 2.
+SO WE ARE MULTIPLYING WITH X 
 💡 LeetCode 1922 — Count Good Numbers
 🧩 Problem Statement:
 
