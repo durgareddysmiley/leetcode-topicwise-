@@ -1,0 +1,248 @@
+Recursion:
+Recursion is a programming technique where a function calls itself to solve a problem by breaking it into smaller, simpler sub-problems, with a base case to stop the recursion.
+## BASIC SUMS
+1.FACTORIAL OF A NUMBER 
+INPUT = 5 OUTPUT = 120
+##CODE 
+def factorial(n, p=1):
+    if n < 1:
+        return 1
+    else:
+        return n * factorial(n - 1)  # p is never used
+print(factorial(5))  
+
+💡 Question 2 — Reverse an Array using Recursion
+🧩 Problem Statement:
+
+Write a Python program to reverse an array using recursion.
+Do not use loops or built-in reverse functions.
+
+🔢 Input:
+N = 5
+arr = [10, 20, 30, 40, 50]
+
+🎯 Output:
+Reversed array: [50, 40, 30, 20, 10]
+
+🧠 Approach:
+
+Use two pointers — start and end.
+
+Swap elements at these positions.
+
+Move start forward and end backward recursively until they meet.
+
+💻 Code (Python):
+def reverse_array(arr, start, end):
+    if start >= end:          # Base case
+        return
+    arr[start], arr[end] = arr[end], arr[start]
+    reverse_array(arr, start + 1, end - 1)
+
+# Main
+N = 5
+arr = [10, 20, 30, 40, 50]
+reverse_array(arr, 0, N - 1)
+print("Reversed array:", arr)
+
+## PRPOBLEM 3 -- SUM OF N NUBMBERS 
+🔢 Input:
+N = 5
+🎯 Output:
+Sum = 15
+##CODE 
+def first(i, N):
+    if i > N:
+        return 0  # base case: if i > N, sum is 0
+    else:
+        return i + first(i + 1, N)  # add current i and sum of next numbers
+N = int(input("Enter N: "))
+print(first(1, N)) -
+
+⚡ Pattern 1:
+Exponentiation by Squaring (Divide and Conquer Pattern)
+
+🧠 Definition:
+
+Exponentiation by Squaring is a recursive divide and conquer technique used to calculate powers efficiently.
+It reduces the time complexity from O(n) to O(log n) by dividing the exponent by 2 in each step.
+
+⚙️ Working:
+
+Base Case:
+If n == 0, return 1.
+
+Recursive Step:
+
+Compute half = power(x, n // 2)
+
+If n is even → result = half * half
+
+If n is odd → result = half * half * x
+
+Used In:
+
+Pow(x, n)
+
+Count Good Numbers
+
+💻 Example (Python):
+def power(x, n):
+    if n == 0:
+        return 1
+    half = power(x, n // 2)
+    if n % 2 == 0:
+        return half * half
+    else:
+        return half * half * x 
+
+⏱️ Complexity:
+
+Time: O(log n)
+
+Space: O(log n) (due to recursion stack)
+
+.
+
+💡 LeetCode 50 — Pow(x, n)
+🧩 Problem Statement:
+
+Implement pow(x, n), which calculates x raised to the power n (i.e., xⁿ).
+
+🔢 Examples:
+
+Example 1:
+
+Input: x = 2.00000, n = 10
+Output: 1024.00000
+
+
+Example 2:
+
+Input: x = 2.10000, n = 3
+Output: 9.26100
+
+
+Example 3:
+
+Input: x = 2.00000, n = -2
+Output: 0.25000
+Explanation: 2^-2 = 1/2^2 = 1/4 = 0.25
+
+⚙️ Constraints:
+
+-100.0 < x < 100.0
+
+-2³¹ ≤ n ≤ 2³¹ - 1
+
+n is an integer
+
+Either x is not zero or n > 0
+
+-10⁴ ≤ xⁿ ≤ 10⁴
+
+🧠 Approach:
+
+Use recursion + divide and conquer (Exponentiation by Squaring).
+
+Handle negative powers by converting x to 1/x and n to -n.
+
+Recursively compute the half power and multiply accordingly.
+
+💻 Code (Python):
+class Solution(object):
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+        if n < 0:
+            x = 1 / x
+            n = -n
+        return self.power(x, n)
+    
+    def power(self, x, n):
+        if n == 0:
+            return 1
+        half = self.power(x, n // 2)
+        if n % 2 == 0:
+            return half * half
+        else:
+            return half * half * x
+💡 LeetCode 1922 — Count Good Numbers
+🧩 Problem Statement:
+
+A digit string is good if:
+
+Digits at even indices are even (0, 2, 4, 6, 8).
+
+Digits at odd indices are prime (2, 3, 5, 7).
+
+Given an integer n, return the total number of good digit strings of length n.
+Since the answer may be very large, return it modulo (10⁹ + 7).
+
+🔢 Examples:
+
+Example 1:
+
+Input: n = 1
+Output: 5
+Explanation: The good numbers of length 1 are "0", "2", "4", "6", "8".
+
+
+Example 2:
+
+Input: n = 4
+Output: 400
+
+
+Example 3:
+
+Input: n = 50
+Output: 564908303
+
+⚙️ Constraints:
+
+1 ≤ n ≤ 10¹⁵
+
+🧠 Approach:
+
+Total digits at even indices → ei = (n + 1) // 2
+
+Each even index can be filled in 5 ways (0, 2, 4, 6, 8).
+
+Total digits at odd indices → oi = n // 2
+
+Each odd index can be filled in 4 ways (2, 3, 5, 7).
+
+Use Exponentiation by Squaring to compute powers efficiently in O(log n) time.
+
+💻 Code (Python):
+class Solution(object):
+    def countGoodNumbers(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        mod = 10**9 + 7
+
+        def power(a, n):
+            if n == 0:
+                return 1
+            half = power(a, n // 2)
+            if n % 2 == 0:
+                return (half * half) % mod
+            else:
+                return (half * half * a) % mod
+
+        ei = (n + 1) // 2  # even indices count
+        oi = n // 2        # odd indices count
+
+        return (power(5, ei) * power(4, oi)) % mod
+
+⏱️ Complexity:
+
+Time: O(log n)
+
+Space: O(log n) (due to recursion)
