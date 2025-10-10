@@ -279,11 +279,31 @@ class Solution(object):
 
         return (power(5, ei) * power(4, oi)) % mod
 
+##PROCESS 
+Example: power(2, 5)
+
+power(2, 5) calls power(2, 2)
+
+power(2, 2) calls power(2, 1)
+
+power(2, 1) calls power(2, 0)
+
+power(2, 0) returns 1 (base case)
+
+power(2, 1) uses half=1 → returns 
+1∗1∗2=2
+power(2, 2) uses half=2 → returns 
+2∗2=4
+power(2, 5) uses half=4 → returns 
+4∗4∗2=32
+Result: 
+2 POWER 5 IS EQUAL 32
 ⏱️ Complexity:
 
 Time: O(log n)
 
 Space: O(log n) (due to recursion)
+
 
 💡 Question — Sort a Stack using Recursion
 🧩 Problem Statement:
