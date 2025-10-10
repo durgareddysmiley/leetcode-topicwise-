@@ -362,25 +362,43 @@ Insert each element at the bottom of the stack recursively.
 This reverses the order without using loops or extra storage.
 
 💻 CODE (Python):
-def reverse_stack(stack):
-    if not stack:
+def sortStack(stack):
+    if len(stack) <= 1:
         return
     top = stack.pop()
-    reverse_stack(stack)
-    insert_at_bottom(stack, top)
-
-def insert_at_bottom(stack, element):
-    if not stack:
+    sortStack(stack)
+    insertInSortedOrder(stack, top)
+def insertInSortedOrder(stack, element):
+    if not stack or element >= stack[-1]:
         stack.append(element)
         return
-    temp = stack.pop()
-    insert_at_bottom(stack, element)
-    stack.append(temp)
+    top = stack.pop()
+    insertInSortedOrder(stack, element)
+    stack.append(top)
 
-# Main
-stack = [10, 20, -5, 7, 15]
-reverse_stack(stack)
-print("Reversed stack (top -> bottom):", stack)
+##MY DOUBTS 
+top = stack.pop() # top = 5, 
+stack becomes [] 
+insertInSortedOrder(stack, 4) # recursive call with stack = [] 
+stack.append(top) 
+here i have one doubt if it goes to insertInSortedOrder(stack, 4) then it goes to above function but how it go stack.append(top)
+##ANSWER 
+Let's visualize the exact control flow (with indentation showing the "depth"):
+Starting with:
+insertInSortedOrder([5], 4)
+
+1️⃣ First call: insertInSortedOrder([5], 4)
+top = stack.pop()           # top = 5, stack becomes []
+insertInSortedOrder([], 4)  # calls itself
+# It now **waits here**, suspended, until that recursive call finishes
+
+2️⃣ Second call: insertInSortedOrder([], 4)
+stack.append(4)             # stack is now [4]
+return                      # returns to where it was called from
+
+🔙 Back to 1️⃣ First call (now resumes):
+# After recursive call is done, we continue
+stack.append(top)           # top = 5 → stack becomes [4, 5]
 
 ⏱️ Complexity:
 
