@@ -333,35 +333,6 @@ Insert each element back into the stack in sorted order using a recursive helper
 Compare the popped element with the top of the stack to decide its position.
 
 ##CODE 
-EMPTY WANT TO WRITE
-
-💡 Question — Reverse a Stack using Recursion
-🧩 Problem Statement:
-
-Given a stack of integers, reverse the stack using recursion only.
-
-You cannot use loops or extra data structures (arrays, queues, etc.).
-
-Only standard stack operations are allowed: push, pop, peek/top, isEmpty.
-
-The reversal must modify the stack in-place.
-
-🔢 Examples:
-
-Example 1:
-
-Input: stack = [4, 1, 3, 2]
-Output: [2, 3, 1, 4]
-
-🧠 Approach:
-
-Recursively pop the top element until the stack is empty.
-
-Insert each element at the bottom of the stack recursively.
-
-This reverses the order without using loops or extra storage.
-
-💻 CODE (Python):
 def sortStack(stack):
     if len(stack) <= 1:
         return
@@ -400,8 +371,161 @@ return                      # returns to where it was called from
 # After recursive call is done, we continue
 stack.append(top)           # top = 5 → stack becomes [4, 5]
 
+##MORE DETAIL IF 4,5 ARE THERE..NOW 3 IS THERE WE WANT TO REMOVE 4, 5  AND ADD 3 THEN ADD 4 , 5 
+
+Starting situation:
+
+We have a stack: [4, 5] (top is rightmost → 5)
+
+We want to insert the element 3 in sorted order into this stack.
+
+Step 1: insertInSortedOrder([4,5], 3) starts
+
+Current stack: [4, 5]
+
+Element to insert: 3
+
+Check condition: Is stack empty or 3 >= 5? No, because 3 < 5.
+
+So we pop the top element:
+
+top = stack.pop()  # top = 5
+
+
+Now the stack is:
+
+stack = [4]
+
+
+We pause this function here and call recursively:
+
+insertInSortedOrder([4], 3)
+
+Step 2: insertInSortedOrder([4], 3) starts (recursive call)
+
+Current stack: [4]
+
+Element to insert: 3
+
+Check condition: Is stack empty or 3 >= 4? No, because 3 < 4.
+
+So we pop the top element again:
+
+top = stack.pop()  # top = 4
+
+
+Now the stack is empty:
+
+stack = []
+
+
+We pause this function here and call recursively:
+
+insertInSortedOrder([], 3)
+
+Step 3: insertInSortedOrder([], 3) starts (next recursive call)
+
+Current stack: [] (empty)
+
+Element to insert: 3
+
+Check condition: Is stack empty? Yes!
+
+So we directly append 3:
+
+stack.append(3)
+
+
+Now the stack is:
+
+stack = [3]
+
+
+This call returns back to the previous recursive call (insertInSortedOrder([4], 3)).
+
+Step 4: Back to insertInSortedOrder([4], 3)
+
+The recursive call we made returned and the stack is now:
+
+stack = [3]
+
+
+Now we append the saved top back to the stack:
+
+stack.append(top)  # top = 4
+
+
+So the stack becomes:
+
+stack = [3, 4]
+
+
+This call returns back to the original call (insertInSortedOrder([4,5], 3)).
+
+Step 5: Back to insertInSortedOrder([4,5], 3)
+
+The recursive call we made returned and the stack is now:
+
+stack = [3, 4]
+
+
+Now we append the saved top back to the stack:
+
+stack.append(top)  # top = 5
+
+
+So the stack becomes:
+
+stack = [3, 4, 5]
+
+
+This call finishes, and the element 3 has been inserted in the correct sorted position.
+
+Summary:
+
+We temporarily removed 5 and saved it in top.
+
+Then we temporarily removed 4 and saved it in top.
+
+We hit the empty stack and inserted 3.
+
+Then, on returning from recursion, we put 4 back on top of 3.
+
+Finally, we put 5 back on top of 4.
+
+The stack becomes fully sorted with the new element inserted.
+
 ⏱️ Complexity:
 
 Time: O(N²) — for each element, recursive insertion at the bottom
 
 Space: O(N) — recursion stack
+
+
+💡 Question — Reverse a Stack using Recursion
+🧩 Problem Statement:
+
+Given a stack of integers, reverse the stack using recursion only.
+
+You cannot use loops or extra data structures (arrays, queues, etc.).
+
+Only standard stack operations are allowed: push, pop, peek/top, isEmpty.
+
+The reversal must modify the stack in-place.
+
+🔢 Examples:
+
+Example 1:
+
+Input: stack = [4, 1, 3, 2]
+Output: [2, 3, 1, 4]
+
+🧠 Approach:
+
+Recursively pop the top element until the stack is empty.
+
+Insert each element at the bottom of the stack recursively.
+
+This reverses the order without using loops or extra storage.
+
+💻 CODE (Python):
