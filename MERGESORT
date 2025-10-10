@@ -1,0 +1,59 @@
+MERGE SORT:
+
+Merge Sort is a divide-and-conquer sorting algorithm.
+It recursively divides an array into halves, sorts each half, and then merges the sorted halves to get the final sorted array.
+
+🔹 Key Idea
+
+Divide: Split the array into two halves.
+
+Conquer: Recursively sort each half.
+
+Combine: Merge the two sorted halves into one sorted array.
+
+##CODE 
+def merge_sort(arr):
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        left_half = arr[:mid]
+        right_half = arr[mid:]
+
+        print(f"Splitting: left={left_half}, right={right_half}")
+
+        # Recursively sort both halves
+        merge_sort(left_half)
+        merge_sort(right_half)
+
+        i = j = k = 0
+
+        # Merge the sorted halves
+        while i < len(left_half) and j < len(right_half):
+            if left_half[i] < right_half[j]:
+                arr[k] = left_half[i]
+                i += 1
+            else:
+                arr[k] = right_half[j]
+                j += 1
+            k += 1
+
+        # Copy remaining elements of left_half
+        while i < len(left_half):
+            arr[k] = left_half[i]
+            i += 1
+            k += 1
+
+        # Copy remaining elements of right_half
+        while j < len(right_half):
+            arr[k] = right_half[j]
+            j += 1
+            k += 1
+
+        print(f"Merged: {arr}")
+
+
+# Example usage
+arr = [38, 27, 43, 3]
+print(f"Original array: {arr}\n")
+merge_sort(arr)
+print(f"\nSorted array: {arr}")
+
