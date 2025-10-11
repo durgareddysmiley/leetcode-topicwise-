@@ -58,7 +58,40 @@ def first(i, N):
         return i + first(i + 1, N)  # add current i and sum of next numbers
 N = int(input("Enter N: "))
 print(first(1, N)) -
+GENERAL PATTERN 1 TEMPLATE:
+1. Generic Divide & Conquer Pattern
 
+Template:
+
+if (base case) return value
+left = solve(left half)
+right = solve(right half)
+return combine(left, right)
+
+
+Key points:
+
+Divide: Break the problem into 2 or more independent subproblems (left half, right half).
+
+Conquer: Solve each subproblem recursively.
+
+Combine: Merge the results of subproblems to get the final answer.
+
+Examples: Merge Sort, Max/Min in array, Binary Search Tree operations.
+
+🧩 Variations of Divide & Conquer Templates
+Type	Example Problem	Code Template	Observation
+Classic Two-Recursion	Merge Sort, Max in Array	left = solve(left half)
+right = solve(right half)
+return combine(left, right)	Two independent subproblems
+Single-Recursion (Reduced Input)	Exponentiation by Squaring, Sort Stack	solve(smaller input)
+combine result	Only one smaller subproblem
+In-place Divide & Conquer	Quick Sort	Split array around pivot, then recurse left and right	Divide happens through indices, not copies
+Implicit Divide & Conquer	Binary Search	if condition: return solve(left) else return solve(right)	Only one recursive path taken at a time
+
+WHICH IS DOWN THAT IS SAME PATTERN BUT SLIGHTLY DIFFERENT 
+
+BOTH PATTERN 1 ARE SAME  Both use Divide & Conquer — you reduce a problem into smaller subproblems and combine results.
 ⚡ Pattern 1:
 Exponentiation by Squaring (Divide and Conquer Pattern)
 
@@ -178,21 +211,7 @@ else:
 Y WE ARE MULTIPLYING X WHEN N IS ODD:
 Example:
 
-𝑥
-5
-=
-𝑥
-×
-𝑥
-×
-𝑥
-×
-𝑥
-×
-𝑥
-x
-5
-=x×x×x×x×x
+X POWER 5 = X X X X X 
 
 So there are 5 x’s multiplied together.
 
