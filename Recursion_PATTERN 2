@@ -1,0 +1,176 @@
+🧩 SUBSET / SUBSEQUENCE (INCLUDE–EXCLUDE) RECURSION PATTERN
+🧠 DEFINITION
+
+This recursion pattern is used when each element in a collection has two independent choices:
+👉 Include it or 👉 Exclude it from the current result.
+
+It explores all possible combinations (or subsequences) of the input — forming a recursion tree of size 2ⁿ.
+Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum.
+
+🕒 WHEN TO USE
+
+Use this pattern when:
+
+You need to generate all possible combinations or selections of elements.
+
+The problem involves "include or exclude" type decisions for each element.
+
+The question mentions “find all subsets”, “print all subsequences”, “all possible ways”, “combinations”, or “power set.”
+
+💬 HOW IT USUALLY APPEARS IN QUESTIONS
+
+You’ll often see phrases like:
+
+“Generate all possible subsets/subsequences.”
+
+“Find all combinations that sum up to a target.”
+
+“Print all possible binary strings of length n.”
+
+“Return all unique combinations of elements.”
+
+Whenever you see such “all possible” or “every combination” wording → think INCLUDE–EXCLUDE RECURSION.
+
+🧠 THINKING PROCESS
+
+Whenever you see a problem like
+
+"Find all subsets", "Print all subsequences", or "Generate all combinations",
+
+ask yourself:
+
+For each element — can I either take it or skip it?
+
+Do I need all possible results (not just one)?
+
+✅ If yes → this is an INCLUDE–EXCLUDE recursion problem.
+
+Each element acts as a decision point with two options:
+
+Include → move forward keeping the element.
+
+Exclude → move forward without it.
+
+This naturally forms a binary recursion tree → total 
+2N
+ outcomes.
+
+⚙️ BASIC TEMPLATE (THINKING FORM)
+def solve(idx, arr, current):
+    # 1️⃣ BASE CASE
+    if idx == len(arr):
+        process(current)      # print, append, or evaluate
+        return
+
+    # 2️⃣ CHOICE 1 — INCLUDE arr[idx]
+    current.append(arr[idx])
+    solve(idx + 1, arr, current)
+    current.pop()             # backtrack (undo include)
+
+    # 3️⃣ CHOICE 2 — EXCLUDE arr[idx]
+    solve(idx + 1, arr, current)
+
+🧠 KEY THINKING STEPS
+STEP	QUESTION	ACTION
+1️⃣	What’s the smallest problem?	When idx == len(arr) (all elements processed)
+2️⃣	What’s the decision per element?	Include or exclude
+3️⃣	What’s the recursive relation?	f(i) = f(i+1 include) + f(i+1 exclude)
+4️⃣	What to do with partial results?	Store, print, or count subsets
+5️⃣	Is backtracking needed?	Yes — undo include before next call
+
+🔁 VARIATIONS OF THIS PATTERN
+VARIATION	DESCRIPTION	EXAMPLE PROBLEMS
+SUBSETS / POWER SET	Generate all subsets of an array	Subsets (Leetcode 78)
+SUBSEQUENCES OF A STRING	Include or exclude each character	Print all subsequences
+COMBINATION SUM	Choose or skip numbers with repetition	Combination Sum (Leetcode 39)
+TARGET SUM	Assign + or – to reach a target	Target Sum (Leetcode 494)
+LETTER COMBINATIONS	Choose one letter for each digit	Letter Combinations of a Phone Number (Leetcode 17)
+BINARY STRINGS	Generate all binary strings of length n	Generate Binary Strings
+⏱️ COMPLEXITY
+METRIC	VALUE
+TIME COMPLEXITY	
+O(2n)--EVERY ELENEBT HAS 2 CHOICES 
+SPACE COMPLEXITY	
+O(n) – recursion depth
+
+##PROBLEM LEET CODE 78 -- 
+🌟 VARIATION EXAMPLE — LEETCODE 78: SUBSETS
+🧮 PROBLEM STATEMENT
+
+Given an integer array nums of unique elements, return all possible subsets (the power set).
+
+The solution set must not contain duplicate subsets.
+Return the solution in any order.
+
+📥 INPUT
+nums = [1, 2, 3]
+
+📤 OUTPUT
+[[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
+
+⚙️ CONSTRAINTS
+1 <= nums.length <= 10
+-10 <= nums[i] <= 10
+All the numbers of nums are unique.
+
+🧩 PATTERN USED
+##POINT TO REMEMBER 
+SUBSET / SUBSEQUENCE (INCLUDE–EXCLUDE) RECURSION PATTERN -- “For Subsets and Subsequences, we need to use Include–Exclude every time, whether it is a string or an array. No problem.” 
+
+💡 THINKING PROCESS
+
+For each element, we have two choices:
+1️⃣ Include the element in the current subset
+2️⃣ Exclude the element and move on
+
+Continue until we process all elements.
+
+When idx == len(nums) → we have formed one subset.
+
+This explores all 
+2 n
+ subsets.
+
+💻 SOLUTION CODE (PYTHON)
+class Solution(object):
+    def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        res = []
+        c = []
+        return self.main(0, nums, c, res)
+
+    def main(self, idx, nums, c, res):
+        # BASE CASE: all elements processed
+        if idx >= len(nums):
+            res.append(c[:])
+            return
+
+        # INCLUDE current element
+        c.append(nums[idx])
+        self.main(idx + 1, nums, c, res)
+
+        # BACKTRACK (UNDO include)
+        c.pop()
+
+        # EXCLUDE current element
+        self.main(idx + 1, nums, c, res)
+
+        return res
+
+🧠 DRY RUN EXAMPLE
+
+Input → nums = [1, 2]
+
+main(0, [])
+├── include 1 → main(1, [1])
+│     ├── include 2 → main(2, [1,2]) → store [1,2]
+│     └── exclude 2 → main(2, [1])   → store [1]
+└── exclude 1 → main(1, [])
+      ├── include 2 → main(2, [2])   → store [2]
+      └── exclude 2 → main(2, [])    → store []
+
+
+✅ Output → [[], [1], [2], [1,2]]
