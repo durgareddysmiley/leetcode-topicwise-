@@ -1,0 +1,28 @@
+HASHING:
+     hashing is used to count frequencis 
+METHODS 
+1. Hash Table (dict)
+
+Definition:
+A hash table is a data structure that stores key-value pairs and allows fast access, insertion, and deletion using a hash function.
+
+Example Code:
+
+# Hash table example
+ht = {"Alice": 25, "Bob": 30}  # key → value
+print(ht["Alice"])             # 25
+ht["Charlie"] = 35             # Add new key-value
+print(ht)                       # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
+
+2. Hash Set (set)
+
+Definition:
+A hash set is a data structure that stores unique elements and allows fast membership checks, insertion, and deletion using hashing.
+
+Example Code:
+
+# Hash set example
+hs = {1, 2, 3}    # unique elements
+hs.add(4)         # add element
+print(3 in hs)    # True
+print(hs)         # {1, 2, 3, 4}
