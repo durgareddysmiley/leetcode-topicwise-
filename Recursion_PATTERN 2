@@ -341,3 +341,67 @@ Return to []
 
 ✅ Reached end → record []
 Return to main — recursion completed ✅
+
+Problem: 90 : Subsets II
+
+Description:
+Given an integer array nums that may contain duplicates, return all possible subsets (the power set). The solution set must not contain duplicate subsets. Return the solution in any order.
+
+Example 1:
+
+Input: nums = [1,2,2]
+Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+
+
+Example 2:
+
+Input: nums = [0]
+Output: [[],[0]]
+
+
+Constraints:
+
+1 <= nums.length <= 10
+
+-10 <= nums[i] <= 10
+
+Python Solution
+from typing import List
+
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        # Sort to handle duplicates
+        b = sorted(nums)
+        res = []
+        cur = []
+        self.dfs(0, b, cur, res)
+        return res
+    
+    def dfs(self, idx: int, b: List[int], cur: List[int], res: List[List[int]]):
+        # Base case: record current subset
+        if idx == len(b):
+            res.append(cur[:])
+            return
+        
+        # TAKE current number
+        cur.append(b[idx])
+        self.dfs(idx + 1, b, cur, res)
+        cur.pop()  # backtrack
+        
+        # SKIP current number and all duplicates
+        next_idx = idx + 1
+        while next_idx < len(b) and b[next_idx] == b[idx]:
+            next_idx += 1
+        self.dfs(next_idx, b, cur, res)
+Let’s take nums = [1,2,2]. Sorted → b = [1,2,2].
+
+                    []
+              /               \
+          Take 1               Skip 1
+          [1]                   []
+       /       \
+   Take 2     Skip 2 (jump duplicates)
+   [1,2]       [1]
+  /     \
+Take2   Skip2 (jump duplicates)
+[1,2,2]   [1,2]
