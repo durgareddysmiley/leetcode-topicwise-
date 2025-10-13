@@ -174,3 +174,170 @@ main(0, [])
 
 
 ✅ Output → [[], [1], [2], [1,2]]
+
+PROCESS -- '
+                               []
+                 /                              \
+           Take 1                              Skip 1
+           [1]                                  []
+        /            \                      /           \
+   Take 2          Skip 2             Take 2         Skip 2
+   [1,2]            [1]                [2]             []
+   /    \           /   \              /   \           /   \
+T3   S3        T3   S3         T3   S3        T3   S3
+↓      ↓          ↓      ↓          ↓      ↓          ↓      ↓
+[1,2,3] [1,2] [1,3] [1] [2,3] [2] [3] []
+
+🪜 Start Point
+idx = 0, current = [], nums = [1,2,3]
+
+
+At index 0 → number = 1
+Two choices:
+1️⃣ Take 1 → go left
+2️⃣ Skip 1 → go right
+
+🌳 Full Recursion Story — Step by Step
+🔹 LEVEL 0 (Start)
+[]
+
+
+➡ Take 1 → go left
+current = [1]
+
+🔹 LEVEL 1 (Take 1)
+[1]
+
+
+Now index = 1 → number = 2
+Two choices:
+
+Take 2 → go left
+
+Skip 2 → go right
+
+🟢 LEFT BRANCH (Take 2)
+[1,2]
+
+
+Now index = 2 → number = 3
+Two choices:
+
+Take 3 → go left
+
+Skip 3 → go right
+
+🔸 Left of [1,2] (Take 3)
+[1,2,3]
+
+
+✅ Reached end (idx = 3) → record [1,2,3]
+Then return (go back to parent [1,2])
+
+🔸 Right of [1,2] (Skip 3)
+
+After returning, we’re back at [1,2]
+Now Skip 3
+
+[1,2]
+
+
+✅ Reached end → record [1,2]
+Then return again to parent [1]
+
+🟠 RIGHT BRANCH (Skip 2)
+
+Now we are back at [1]
+We’ve finished left side (Take 2),
+so now we go right side (Skip 2).
+
+[1]
+
+
+Index = 2 → number = 3
+Two choices:
+
+Take 3 → go left
+
+Skip 3 → go right
+
+🔸 Left of [1] (Take 3)
+[1,3]
+
+
+✅ Reached end → record [1,3]
+Return to parent [1]
+
+🔸 Right of [1] (Skip 3)
+[1]
+
+
+✅ Reached end → record [1]
+Return to parent [] (root)
+
+🔹 LEVEL 0 — RIGHT BRANCH (Skip 1)
+
+Now we are back at root [],
+left branch (Take 1) is finished,
+so go right (Skip 1).
+
+[]
+
+
+Index = 1 → number = 2
+Two choices:
+
+Take 2 → go left
+
+Skip 2 → go right
+
+🟢 LEFT BRANCH (Take 2)
+[2]
+
+
+Index = 2 → number = 3
+Two choices:
+
+Take 3 → go left
+
+Skip 3 → go right
+
+🔸 Left of [2] (Take 3)
+[2,3]
+
+
+✅ Reached end → record [2,3]
+Return to [2]
+
+🔸 Right of [2] (Skip 3)
+[2]
+
+
+✅ Reached end → record [2]
+Return to []
+
+🟠 RIGHT BRANCH (Skip 2)
+
+Back at root [] again.
+Now we skip 2 → still [].
+
+Index = 2 → number = 3
+Two choices:
+
+Take 3 → go left
+
+Skip 3 → go right
+
+🔸 Left of [] (Take 3)
+[3]
+
+
+✅ Reached end → record [3]
+Return to []
+
+🔸 Right of [] (Skip 3)
+[]
+
+
+✅ Reached end → record []
+Return to main — recursion completed ✅
