@@ -405,3 +405,75 @@ Let’s take nums = [1,2,2]. Sorted → b = [1,2,2].
   /     \
 Take2   Skip2 (jump duplicates)
 [1,2,2]   [1,2]
+
+🧮 Problem: Generate Binary Strings Without Consecutive 1s
+
+Question:
+
+Given an integer n, return all binary strings of length n that do not contain consecutive 1s.
+Return the result in lexicographically increasing order.
+
+A binary string is a string consisting only of characters '0' and '1'.
+
+✅ Example 1
+
+Input:
+
+n = 3
+
+
+Output:
+
+["000", "001", "010", "100", "101"]
+
+
+Explanation:
+All valid strings of length 3 without consecutive 1s are listed in order.
+
+✅ Example 2
+
+Input:
+
+n = 2
+
+
+Output:
+
+["00", "01", "10"]
+
+
+Explanation:
+"11" is not allowed because it has consecutive 1s.
+
+##CODE 
+class Solution:
+    def generateBinaryStrings(self, n):
+        self.result = []
+        self._helper([], n, 0)
+        return self.result
+
+    def _helper(self, current, n, idx):
+        # Base case: if we reached length n, add to result
+        if idx == n:
+            self.result.append(''.join(current))
+            return
+
+        # If last bit is '1', we can only place '0'
+        if current and current[-1] == '1':
+            current.append('0')
+            self._helper(current, n, idx + 1)
+            current.pop()
+        else:
+            # Try '0' first (for lexicographic order)
+            current.append('0')
+            self._helper(current, n, idx + 1)
+            current.pop()
+            # Then try '1'
+            current.append('1')
+            self._helper(current, n, idx + 1)
+            current.pop()
+DOUBTS:
+IN IF CASE  WE ONLT WRITE ABOUT 0 BUT IN ELSE CASE WE ARE TRYING BOTH '0' AND '1' BECAUSE.. IF BEFORE NUMBER IS 1 WE ONLY HAVE OPTION TO ADD ONLY '0' .. IN ELSE WE ARE 
+TRYING BOTH '0' AND '1' 
+2. Y WE ARE POPPING AT LAST 
+ANS = BECAUSE WE ARE TRIES WITH '0' OR '1' AFTER THAT WE WANT TO REMOVE THAT AMD ADD OTHER ONE 
