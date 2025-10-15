@@ -481,6 +481,20 @@ TRYING BOTH '0' AND '1'
 2. Y WE ARE POPPING AT LAST 
 ANS = BECAUSE WE ARE TRIES WITH '0' OR '1' AFTER THAT WE WANT TO REMOVE THAT AMD ADD OTHER ONE
 
+##REMEBER WHILE DOING DRY RUN.. OUR ACTUAL DRY RUN IS EX = CASE 1 AFTER WE RETURN TO CASE 1 THEN WE CAN SAY IT IS COMPLETE BUT       # Try '0' first (for lexicographic order)
+            current.append('0')
+            self._helper(current, n, idx + 1)
+            current.pop()
+            # Then try '1'
+            current.append('1')
+            self._helper(current, n, idx + 1)
+            current.pop()  IN THIS TYPE IT COME BACK TO CASE 3 AFTER GOING SOME WHERE ONCE AGAIN IT GOES TO CASE 3 BECAUSE  self._helper(current, n, idx + 1)
+            current.pop()
+            # Then try '1'
+            current.append('1')
+            self._helper(current, n, idx + 1) THERE ARE TWO BECAUSE TO USE DIFFERENT COMBINATIONS 
+3.HERE I AM CONFUSING IN DRY RUN CASE 1  = CURR =  1,2  AND CASE 5 = CURR = 3,4 NOW CASE 5 IS BACK TO CASE 1 THEN CURR = 1,2  
+
 ✅ Problem: Count All Subsequences with Sum K
 
 Difficulty: Easy
