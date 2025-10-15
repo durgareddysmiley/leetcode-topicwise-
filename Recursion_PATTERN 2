@@ -476,4 +476,60 @@ DOUBTS:
 IN IF CASE  WE ONLT WRITE ABOUT 0 BUT IN ELSE CASE WE ARE TRYING BOTH '0' AND '1' BECAUSE.. IF BEFORE NUMBER IS 1 WE ONLY HAVE OPTION TO ADD ONLY '0' .. IN ELSE WE ARE 
 TRYING BOTH '0' AND '1' 
 2. Y WE ARE POPPING AT LAST 
-ANS = BECAUSE WE ARE TRIES WITH '0' OR '1' AFTER THAT WE WANT TO REMOVE THAT AMD ADD OTHER ONE 
+ANS = BECAUSE WE ARE TRIES WITH '0' OR '1' AFTER THAT WE WANT TO REMOVE THAT AMD ADD OTHER ONE
+
+✅ Problem: Count All Subsequences with Sum K
+
+Difficulty: Easy
+Category: Subsequence / Backtracking / Recursion
+
+🧾 Problem Statement
+
+Given an array nums and an integer k, return the number of non-empty subsequences of nums such that the sum of all elements in the subsequence is equal to k.
+
+📥 Input
+
+An array of integers nums
+
+An integer k
+
+📤 Output
+
+Return the number of non-empty subsequences of nums such that their sum is equal to k.
+
+🔍 Examples
+Example 1:
+Input: nums = [4, 9, 2, 5, 1], k = 10  
+Output: 2  
+Explanation: Subsequences with sum = 10 are [9, 1] and [4, 5, 1]
+
+Example 2:
+Input: nums = [4, 2, 10, 5, 1, 3], k = 5  
+Output: 3  
+Explanation: Subsequences are [4, 1], [2, 3], and [5]
+
+##CODE 
+class Solution:
+    def main(self, nums, k):
+        current = []
+        result = []
+        self.sub(current, result, nums, k, 0)
+        print("All subsequences with sum", k, ":", result)
+        print("Count =", len(result))
+        return len(result)
+
+    def sub(self, current, result, nums, k, idx):
+        # Base case
+        if idx == len(nums):
+            if sum(current) == k:
+                result.append(current[:])  # store a copy
+            return
+
+        # include current element
+        current.append(nums[idx])
+        self.sub(current, result, nums, k, idx + 1)
+        current.pop()
+
+        # exclude current element
+        self.sub(current, result, nums, k, idx + 1)
+
