@@ -600,3 +600,25 @@ Explanation: Subsequences like [1, 2, 5], [1, 3, 4], [3, 5] sum up to 8.
 
 ## DOUBT 
 HERE IN DRY RUN REMEMBER ONE THING  WE ARE DOING DRY RUN IN CASES WISE 
+        if sum(cur) == k:
+               return True
+        if idx >= len(nums) or sum(cur) > k:
+            return False
+        # Include current element
+        cur.append(nums[idx])
+        if self._sub(cur, nums, k, idx + 1):
+            return True
+        cur.pop()
+
+        # Exclude current element
+        if self._sub(cur, nums, k, idx + 1):
+            return True
+
+        # No valid subsequence found
+        return False
+THERE ARE 4 IF CONDITIONS HERE  we any case ccompletes in first 2ifs    if sum(cur) == k:
+               return True
+        if idx >= len(nums) or sum(cur) > k:
+            return False  ANY ONE NO PROBLEM THEN CASE IS COMPLETED 
+IF ANY OTHER CASE COMPLETED IN NEXT 2IFS IT NEED TO WRITTEN BACK 2 TO 3 TIMES so dont confuse y it is  returning 3 times and some 1 times.. y in a case compted in 1st 
+or 2nf it dont not returning another time..Dont confuse 
