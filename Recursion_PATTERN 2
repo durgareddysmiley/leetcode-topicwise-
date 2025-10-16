@@ -620,5 +620,5 @@ THERE ARE 4 IF CONDITIONS HERE  we any case ccompletes in first 2ifs    if sum(c
                return True
         if idx >= len(nums) or sum(cur) > k:
             return False  ANY ONE NO PROBLEM THEN CASE IS COMPLETED 
-IF ANY OTHER CASE COMPLETED IN NEXT 2IFS IT NEED TO WRITTEN BACK 2 TO 3 TIMES so dont confuse y it is  returning 3 times and some 1 times.. y in a case compted in 1st 
-or 2nf it dont not returning another time..Dont confuse 
+IF ANY OTHER CASE COMPLETED IN 3RD IF AND RETURN DONT GO TO 4TH IF IT IS DONT IF IT DOES NOT RETURN IN 3RD IF ALSO GO 
+TO 4TH DONT CONFUSE Y IT STOPPING AND Y IT DOES NOT GOING TO THAT CASE AGAIN 
