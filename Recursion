@@ -596,5 +596,170 @@ first left is 10 it is maximum and it doesnt change so 10 come..Dont confuse bet
  l1 = lists[i]
                 l2 = lists[i+1] if i < len(lists)-1 else None 
                 m.append(self.process(l1,l2))
+LeetCode 23: Merge k Sorted Lists
 
+Problem Statement:
+You are given an array of k linked-lists lists, each linked-list is sorted in ascending order.
+
+Task: Merge all the linked-lists into one sorted linked-list and return it.
+
+Example 1:
+
+Input: lists = [[1,4,5],[1,3,4],[2,6]]
+Output: [1,1,2,3,4,4,5,6]
+Explanation:
+The linked-lists are:
+[
+  1->4->5,
+  1->3->4,
+  2->6
+]
+Merging them into one sorted linked list:
+1->1->2->3->4->4->5->6
+##CODE 
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution(object):
+    def process(self,l1,l2):
+        a = ListNode(0)
+        b = a  
+        while l1 and l2:
+            if l1.val >= l2.val:
+                b.next = ListNode(l2.val)
+                b  = b.next
+                l2 = l2.next
+            else:
+                b.next = ListNode(l1.val)
+                b= b.next
+                l1 = l1.next 
+        if l1 :
+            b.next = l1
+        if l2:
+            b.next = l2
+        return a.next 
+
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[Optional[ListNode]]
+        :rtype: Optional[ListNode]
+        """
+        if len(lists) < 1:
+            return None
+        while len(lists) > 1:
+            m = []
+            for i in range(0,len(lists),2):
+                l1 = lists[i]
+                l2 = lists[i+1] if i < len(lists)-1 else None 
+                m.append(self.process(l1,l2))
+            lists  =  m
+        return lists[0]
+##DOUBT 
+INSTEAD OF   m.append(self.process(l1,l2)) RETURN M Y WE ARE DOING  lists  =  m
+        return lists[0]
+Excellent question again 👏 — you’re understanding the logic very deeply now. Let’s clear this confusion completely with a step-by-step explanation.
+
+🧠 The doubt:
+
+You asked:
+
+Instead of
+
+m.append(self.process(l1, l2))
+lists = m
+return lists[0]
+
+
+why not just
+
+return m
+
+
+or something like that.
+
+💡 The key idea
+
+The function mergeKLists merges K sorted linked lists — not just two.
+
+So it must keep merging lists until only one list remains.
+
+That’s why we write:
+
+lists = m
+
+
+—to update lists after each round of merging.
+
+Let’s see it step-by-step.
+
+🔁 What happens in the loop
+
+Imagine you start with:
+
+lists = [L1, L2, L3, L4]
+
+
+Each iteration of the while loop merges pairs of lists using:
+
+m.append(self.process(l1, l2))
+
+
+After one full loop:
+
+m = [Merged(L1, L2), Merged(L3, L4)]
+
+
+Now m contains 2 merged lists.
+
+If you return m now — ❌ wrong!
+You’re returning a list of 2 linked lists, not one single merged list.
+
+We want to continue merging until there’s only one list left, like this:
+
+lists = [Merged(L1, L2), Merged(L3, L4)]  # assign m to lists
+
+
+Now, in the next iteration, we again merge these 2 lists.
+
+🔚 When does it stop?
+while len(lists) > 1:
+
+
+The loop continues until len(lists) == 1.
+
+At that point, we have:
+
+lists = [FinalMergedList]
+
+
+So finally, we return:
+
+return lists[0]
+
+
+✅ which is the single final merged linked list.
+
+🧩 In simple words:
+Step	Variable	What it stores
+Start	lists	all original k lists
+After one loop	m	newly merged pairs
+Then	lists = m	update for next round
+Loop continues	until only one list left	
+End	lists[0]	final merged linked list
+✅ Final answer:
+
+We do
+
+lists = m
+return lists[0]
+
+
+because we need to keep merging in rounds until only one list remains.
+If we return m early, we’d get a list of lists, not the final merged list.
+
+Would you like me to show this with a small dry-run diagram (like round 1 → round 2 → final list)?
+It’ll make this concept crystal clear visually.
 
