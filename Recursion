@@ -592,4 +592,9 @@ Answer : it will satisfy only some inputs not all..
 Ex = 10,-2,-3,-4 is there max = 10 but if check only cross we get another minimum value not 10 so by string left_max and right_max we can get that because 
 first left is 10 it is maximum and it doesnt change so 10 come..Dont confuse between left_sum and left_max..Left sum changes left_max is storing 10 
 
+##WANT TO REMEMBER IF WE WRITING  return self.mergeKLists(lists[i],lists[i+1]) WE ARE CONFUSING IN CODE SO THAT TRY A VARIABLE LIKE 
+ l1 = lists[i]
+                l2 = lists[i+1] if i < len(lists)-1 else None 
+                m.append(self.process(l1,l2))
+
 
