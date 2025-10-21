@@ -585,4 +585,11 @@ class Solution:
         
         # Return sum of left and right maximums crossing mid
         return left_sum + right_sum
+##DOUBTS 
+IN THIS SUM PATTERN SAME BUT SLIGHTLY DIFFERENT OF EACH RECURSION STORING HERE 
+## MY DOUBT Y WE ARE CHECKING      return max(left_max, right_max, cross_max) left_max and right_max y checking what if i check only cross max
+Answer : it will satisfy only some inputs not all..
+Ex = 10,-2,-3,-4 is there max = 10 but if check only cross we get another minimum value not 10 so by string left_max and right_max we can get that because 
+first left is 10 it is maximum and it doesnt change so 10 come..Dont confuse between left_sum and left_max..Left sum changes left_max is storing 10 
+
 
