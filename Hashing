@@ -6,7 +6,7 @@ METHODS
 Definition:
 A hash table is a data structure that stores key-value pairs and allows fast access, insertion, and deletion using a hash function.
 
-Example Code:
+Example Code: 
 
 # Hash table example
 ht = {"Alice": 25, "Bob": 30}  # key → value
