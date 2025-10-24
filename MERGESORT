@@ -7,7 +7,7 @@ It recursively divides an array into halves, sorts each half, and then merges th
 
 Divide: Split the array into two halves.
 
-Conquer: Recursively sort each half.
+Conquer: Recursively sort each half. 
 
 Combine: Merge the two sorted halves into one sorted array.
 
