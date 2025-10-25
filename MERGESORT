@@ -11,7 +11,7 @@ Conquer: Recursively sort each half.
 
 Combine: Merge the two sorted halves into one sorted array.
 
-##CODE 
+##CODE  
 def merge_sort(arr):
     if len(arr) > 1:
         mid = len(arr) // 2
