@@ -21,7 +21,7 @@ Check if (current_prefix_sum - target_sum) exists in the map.
 1. The question is about subarrays
 
 Not subsequences, not subsets — specifically continuous subarrays.
-
+ 
 Examples in statements:
 
 “Find the number of subarrays …”
