@@ -142,5 +142,56 @@ zip(*mat) → converts rows into columns:
 (2, 5, 8)
 (3, 6, 9)
 
+## MORE DETAILED EXPLANATION 
+Perfect 👍 — you want to see how *mat actually unpacks rows.
+Let’s make that super clear with a small example 👇
+mat = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+
+💡 What *mat does
+
+If you just print it:
+
+print(*mat)
+
+
+Output:
+
+[1, 2, 3] [4, 5, 6]
+
+⚙️ Inside zip(*mat)
+
+When you write:
+
+zip(*mat)
+
+
+It’s the same as:
+
+zip([1, 2, 3], [4, 5, 6])
+
+How zip() works
+
+zip() pairs elements position-by-position (same index) from each list.
+
+So now zip can join them like this:
+
+(1, 4)
+(2, 5)
+(3, 6)
+
+
+That’s how columns are formed.
+
+✅ In short:
+
+mat → [[1,2,3], [4,5,6]] (one list with 2 rows)
+
+*mat → [1,2,3] [4,5,6] (two separate lists)
+
+zip(*mat) → [(1,4), (2,5), (3,6)] (transposed / column-wise view)
+
 
 
