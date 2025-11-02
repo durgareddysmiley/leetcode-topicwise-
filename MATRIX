@@ -114,7 +114,33 @@ print("Column sums =", col_sum)
 # Row sums = [6, 15, 24]
 # Column sums = [12, 15, 18]
 
+## THE ABOVE CODE USING ZIP  WITH BETTER COMPLEXITY 
+# Program to find row and column sums of a matrix using zip(*mat)
 
+mat = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+# Row sums
+row_sum = [sum(row) for row in mat]
+
+# Column sums using zip(*mat)
+col_sum = [sum(col) for col in zip(*mat)]
+
+print("Row sums =", row_sum)
+print("Column sums =", col_sum)
+
+# Output:
+# Row sums = [6, 15, 24]
+# Column sums = [12, 15, 18]
+
+zip(*mat) → converts rows into columns:
+
+(1, 4, 7)
+(2, 5, 8)
+(3, 6, 9)
 
 
 
