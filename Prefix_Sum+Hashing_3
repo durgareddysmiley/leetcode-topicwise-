@@ -9,7 +9,7 @@ Number of subarrays with sum = K
 Longest subarray with sum = 0
 
 Key idea:
-
+ 
 Maintain a prefix sum while iterating through the array.
 
 Use a hash map to store the frequency or first occurrence of each prefix sum.
