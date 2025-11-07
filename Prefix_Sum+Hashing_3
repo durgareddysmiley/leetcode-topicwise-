@@ -2,7 +2,7 @@ PREFIX SUM + HASHING Pattern
 
 Hashing (usually using a Map or unordered_map) is combined with prefix sums to solve problems like:
 
-Subarray with a given sum 
+Subarray with a given sum  
 
 Number of subarrays with sum = K
 
