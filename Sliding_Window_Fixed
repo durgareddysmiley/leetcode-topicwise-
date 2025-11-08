@@ -10,7 +10,7 @@ Common problems: maximum sum of k-length subarray, average of subarrays, etc.
 
 Example: Find the maximum sum of any 3 consecutive elements in an array.
 
-2. When do we know it is fixed type?
+2. When do we know it is fixed type? 
  
 You know it’s a fixed-size sliding window if the problem explicitly or implicitly tells you the window size (k, n, etc.).
 
