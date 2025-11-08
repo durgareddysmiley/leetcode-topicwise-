@@ -26,3 +26,8 @@ hs = {1, 2, 3}    # unique elements
 hs.add(4)         # add element
 print(3 in hs)    # True
 print(hs)         # {1, 2, 3, 4}
+
+## REMOVE AND DELETE 
+IF WE NEED TO REMOVE LAST ONE IN THE LIST THEN WE CAN JUST WRITE JUST A.POP()
+POP IS USED FOR REMOVING LAST VALUE AND DELETING THROUGH INDEX
+## IF WE NEED TO REMOVE A SPECIC VALUE USE LIKE A.REMOVE[S[4]] LIKE THAT 
