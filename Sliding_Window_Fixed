@@ -5,7 +5,7 @@ Sliding Window problems generally follow these patterns:
 ## 1. Fixed-Size Sliding Window
 
 Window size is fixed.
-
+ 
 Common problems: maximum sum of k-length subarray, average of subarrays, etc.
 
 Example: Find the maximum sum of any 3 consecutive elements in an array.
