@@ -4,7 +4,7 @@ Definition
 A Sliding Window is a technique used to solve problems involving arrays, strings, or lists, where you want to find subarrays or substrings that satisfy a certain condition (like sum, length, maximum, minimum, etc.).
 
 Instead of using nested loops, we “slide” a window over the data to reduce time complexity.
-
+ 
 ## Key Concepts
 
 Window: A contiguous segment of the array/string.
