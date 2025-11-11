@@ -14,7 +14,7 @@ Maintain a prefix sum while iterating through the array.
 
 Use a hash map to store the frequency or first occurrence of each prefix sum.
 
-Check if (current_prefix_sum - target_sum) exists in the map.
+Check if (current_prefix_sum - target_sum) exsts in the map.
 
 🔑 Clues that a problem needs Prefix Sum + HashMap
 
