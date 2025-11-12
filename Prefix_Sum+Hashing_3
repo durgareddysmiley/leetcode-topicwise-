@@ -8,7 +8,7 @@ Number of subarrays with sum = K
 
 Longest subarray with sum = 0
 
-Key idea:
+Key idea:  
   
 Maintain a prefix sum while iterating through the array.
 
