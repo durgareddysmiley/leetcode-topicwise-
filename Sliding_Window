@@ -18,7 +18,7 @@ Sliding Window problems generally follow these patterns:
 ## 2. Variable-Size Sliding Window
 
 Window size can grow or shrink based on conditions.
-
+ 
 Common problems: longest substring without repeating characters, smallest subarray with sum ≥ k.
 
 Steps:
