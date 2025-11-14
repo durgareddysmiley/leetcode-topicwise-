@@ -130,6 +130,14 @@ class Solution:
         return res
 ##NOTE 
 WHEN WE RE DEALING WITH MULTIPLICATION SUMS IN  SLIDING WINDOW VARIABLE SUMS AND WE NEED TO REMOVE LEFT THE NSIMPLY TOTAL // LEFT NOT LIKE TOTAL - LEFT 
+❗ Correct Concept:
+
+For ANY subarray product problem,
+if k ≤ 1,
+and all nums[i] ≥ 1,
+
+👉 the answer is ALWAYS 0
+(not 1)
 
 ### 713. Subarray Product Less Than K
 **Problem:** Given an array of integers `nums` and an integer `k`, return the number of contiguous subarrays where the **product** of all the elements in the subarray is **strictly less than k**.  
