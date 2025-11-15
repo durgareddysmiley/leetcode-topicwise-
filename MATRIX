@@ -160,7 +160,7 @@ print(*mat)
 Output:
 
 [1, 2, 3] [4, 5, 6]
-
+ 
 ⚙️ Inside zip(*mat)
 
 When you write:
