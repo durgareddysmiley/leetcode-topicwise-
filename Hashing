@@ -10,7 +10,7 @@ Example Code:
 
 # Hash table example
 ht = {"Alice": 25, "Bob": 30}  # key → value
-print(ht["Alice"])             # 25
+print(ht["Alice"])             # 25   
 ht["Charlie"] = 35             # Add new key-value
 print(ht)                       # {'Alice': 25, 'Bob': 30, 'Charlie': 35}
 
