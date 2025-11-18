@@ -6,7 +6,7 @@ INPUT = 5 OUTPUT = 120
 ##CODE 
 def factorial(n, p=1):
     if n < 1:
-        return 1
+        return 1 
     else:
         return n * factorial(n - 1)  # p is never used
 print(factorial(5))  
