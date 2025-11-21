@@ -8,7 +8,7 @@ At each position, it stores the sum of all elements before and including that po
 
 We use prefix sums when we need to quickly calculate the sum of elements in a range.
 
-Pattern Name → Prefix Sum / Running Sum
+Pattern Name → Prefix Sum / Running Sum 
 
 🔹 Definition of the Pattern
 
