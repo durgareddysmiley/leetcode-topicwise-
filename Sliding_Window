@@ -10,7 +10,7 @@ Instead of using nested loops, we “slide” a window over the data to reduce t
 Window: A contiguous segment of the array/string.
 
 Size: Can be fixed (e.g., 3 elements) or variable (expand/shrink as needed).  
-
+ 
 ✅ Patterns in Sliding Window
 
 Sliding Window problems generally follow these patterns:
