@@ -1,2 +1,28 @@
-split()
-''.join()
+🔤 isupper() & islower()
+ch = "A"
+
+ch.isupper()  # True
+ch.islower()  # False
+
+✔️ Usage:
+
+isupper() → checks if character is uppercase
+
+islower() → checks if character is lowercase
+
+🧮 collections.Counter Example
+from collections import Counter
+
+s = "abc"
+cnt = Counter(s)
+
+print(cnt["a"])  # 1
+print(cnt["b"])  # 1
+print(cnt["c"])  # 1
+print(cnt["d"])  # 0  -> missing keys return 0
+
+✔️ Key Points:
+
+Counts the frequency of characters
+
+If a key does not exist, Counter returns 0
