@@ -1,3 +1,4 @@
+
 🔤 isupper() & islower()
 ch = "A"
 
@@ -26,3 +27,77 @@ print(cnt["d"])  # 0  -> missing keys return 0
 Counts the frequency of characters
 
 If a key does not exist, Counter returns 0
+
+📌 Regex Quick Reminder
+Pattern	Meaning
+[a-z]	one lowercase letter
+[A-Z]	one uppercase letter
++	1 or more
+*	0 or more
+`	`
+\d	digit
+\w	letter/number/underscore
+
+✂️ split() – Split a String
+s = "a,b,c"
+print(s.split(","))  
+# ['a', 'b', 'c']
+
+s = "hello world python"
+print(s.split())  
+# ['hello', 'world', 'python']   (default: split on spaces)
+
+✔️ Summary:
+
+split() → converts string → list
+
+Default split is on whitespace
+
+You can specify a separator like " ,", "|", "-", etc.
+
+🔗 join() – Join List Into String
+words = ["hello", "world"]
+print(" ".join(words))
+# "hello world"
+
+letters = ["a", "b", "c"]
+print(",".join(letters))
+# "a,b,c"
+
+✔️ Summary:
+
+join() → list → string
+
+The string before .join() becomes the separator
+
+Example:
+
+"-".join(["python", "rocks"]) → "python-rocks"
+
+🧠 Basic String Building
+sc = ""
+sc += "h"
+sc += "e"
+sc += "l"
+
+print(sc)  # "hel"
+
+✔️ Idea:
+
+Strings use +=
+
+Lists use .append()
+
+📌 Regex Quick Reminder
+Pattern	Meaning
+[a-z]	lowercase letter
+[A-Z]	uppercase letter
++	1 or more
+*	0 or more
+`	`
+\d	digit
+\w	word char
+🟢 Example
+check_split("abCv")
+# Output → ["ab", "cv"]
+
