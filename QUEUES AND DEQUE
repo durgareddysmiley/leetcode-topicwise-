@@ -4,7 +4,7 @@ A queue is like a line in front of a shop.
 
 It follows FIFO (First In, First Out) → the first element added is the first one to be removed.  
 
-Operations:
+Operations: 
 
 enqueue() → add element at the back
 
