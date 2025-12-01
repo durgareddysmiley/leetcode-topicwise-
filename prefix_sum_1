@@ -23,7 +23,7 @@ The sum of elements in a range (l...r), quickly.
 ## REMEMBER TO DO ONE THING WHEN DOING PREFIX SUM PROBLEM 
 IF WE DO PREFIX SUM PROBLEM RUNNING SUM PATTERN AFTER CALCLULATING PREFIX(LEFT OR RIGHT) THEN WE SEE CALCLUATED PREFIX AS INPUT TO WRITE LOGIC NOT INPUT GIVEN IN QUESTION 
 
-2574. Left and Right Sum Differences
+2574. Left and Right Sum Differences 
 ------------------------------------
 You are given a 0-indexed integer array nums of size n.
 
