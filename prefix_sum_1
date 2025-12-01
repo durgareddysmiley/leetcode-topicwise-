@@ -359,6 +359,14 @@ MY CONFUSION IS CANT UNDER STAND PREFIX SUM FORMULAS LIKE   (pref[r+1] - pref[l]
 Always store prefix like: pref[i+1] = pref[i] + nums[i]
 
 Subarray sum formula: sum(l..r) = pref[r+1] - pref[l]
+HOW THESE SUB ARRAY SUM FORMULA WORKS
+arr = [1,2,4]
+left_prefix = [0,1,3,7]
+Subarray sum formula: sum(l..r) = pref[r+1] - pref[l]
+i want sum of 1,2 in arr then we need to use prefix to get the sum in arr
+in 1,2...1 cames first index 0..No change in first one==pre[l]
+and 2 is last index 1..last index + 1 == pre[r+1]
+
 
 ## WHY DOES THIS WORK?
 
