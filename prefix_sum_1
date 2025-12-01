@@ -12,7 +12,7 @@ Pattern Name → Prefix Sum / Running Sum
 
 🔹 Definition of the Pattern
 
-The prefix sum pattern is used when you need:
+The prefix sum pattern is used when you need: 
 
 The sum of elements from the start up to an index, or
 
@@ -134,7 +134,7 @@ Because:
 accumulate(arr[::-1]) is the prefix sum of reversed array → wrong order
 
 Reversing it again fixes the order → gives true suffix sums
-
+ 
 
 
 ---
