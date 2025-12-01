@@ -19,6 +19,164 @@ The sum of elements from the start up to an index, or
 The sum of elements in a range (l...r), quickly.
 
 👉 Idea: Precompute cumulative totals so that later queries are fast (O(1)) instead of recalculating every time.
+A BUILT IN FUNCTION 
+LEFT SUM CALCULATE BUILT IN FUNCTION 
+Let us Assume arr = [1,2,3,4]
+use built in like list(accumulate(arr))
+NOW arr = [1,3,6,10]
+RIGHT SUM CALCULATE BUILT IN FUNCTION 
+arr = (1,2,3,4)
+use built in like list(accumulate(arr[::-1])[::-1]
+now arr = [10,9,7,4] 
+I ALSO HAVE ONE DOUBT LIKE Y WE ARE ALSO DOING [::-1] 2 times 
+Let's clear everything step-by-step, very simple, with English words — so you understand prefix and suffix sums perfectly.
+
+
+---
+
+✅ 1. What does accumulate(arr) mean?
+
+For:
+
+arr = [1, 2, 3, 4]
+
+list(accumulate(arr)) produces prefix sums:
+
+[1, 3, 6, 10]
+
+Because:
+
+1
+
+1+2 = 3
+
+1+2+3 = 6
+
+1+2+3+4 = 10
+
+
+This is left → right cumulative sum.
+
+
+---
+
+✅ 2. What does arr[::-1] mean?
+
+It means reverse the array.
+
+Example:
+
+arr = [1, 2, 3, 4]
+arr[::-1] → [4, 3, 2, 1]
+
+
+---
+
+✅ 3. What does accumulate(arr[::-1]) produce?
+
+Reverse array:
+
+[4,3,2,1]
+
+Now do prefix sum on this:
+
+[4, 7, 9, 10]
+
+This is NOT yet correct suffix sum.
+This is prefix sum of reversed array.
+
+
+---
+
+❗ 4. Why do we reverse again at the end?
+
+We must bring the results back to the original order.
+
+So:
+
+list(accumulate(arr[::-1]))[::-1]
+
+Becomes:
+
+accumulate([4,3,2,1]) → [4,7,9,10]
+reverse again → [10,9,7,4]
+
+This is the suffix sum array.
+
+Let's check:
+
+Suffix sums of [1,2,3,4]:
+
+From index 0: 1+2+3+4 = 10
+
+From index 1:  2+3+4 = 9
+
+From index 2:  3+4 = 7
+
+From index 3:  4
+
+
+So correct suffix array is:
+
+[10, 9, 7, 4]
+
+Which matches:
+
+list(accumulate(arr[::-1]))[::-1]
+
+
+---
+
+🎯 So WHY do we need the second reverse?
+
+Because:
+
+accumulate(arr[::-1]) is the prefix sum of reversed array → wrong order
+
+Reversing it again fixes the order → gives true suffix sums
+
+
+
+---
+
+❌ 5. Why a[i] in b is wrong?
+
+Because “in” only checks if value exists anywhere.
+
+Example:
+
+a = [1,3,6,10]
+b = [10,9,7,4]
+
+3 in b is False
+10 in b is True but at wrong index!
+
+We need:
+
+a[i] == b[i]   # same position match
+
+Pivot means:
+
+sum from 1 → x  ==  sum from x → n
+
+Both sums must match for the same x, that means same index, same position.
+
+
+---
+
+🔥 Summary in one line
+
+Expression	Meaning
+
+accumulate(arr)	Left prefix sum
+accumulate(arr[::-1])	Prefix sum of reversed array (wrong order)
+accumulate(arr[::-1])[::-1]	Correct suffix sum
+
+
+
+---
+
+If you want, I can draw a picture explaining prefix vs suffix visually.
 
 ## REMEMBER TO DO ONE THING WHEN DOING PREFIX SUM PROBLEM 
 IF WE DO PREFIX SUM PROBLEM RUNNING SUM PATTERN AFTER CALCLULATING PREFIX(LEFT OR RIGHT) THEN WE SEE CALCLUATED PREFIX AS INPUT TO WRITE LOGIC NOT INPUT GIVEN IN QUESTION 
