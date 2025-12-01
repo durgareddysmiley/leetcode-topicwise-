@@ -387,7 +387,7 @@ So to include arr[r], you need prefix at position r + 1.
 pref[r+1] = sum of first (r+1) elements = nums[0] + ... + nums[r]
 
 pref[l] = sum of first l elements = nums[0] + ... + nums[l-1]
-
+ 
 ## TO REMEMBER 
 If all numbers became nums[r] (SAME), then the total sum of the subarray would be:
 EXPECTED = (R-L+1) * NUM[R]
