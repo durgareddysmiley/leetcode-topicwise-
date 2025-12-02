@@ -8,7 +8,7 @@ A Difference Array is an array that helps you apply multiple range updates effic
 Instead of updating every element in a range [L, R], you just update two positions in the difference array.
 
 After all updates, you rebuild the original array using a prefix sum.
-
+ 
 💡 Shortcut Tip:
 Whenever you see “many range updates” or “apply operations on subarrays efficiently”, think Difference Array / Prefix Sum.
 
