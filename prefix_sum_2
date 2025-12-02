@@ -11,7 +11,16 @@ After all updates, you rebuild the original array using a prefix sum.
  
 💡 Shortcut Tip:
 Whenever you see “many range updates” or “apply operations on subarrays efficiently”, think Difference Array / Prefix Sum.
+Whenever you see:
 
+add value to a whole range
+
+update many continuous elements
+
+queries for each index afterward
+
+
+👉 That’s a classic sign for prefix sum / difference array technique.
 4️⃣ Easy Way to Remember
 
 “Difference Array = Update only start and end+1, rebuild with prefix sum.”
