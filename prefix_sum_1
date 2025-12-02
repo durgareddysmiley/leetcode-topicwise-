@@ -67,7 +67,7 @@ It means reverse the array.
 Example:
 
 arr = [1, 2, 3, 4]
-arr[::-1] → [4, 3, 2, 1]
+arr[::-1] → [4, 3, 2, 1] 
 
 
 ---
