@@ -57,7 +57,7 @@ from typing import List
 class Solution:
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
         # Difference array to store range updates
-        diff = [0] * (n + 2)  # n+2 to handle last+1 without index error
+        diff = [0] * (n + 2)  # n+2 to handle last+1 without index error 1 <= firsti <= lasti <= n
         
         # Apply all bookings as range updates
         for first, last, seats in bookings:
