@@ -17,7 +17,7 @@ add value to a whole range
 
 update many continuous elements
 
-queries for each index afterward
+queries for each index afterward --“విడివిడిగా ప్రతి స్థానానికి (index కి) విలువ ఎంత వచ్చిందో అడగడం.”
 
 
 👉 That’s a classic sign for prefix sum / difference array technique.
