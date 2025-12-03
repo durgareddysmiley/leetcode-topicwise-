@@ -1,7 +1,7 @@
 HASHING:
      hashing is used to count frequencis   
 METHODS   
-1. Hash Table (dict)
+1. Hash Table (dict) 
  
 Definition:
 A hash table is a data structure that stores key-value pairs and allows fast access, insertion, and deletion using a hash function.
