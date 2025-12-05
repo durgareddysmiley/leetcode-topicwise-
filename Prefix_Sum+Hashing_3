@@ -23,7 +23,7 @@ Check if (current_prefix_sum - target_sum) exsts in the map.
 Not subsequences, not subsets — specifically continuous subarrays.
  
 Examples in statements:
-
+ 
 “Find the number of subarrays …”
 
 “Find the longest subarray …”
