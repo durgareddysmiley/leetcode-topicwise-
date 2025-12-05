@@ -10,7 +10,7 @@ We use prefix sums when we need to quickly calculate the sum of elements in a ra
 
 Pattern Name → Prefix Sum / Running Sum 
 
-🔹 Definition of the Pattern
+🔹 Definition of the Pattern 
 
 The prefix sum pattern is used when you need: 
 
@@ -39,6 +39,11 @@ Let's clear everything step-by-step, very simple, with English words — so you 
 For:
 
 arr = [1, 2, 3, 4]
+  def accumulate(arr):
+            s = 0
+            for x in arr:
+                s += x
+                yield s
 
 list(accumulate(arr)) produces prefix sums:
 
