@@ -101,3 +101,10 @@ Pattern	Meaning
 check_split("abCv")
 # Output → ["ab", "cv"]
 
+🎯 SUMMARY TABLE
+Code	What It Removes	From Where?
+lstrip('L')	Remove L’s	From left side only
+lstrip('R')	Remove R’s	From left side only
+rstrip('R')	Remove R’s	From right side only
+rstrip('L')	Remove L’s	From right side only
+
