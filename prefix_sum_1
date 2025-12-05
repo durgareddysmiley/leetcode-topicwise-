@@ -82,7 +82,7 @@ arr = [1, 2, 3, 4]
 Call:
 
 accumulate(arr)
-
+   
 
 Inside accumulate:
 
@@ -206,7 +206,7 @@ Because:
 
 accumulate(arr[::-1]) is the prefix sum of reversed array → wrong order
 
-Reversing it again fixes the order → gives true suffix sums
+Reversing it again fixes the order → gives true suffix sums 
  
 
 
