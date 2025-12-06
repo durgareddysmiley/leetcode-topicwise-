@@ -85,19 +85,18 @@ from typing import List
 
 from collections import defaultdict
 
-def subarraySum(nums, k):
-    prefix_sum = 0
-    count = 0
-    prefix_map = defaultdict(int)
-    prefix_map[0] = 1   # base case: empty subarray
+class Solution:
+    def subarraySum(self, nums: list[int], k: int) -> int:
+        final = c = 0 
+        hashi = defaultdict(int)
+        hashi[0]+=1 
+        for i in range(len(nums)):
+            c+=nums[i]
+            if c - k in hashi:
+                final += hashi[c-k]
+            hashi[c]+=1
+        return final
 
-    for num in nums:
-        prefix_sum += num
-        if (prefix_sum - k) in prefix_map:
-            count += prefix_map[prefix_sum - k]
-        prefix_map[prefix_sum] += 1
-    
-    return count
 
 ##BIG DOUBT IN PREFIX SUM -- IS WE DO  (prefix_sum - k)  AND ADDING TO COUNT HOW IT IS WILL BE SUBARAY NOT SUBSEQUENCE 
 $$ DOUBT ANSWER === BELOW 
