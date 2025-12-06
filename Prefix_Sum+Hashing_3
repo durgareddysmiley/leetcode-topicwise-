@@ -273,5 +273,7 @@ class Solution:
 
 
 ## DOUBTS IN ABOVE SUM    target = (rem - total_mod) % p.. WE ARE DOING %p just to avoid negatives  
+If two prefix sums have the SAME remainder, the subarray between them is divisible by p.
+
 
 
