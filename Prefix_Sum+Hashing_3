@@ -1,5 +1,5 @@
 PREFIX SUM + HASHING Pattern 
-
+ 
 Hashing (usually using a Map or unordered_map) is combined with prefix sums to solve problems like:
 
 Subarray with a given sum   
@@ -96,7 +96,8 @@ class Solution:
                 final += hashi[c-k]
             hashi[c]+=1
         return final
-
+##SOLUTION 
+EE SUM CHESTUNNAPUDU NEN CHESINA MISTAKE NORMAL GA NUMBER HASH LOKI ADD CHESA WITH OUT COMPARING SO OLD ANSWERS KUDA MALLI ADD IYYI OUT PUT EKKUVA CHUPISTUNDHI SO DIRECT PREFIX SUM HASH LOKI ADD CHESTE OLD SUMS RAVU REMEMBER 
 
 ##BIG DOUBT IN PREFIX SUM -- IS WE DO  (prefix_sum - k)  AND ADDING TO COUNT HOW IT IS WILL BE SUBARAY NOT SUBSEQUENCE 
 $$ DOUBT ANSWER === BELOW 
