@@ -203,6 +203,32 @@ shortest length = same logic
 
 So storing -1 acts like a "virtual index before start".
 
+✅ Why hash[0] = -1 for LONGEST/SHORTEST?
+👉 Because we want to include subarrays starting from index 0.
+
+Example:
+
+arr = [2, 3]
+K = 5
+prefix sums = [2, 5]
+remainders = [2, 0]
+
+
+At index 1, remainder = 0.
+This means:
+
+subarray 0 to 1 is valid
+
+
+Now length must be:
+
+length = i - (-1) 
+       = 1 - (-1)
+       = 2
+
+✔ Correct length = 2
+❌ Without -1: 1 - 0 = 1 (wrong)
+
 1590. MAKE SUM DIVISIBLE BY P 
 Problem
 
