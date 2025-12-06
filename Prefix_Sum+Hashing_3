@@ -193,7 +193,7 @@ Then we store:
 hash[0] = -1
 
 
-Why?
+Why? // OKA NUMBER KE 0 IYNAPPUDU LIKE 1 2 3 HERE IT IS 0 AND LENGTH IS 2 THE  2 - (-1) IS 3 IN THAT TIMES WE WILL USE MORE CLEAR IS MENTIONED BELOW
 
 Because if prefix remainder becomes 0 at index i:
 
