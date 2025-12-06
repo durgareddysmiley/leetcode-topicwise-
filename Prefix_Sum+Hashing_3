@@ -1,4 +1,4 @@
-PREFIX SUM + HASHING Pattern   
+PREFIX SUM + HASHING Pattern                
  
 Hashing (usually using a Map or unordered_map) is combined with prefix sums to solve problems like:
 
@@ -267,7 +267,7 @@ class Solution:
             count += freq[rem]
             
             # Increase remainder count
-            freq[rem] += 1
+            freq[rem] += 1 // This is remainder while doing this sum  i stored prefix sums so i have doubt and that doubt cleared by the below explanation 
         
         return count
 
@@ -278,6 +278,67 @@ O(n) — one pass through the array
 📌 Space Complexity
 
 O(k) — hashmap storing remainders
+
+✅ WHY keys must be remainders (NOT prefix sums)
+🔥 Rule:
+
+A subarray sum is divisible by k if and only if:
+
+prefix[j] % k == prefix[i] % k
+
+
+This means:
+
+(prefix[j] - prefix[i]) % k = 0
+
+
+Which exactly means the subarray (i+1 … j) sum is divisible by k.
+
+👉 So we must store remainders, because checking equal remainders is how we detect a divisible subarray.
+
+🧠 Let’s prove this with your example:
+
+arr = [4, 5, 0, -2, -3, 1], k = 5
+
+Prefix sums:
+
+index	element	prefix sum	remainder
+0	4	4	4
+1	5	9	4
+2	0	9	4
+3	-2	7	2
+4	-3	4	4
+5	1	5	0
+
+Look at indices with same remainder:
+
+remainder 4 appears at indices: 0,1,2,4
+
+remainder 2 at index: 3
+
+remainder 0 at index: 5
+
+Now check subarrays formed by same-remainder pairs:
+
+remainder 4:
+
+(0 → 1): subarray [5] → 5 → divisible
+
+(0 → 2): subarray [5,0] → 5 → divisible
+
+(0 → 4): subarray [5,0,-2,-3] → 5 → divisible
+
+(1 → 2): subarray [0] → 0 → divisible
+
+(1 → 4): subarray [0,-2,-3] → -5 → divisible
+
+(2 → 4): subarray [-2,-3] → -5 → divisible
+
+remainder 0:
+
+(–1 → 5): whole subarray → sum = 5 → divisible
+
+👉 7 subarrays found, EXACTLY the output.
 
 ## UPTO ABOVE SUM WE SEEN COUNTING THEN WE USE prefix_sum[0] = 1 BUT NOW WE ARE DOING prefix_sum[0] = -1 BECAUSE NOW WE ARE DEALING WITH TO FIND LENGTH LIKE LONGEST AND SHORTEST 
 ## WHEN ASK ABOUT LONGEST THEN  WE  WRITE  INSIDE  ELSE  hash[rem] = i..IF WE WANT SHORTEST  WE DOESNOT WRITE IN ELSE  WE WRITE IN IF BELOW 
