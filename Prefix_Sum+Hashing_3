@@ -1,4 +1,4 @@
-PREFIX SUM + HASHING Pattern 
+PREFIX SUM + HASHING Pattern   
  
 Hashing (usually using a Map or unordered_map) is combined with prefix sums to solve problems like:
 
@@ -180,7 +180,30 @@ all 5 have same remainder then we get 5 + 5 = 10
 
 ## UPTO ABOVE SUM WE SEEN COUNTING THEN WE USE prefix_sum[0] = 1 BUT NOW WE ARE DOING prefix_sum[0] = -1 BECAUSE NOW WE ARE DEALING WITH TO FIND LENGTH LIKE LONGEST AND SHORTEST 
 ## WHEN ASK ABOUT LONGEST THEN  WE  WRITE  INSIDE  ELSE  hash[rem] = i..IF WE WANT SHORTEST  WE DOESNOT WRITE IN ELSE  WE WRITE IN IF BELOW 
-1590. Make Sum Divisible by P
+✅ 2. prefix_sum[0] = -1 → Used for LENGTH (Longest/Shortest)
+
+When the question asks:
+
+Longest subarray
+
+Shortest subarray
+
+Then we store:
+
+hash[0] = -1
+
+
+Why?
+
+Because if prefix remainder becomes 0 at index i:
+
+longest length = i - (-1)
+
+shortest length = same logic
+
+So storing -1 acts like a "virtual index before start".
+
+1590. MAKE SUM DIVISIBLE BY P 
 Problem
 
 Given an array of positive integers nums, remove the smallest subarray (possibly empty) such that the sum of the remaining elements is divisible by p. It is not allowed to remove the whole array.
