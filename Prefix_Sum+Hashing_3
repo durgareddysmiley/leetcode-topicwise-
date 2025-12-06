@@ -54,16 +54,27 @@ Target sum is given (560, 930) → use prefix - goal
 Target sum is not given, only divisibility (974) → use prefix % k
 
 ##PROBLEM 
-✅ Practice Question
+🔹 Subarray Sum Equals K (LeetCode 560)
+✅ Problem Statement
 
-You are given an integer array nums and an integer k.
+Given an array of integers nums and an integer k, return the total number of continuous subarrays whose sum equals k.
 
-👉 Return the total number of non-empty subarrays whose sum is divisible by k.
+✅ Example Input
+nums = [1, 1, 1]
+k = 2
 
-🔹 Example 1
-Input:  nums = [2, 3, 5, 7, 1], k = 5
-Output: ?
+✅ Expected Output
+2
 
+✅ Explanation
+
+Subarrays with sum = 2 are:
+
+[1, 1] (index 0 to 1)
+
+[1, 1] (index 1 to 2)
+
+So the answer is 2.
 
 If the problem asks:
 
