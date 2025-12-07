@@ -17,7 +17,7 @@ print(factorial(5))
 Write a Python program to reverse an array using recursion.
 Do not use loops or built-in reverse functions.
 
-🔢 Input:
+🔢 Input: 
 N = 5
 arr = [10, 20, 30, 40, 50]
 
