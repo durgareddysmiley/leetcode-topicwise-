@@ -3,7 +3,7 @@ Recursion is a programming technique where a function calls itself to solve a pr
 ## BASIC SUMS
 1.FACTORIAL OF A NUMBER 
 INPUT = 5 OUTPUT = 120
-##CODE 
+##CODE  
 def factorial(n, p=1):
     if n < 1:
         return 1  
