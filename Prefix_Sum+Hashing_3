@@ -149,7 +149,7 @@ prefix_sum at end - prefix_sum at start → includes all numbers in between → 
 Longest subarray … → length → use hashmap with indices
 
 ## 🔹 930. Binary Subarrays With Sum
-Problem
+Problem 
 
 Given a binary array nums (only 0s and 1s) and an integer goal, return the number of subarrays with sum = goal.
 (Subarray = contiguous part of array)
