@@ -107,7 +107,7 @@ If n == 0, return 1.
 
 Recursive Step:
 
-Compute half = power(x, n // 2)
+Compute half = power(x, n // 2) 
 
 If n is even → result = half * half
 
