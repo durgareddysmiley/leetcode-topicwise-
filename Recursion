@@ -1,7 +1,7 @@
 Recursion:
 Recursion is a programming technique where a function calls itself to solve a problem by breaking it into smaller, simpler sub-problems, with a base case to stop the recursion.
 ## BASIC SUMS
-1.FACTORIAL OF A NUMBER 
+1.FACTORIAL OF A NUMBER  
 INPUT = 5 OUTPUT = 120
 ##CODE  
 def factorial(n, p=1):
