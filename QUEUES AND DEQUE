@@ -9,7 +9,7 @@ Operations:
 enqueue() → add element at the back
 
 dequeue() → remove element from the front
-
+ 
 # 🌀 Deque (Double-Ended Queue)
 
 A **deque** (pronounced *deck*) is a data structure that allows insertion and deletion from **both ends** — **front** and **rear**.
