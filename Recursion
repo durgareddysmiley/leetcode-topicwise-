@@ -127,6 +127,7 @@ Can access outer variables	❌ No	✅ Yes
 Used in recursion problems	✅ Mostly	❌ Rare
 Exam / interview friendly	✅ Yes	⚠️ Avoid
 
+Reverse a stack using rescursion 
 
 
 GENERAL PATTERN 1 TEMPLATE:
