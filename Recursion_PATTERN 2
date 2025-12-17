@@ -2,7 +2,7 @@
 🧠 DEFINITION
 
 This recursion pattern is used when each element in a collection has two independent choices:
-👉 Include it or 👉 Exclude it from the current result.
+👉 Include it or 👉 Exclude it from the current result. 
 
 It explores all possible combinations (or subsequences) of the input — forming a recursion tree of size 2ⁿ.
 Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum.
