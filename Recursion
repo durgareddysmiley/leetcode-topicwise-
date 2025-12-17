@@ -127,7 +127,52 @@ Can access outer variables	❌ No	✅ Yes
 Used in recursion problems	✅ Mostly	❌ Rare
 Exam / interview friendly	✅ Yes	⚠️ Avoid
 
-Reverse a stack using rescursion 
+Sort a stack
+Difficulty: MediumAccuracy: 69.19%Submissions: 166K+Points: 4Average Time: 20m
+Given a stack of integers st[]. Sort the stack in ascending order (smallest element at the bottom and largest at the top).
+
+Examples:
+
+Input: st[] = [1, 2, 3]
+Output: [3, 2, 1]
+Explanation: The stack is already sorted in ascending order.
+
+Input: st[] = [41, 3, 32, 2, 11]
+Output: [41, 32, 11, 3, 2]
+Explanation: After sorting, the smallest element (2) is at the bottom and the largest element (41) is at the top.
+
+Constraints:
+1 ≤ st.size() ≤ 103
+0 ≤ stack element ≤ 103
+
+Expected Complexities
+Company Tags
+AmazonMicrosoftGoldman SachsIntuitYahooIBMKuliza
+Topic Tags
+Related Articles
+If you are facing any issue on this page. Please let
+
+CODE:
+class Solution:
+    def sortStack(self, st):
+        if len(st) == 1:        # ❌ WRONG base case
+            a = st.pop()
+            self.insert(st, a)
+            return
+
+        a = st.pop()
+        self.sortStack(st)
+        self.insert(st, a)
+
+    def insert(self, st, a):
+        if not st or st[-1] < a:
+            st.append(a)
+            return
+
+        val = st.pop()
+        self.insert(st, a)
+        st.append(val)
+
 
 
 GENERAL PATTERN 1 TEMPLATE:
