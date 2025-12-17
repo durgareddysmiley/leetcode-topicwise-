@@ -62,7 +62,7 @@ def solve(idx, arr, current):
         process(current)      # print, append, or evaluate
         return
 
-    # 2️⃣ CHOICE 1 — INCLUDE arr[idx]
+    # 2️⃣ CHOICE 1 — INCLUDE arr[idx] 
     current.append(arr[idx])
     solve(idx + 1, arr, current)
     current.pop()             # backtrack (undo include)
