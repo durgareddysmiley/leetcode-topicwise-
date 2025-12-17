@@ -8,7 +8,7 @@ It explores all possible combinations (or subsequences) of the input — forming
 Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum.
 
 🕒 WHEN TO USE
- 
+  
 Use this pattern when:
 
 You need to generate all possible combinations or selections of elements.
