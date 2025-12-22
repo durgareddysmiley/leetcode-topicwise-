@@ -36,6 +36,26 @@ Whenever you see such “all possible” or “every combination” wording → 
 YOU ARE POPPING AN ELEMENT AND BUT I STILL EXPECT CURR[-1] AT WRONG TIME 
 if curr is empty or curr[-1] == '0'
 LIKE THIS YOU ARE POPPING AND CALLING FUNCTION AGAIN AND CHECKING CURR[-1] 
+
+🧠 Mistake 4: Wrong order of operations (decision order confusion)
+❌ What you mixed up
+
+checking condition ❌
+
+popping ❌
+
+appending ❌
+
+recursion ❌
+
+in random order
+
+🧠 Correct mental order (ALWAYS)
+
+1️⃣ Check if choice is allowed
+2️⃣ Make the choice (append)
+3️⃣ Recurse
+4️⃣ Undo the choice (pop)
 🧠 THINKING PROCESS
 
 Whenever you see a problem like
