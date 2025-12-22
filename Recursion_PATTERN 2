@@ -31,6 +31,11 @@ You’ll often see phrases like:
 
 Whenever you see such “all possible” or “every combination” wording → think INCLUDE–EXCLUDE RECURSION.
 
+## MISTAKES I HAVE DONE IN INCLUDE AND EXCLUDE UPTO NOW
+
+YOU ARE POPPING AN ELEMENT AND BUT I STILL EXPECT CURR[-1] AT WRONG TIME 
+if curr is empty or curr[-1] == '0'
+LIKE THIS YOU ARE POPPING AND CALLING FUNCTION AGAIN AND CHECKING CURR[-1] 
 🧠 THINKING PROCESS
 
 Whenever you see a problem like
