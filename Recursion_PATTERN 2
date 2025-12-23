@@ -111,6 +111,15 @@ COMBINATION SUM	Choose or skip numbers with repetition	Combination Sum (Leetcode
 TARGET SUM	Assign + or – to reach a target	Target Sum (Leetcode 494)
 LETTER COMBINATIONS	Choose one letter for each digit	Letter Combinations of a Phone Number (Leetcode 17)
 BINARY STRINGS	Generate all binary strings of length n	Generate Binary Strings
+
+🎯 Simple memory trick
+
+Subarray → No jumping (walk step by step)
+
+Subsequence → Can jump
+
+Subset → Order doesn’t matter
+
 ⏱️ COMPLEXITY
 METRIC	VALUE
 TIME COMPLEXITY	
