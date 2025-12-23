@@ -5,7 +5,7 @@ This recursion pattern is used when each element in a collection has two indepen
 👉 Include it or 👉 Exclude it from the curre nt result. 
 
 It explores all possible combinations (or subsequences) of the input — forming a recursion tree of size 2ⁿ.
-Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum.
+Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum. 
 
 🕒 WHEN TO USE
    
@@ -212,6 +212,7 @@ main(0, [])
 
 ✅ Output → [[], [1], [2], [1,2]]
 
+
 DOUBTS AND ANSWER 
     WHILE DOING THIS SUM I DIDNT UNDERSTAND DRY RUN I FIGHT TO UNDERSTAND FOR 2 DAYS SO WHAT MY DOUBT IS HERE WHILE DOING DRY RUN AND IT IS COMING BACK I AM CONFUSED ABOUT MUTABLE AND UM MUTABLE
     LETS ASSUME CURR = [1,2,3]  IDX = 2 IN CASE 3 AND IN CASE 4 . CURR = [1,2,3,4] IDX = 3 AND WE ARE ARE RETURNING FROM CASE 4 TO CASE 3 THEN CASE3 CURR = [1,2,3,4] BEACUSE EVERY FUNCTION SHARES SAME LIST IN PARAMETERS 
@@ -385,6 +386,8 @@ Return to []
 ✅ Reached end → record []
 Return to main — recursion completed ✅
 
+## REMEMBER THERE ARE THE SUMS WHICH CAN BE SOLVED BY USING INCLUDE OR EXCLUDE BUT ADDITIONALLY WE NEED TO ADD WHILE LOOP AND SOME CONDITIONS FOR SOME TIME LIKE THIS BELOW SUM
+
 Problem: 90 : Subsets II
 
 Description:
@@ -515,8 +518,31 @@ class Solution:
             current.append('1')
             self._helper(current, n, idx + 1)
             current.pop()
-DOUBTS:
-IN IF CASE  WE ONLT WRITE ABOUT 0 BUT IN ELSE CASE WE ARE TRYING BOTH '0' AND '1' BECAUSE.. IF BEFORE NUMBER IS 1 WE ONLY HAVE OPTION TO ADD ONLY '0' .. IN ELSE WE ARE 
+ANOTHER WORKING CODE WITH ANOTHER LOGIC 
+def bs(n, cur, res, idx=0):
+    if idx == n:
+        res.append("".join(cur))
+        return
+
+    # Always add '0'
+    cur.append('0')
+    bs(n, cur, res, idx + 1)
+    cur.pop()
+
+    # Add '1' only if previous is '0' or empty
+    if not cur or cur[-1] == '0':
+        cur.append('1')
+        bs(n, cur, res, idx + 1)
+        cur.pop()
+
+
+n = 3
+res = []
+bs(n, [], res)
+print(res)
+
+DOUBTS IN 1ST CODE:
+IN IF CASE  WE ONLY WRITE ABOUT 0 BUT IN ELSE CASE WE ARE TRYING BOTH '0' AND '1' BECAUSE.. IF BEFORE NUMBER IS 1 WE ONLY HAVE OPTION TO ADD ONLY '0' .. IN ELSE WE ARE 
 TRYING BOTH '0' AND '1' 
 2. Y WE ARE POPPING AT LAST 
 ANS = BECAUSE WE ARE TRIES WITH '0' OR '1' AFTER THAT WE WANT TO REMOVE THAT AMD ADD OTHER ONE
