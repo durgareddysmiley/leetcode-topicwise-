@@ -1,5 +1,5 @@
 🧩 SUBSET / SUBSEQUENCE (INCLUDE–EXCLUDE) RECURSION PATTERN
-🧠 DEFINITION
+🧠 DEFINITION 
                                                                                             
 This recursion pattern is used when each element in a collection has two independent choices:
 👉 Include it or 👉 Exclude it from the curre nt result. 
