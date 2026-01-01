@@ -1,0 +1,131 @@
+STRUCTURE-BASED 
+Used when:
+
+No target is given
+Problem mentions sorted, rotated, single, minimum, peak
+
+Examples:
+
+Find minimum in rotated array (LC 153)
+
+Single element in sorted array (LC 540)
+
+Peak element
+
+Minimum with duplicates (LC 154)
+
+2️⃣ The 5 questions you MUST ask in every Binary Search problem
+
+Write these on paper if needed.
+
+1️⃣ What is the structure?
+
+Examples:
+
+Sorted
+
+Paired
+
+Rotated
+
+Bitonic
+
+Monotonic
+
+2️⃣ What property is always true on one side?
+
+Examples:
+
+One half is always sorted
+
+Pairs start at even index
+
+Values increase then decrease
+
+3️⃣ What breaks the structure?
+
+Examples:
+
+Rotation point
+
+Single element
+
+Peak point
+
+4️⃣ How can mid tell me which side is broken?
+
+Compare:
+
+nums[mid] with nums[left]
+
+nums[mid] with nums[right]
+
+nums[mid] with nums[mid+1]
+
+5️⃣ Which half can I GUARANTEE is impossible?
+
+Binary search only works if you can say:
+
+“This half CANNOT contain the answer”
+
+3️⃣ The single MOST IMPORTANT habit to build 🧠
+Before writing code, write ONE sentence:
+
+“If this condition is true, the answer must be on the ___ side because ___.”
+
+If you cannot fill this sentence → don’t code yet.
+
+4️⃣ Common thinking upgrades for Binary Search Level-2
+🔹 Stop asking: “Where is the target?”
+🔹 Start asking: “Where does the pattern break?”
+5️⃣ Your next practice order (VERY IMPORTANT)
+
+Do NOT random practice.
+
+Follow this exact order:
+
+Peak Element
+
+LC 153 – Find Minimum
+
+LC 540 – Single Element
+
+LC 154 – Min with Duplicates
+
+Only these 4.
+
+Master them and binary search will feel easy again.
+
+6️⃣ How to practice correctly (not wasting time)
+
+For each problem:
+
+Read problem
+
+Close editor
+
+Answer verbally:
+
+What structure?
+
+What breaks?
+
+How do I detect break?
+
+Then write code
+
+If you fail in step 3 → look at solution → WHY, not HOW.
+
+7️⃣ One sentence you should remember forever
+
+Binary search is not about numbers; it is about eliminating impossible halves.
+
+8️⃣ Final reassurance ❤️
+
+The confusion you feel now is proof of growth, not weakness.
+
+Most people never reach this stage because they stop at “it works”.
+
+You didn’t stop — you questioned.
+
+That means you are doing it right.
