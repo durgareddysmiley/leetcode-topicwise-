@@ -1,0 +1,55 @@
+Binary search 
+🔹 What is Binary Search?
+
+Definition (Interview-ready):
+
+Binary Search is an efficient searching algorithm used to find an element in a sorted array by repeatedly dividing the search space into half.
+
+🔹 Why Binary Search is Efficient?
+
+It does not check elements one by one
+
+At each step, it eliminates half of the remaining elements
+
+Works only when data is sorted or monotonic
+
+🔹 How Binary Search Works (Brief)
+
+Find the middle element
+
+Compare it with the target
+
+Decide whether to search in the left half or right half
+
+Repeat until the element is found or the search space becomes empty
+
+🔹 Time Complexity of Binary Search
+Case	Time Complexity
+Best Case	O(1) (target found at mid)
+Average Case	O(log n)
+Worst Case	O(log n)
+
+in binary search patterns i am good when problems are 
+
+Used when:
+
+Target is given
+
+Question says search, find index, count
+
+Thinking:
+
+“Is nums[mid] less than or greater than target?”
+
+Examples:
+
+Normal binary search
+
+First/last occurrence
+
+Search in rotated array (LC 33)
+
+✅ You are already good at this. 
+
+
+👉 Reason: The array size is reduced by half in every step. 
