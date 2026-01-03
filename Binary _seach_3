@@ -1,0 +1,156 @@
+## Doubts 
+When to use i < j and i <=j confusion when to use 
+
+🟢 CASE 1: End with ONE index → i < j
+
+Use this when:
+
+The problem guarantees one answer exists
+
+You keep mid sometimes (j = mid or i = mid)
+
+You want the loop to stop when one index remains
+
+Typical problems:
+
+Find Minimum in Rotated Array
+
+Find Peak Element
+
+Minimum in Bitonic Array
+
+Pattern:
+while i < j:
+    mid = (i + j) // 2
+    if condition:
+        i = mid + 1   # discard mid
+    else:
+        j = mid       # keep mid
+return i
+
+Why NOT <=?
+
+Because when i == j, the answer is already found —
+checking again causes errors or infinite loops.
+
+🔵 CASE 2: Test ALL possible indices → i <= j
+
+Use this when:
+
+You remove mid completely (mid±1)
+
+You must check the last element
+
+The answer might be anywhere
+
+Typical problems:
+
+Binary Search for a target
+
+Square root
+
+First / last occurrence
+
+Pattern:
+while i <= j:
+    mid = (i + j) // 2
+    if condition:
+        i = mid + 1
+    else:
+        j = mid - 1
+
+🔥 SUPER IMPORTANT MEMORY LINE (LOCK THIS)
+
+If you ever write j = mid, you MUST use i < j.
+If you write j = mid - 1, you MUST use i <= j.
+
+This rule never fails. 
+
+## DOUBT2 WHEN TO USE i = mid + 1 and i = mid and j = mid + 1 and j = mid 
+🧠 BINARY SEARCH – FINAL RULES (MEMORIZE THIS)
+RULE 1️⃣ (MOST IMPORTANT)
+
+Decide first: Can mid be the answer?
+
+Everything depends on this.
+
+RULE 2️⃣ (LEFT POINTER UPDATE)
+❌ Use i = mid + 1
+
+When:
+
+mid is IMPOSSIBLE as an answer
+
+You want to delete mid
+
+Say in your head:
+
+“mid is wrong → throw it away”
+
+✅ Use i = mid
+
+When:
+
+mid CAN BE the answer
+
+You want to keep mid
+
+Say in your head:
+
+“mid might be correct → keep it”
+
+⚠️ Only safe with while i < j
+
+RULE 3️⃣ (RIGHT POINTER UPDATE)
+❌ Use j = mid - 1
+
+When:
+
+mid is IMPOSSIBLE as an answer
+
+You want to delete mid
+
+✅ Use j = mid
+
+When:
+
+mid CAN BE the answer
+
+You want to keep mid
+
+⚠️ Only safe with while i < j
+
+RULE 4️⃣ (LOOP CONDITION — THIS LOCKS EVERYTHING)
+🔴 If you EVER keep mid
+
+(i = mid OR j = mid)
+
+👉 MUST use:
+
+while i < j
+
+🟢 If you ALWAYS delete mid
+
+(i = mid + 1 OR j = mid - 1)
+
+👉 Use:
+
+while i <= j
+
+🔥 ONE-LOOK DECISION TABLE
+Your line	Meaning	Loop
+i = mid + 1	delete mid	i <= j
+j = mid - 1	delete mid	i <= j
+i = mid	keep mid	i < j
+j = mid	keep mid	i < j
+🧠 ONE SENTENCE TO REMEMBER FOREVER
+
+Keep mid → stop at one index (i < j)
+Delete mid → check all indices (i <= j)
+
+✅ FINAL SELF-CHECK (do this every time)
+
+Before writing code, ask:
+1️⃣ Can mid be the answer?
+2️⃣ If YES → keep it → i < j
+3️⃣ If NO → delete it → i <= j
