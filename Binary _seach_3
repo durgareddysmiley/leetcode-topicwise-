@@ -154,3 +154,124 @@ Before writing code, ask:
 1️⃣ Can mid be the answer?
 2️⃣ If YES → keep it → i < j
 3️⃣ If NO → delete it → i <= j
+
+## This is another pattern when doesnt give arrays just numbers giving then use this 
+🔴 IMPORTANT TRUTH (read this first)
+
+👉 When input is a NUMBER (not array)
+👉 You are NOT searching an index
+👉 You are searching a VALUE
+
+So the pointer rules are slightly different.
+
+Step 1: Always ask this ONE question
+
+❓ Am I finding an EXACT value or a BOUND (first true)?
+
+Case A — Exact match
+
+Example:
+Find integer x such that x*x == n
+
+Case B — First true (Lower Bound)
+
+Example:
+Find smallest x such that x*x >= n
+(square root / nth root problems)
+
+Step 2: Pointer rules (THIS is what you want)
+🔹 CASE A: EXACT MATCH (number problems)
+
+👉 You want only equality
+
+while i <= j
+
+
+if condition(mid) < target → i = mid + 1
+
+if condition(mid) > target → j = mid - 1
+
+if equal → return mid
+
+✅ Use this when:
+
+perfect square check
+
+exact power check
+
+search a number
+
+🔹 CASE B: LOWER BOUND (MOST number problems like sqrt)
+
+👉 Pattern:
+
+false false false true true true
+
+
+👉 Goal: first true
+
+while i <= j
+
+
+Rules:
+
+if condition(mid) is TRUE →
+👉 keep mid, go left
+👉 j = mid - 1
+
+if condition(mid) is FALSE →
+👉 go right
+👉 i = mid + 1
+
+✅ Final answer is i
+
+🔥 GOLDEN RULE (write this on paper)
+
+If you write j = mid → use while i < j
+If you write j = mid - 1 → use while i <= j
+
+In number problems, we almost always use:
+
+j = mid - 1
+
+
+So:
+
+while i <= j
+
+Why NOT j = mid in number problems?
+
+Because:
+
+mid is a VALUE, not an index
+
+keeping mid can cause infinite loop
+
+mid - 1 guarantees movement
+
+Simple decision table 🧠
+Situation	Use
+Searching in ARRAY	j = mid possible
+Searching in NUMBERS	❌ avoid j = mid
+sqrt / nth root	j = mid - 1
+first true	lower bound
+exact value	normal binary search
+Final mental shortcut (VERY IMPORTANT)
+
+Say this in your head 👇
+
+“This is a NUMBER problem, not array
+→ I must move pointers strictly
+→ so I use mid + 1 or mid - 1 only”
+
+If you follow this, you will never confuse again.
+
+Next, I strongly recommend:
+
+I give you 2 number problems
+
+you tell me which rule to use
+
+I’ll correct only if wrong
+
+Just say “give practice” 💪
