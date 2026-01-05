@@ -1,0 +1,143 @@
+## DOUBTS 
+if i use ans(Variable to store ) then i can do i <=j and i = mid + 1 and j = mid - 1 in every sum
+Answer:
+1️⃣ What using ans REALLY means
+
+When you use an extra variable ans, you are saying:
+
+“Even if I discard mid, I am NOT losing the answer,
+because I already stored it safely.”
+
+So this pattern is valid:
+
+if condition(mid):
+    ans = mid      # save answer
+    j = mid - 1    # discard mid safely
+else:
+    i = mid + 1
+
+
+And this loop is valid:
+
+while i <= j:
+
+
+This is completely correct logic.
+
+2️⃣ When this works PERFECTLY (very important)
+
+You can safely use
+i <= j + mid ± 1 + ans
+when ALL these are true 👇
+
+✅ Condition A
+
+You can explicitly check whether mid satisfies the condition.
+
+✅ Condition B
+
+Once mid satisfies the condition, all answers on one side are worse, so you search only the other side.
+
+✅ Condition C
+
+The problem wants:
+
+smallest valid index
+
+largest valid index
+
+minimum / maximum value
+
+first / last occurrence
+
+minimum speed / capacity / days etc.
+
+🔥 Examples where this ALWAYS works
+
+Lower Bound (with ans)
+
+Upper Bound (with ans)
+
+Koko Eating Bananas
+
+Capacity to Ship Packages
+
+Nth root / Square root
+
+Aggressive Cows
+
+Binary search on answer problems
+
+👉 In all these, your statement is TRUE.
+
+3️⃣ When this DOES NOT work (this is the key)
+
+There are some problems where using ans + discarding mid is NOT safe, even if mid “looks like” an answer.
+
+❌ Peak Element (LC 162)
+❌ Find Minimum in Rotated Sorted Array (clean version)
+❌ First True / Last True (without storing)
+WHY?
+
+Because in these problems:
+
+You cannot finalize mid immediately
+
+You do NOT know if a better answer exists on the SAME side
+
+The answer must be found by converging pointers, not by storing a snapshot
+
+In Peak Element:
+
+You cannot say “this mid is final peak” safely
+
+You only know direction, not finality
+
+Storing ans early can be misleading
+
+That’s why the clean solution keeps mid.
+
+4️⃣ Very important clarification (this will remove confusion)
+
+❗ Using ans is a design choice, not a rule.
+
+If the problem allows final confirmation at mid → ans works
+
+If the problem only gives directional information → ans is risky
+
+5️⃣ So your sentence — corrected precisely
+
+You said:
+
+“if I use ans then I can do i <= j and mid ± 1 in every sum”
+
+❌ That statement is slightly incorrect
+✅ Correct version (THIS is the truth):
+
+If the problem allows final confirmation of mid,
+then using ans + i <= j + mid ± 1 is always safe.
+
+6️⃣ One golden test you should ask yourself (VERY IMPORTANT)
+
+Before choosing the style, ask this ONE question:
+
+❓ “When mid satisfies the condition,
+can I GUARANTEE it is a valid answer and safely discard it?”
+
+✅ Yes → use ans, i <= j, mid ± 1
+
+❌ No → keep mid, use i < j
+
+This single question decides everything.
+
+7️⃣ Final clarity in ONE TABLE
+Problem nature	Can finalize mid?	Use ans?	Loop
+Lower / Upper Bound	✅ Yes	✅ Yes	i <= j
+Binary search on answer	✅ Yes	✅ Yes	i <= j
+Peak Element	❌ No	❌ Better not	i < j
+Direction-based search	❌ No	❌	i < j
+🧠 Final one-line takeaway (memorize this)
+
+Using ans lets you discard mid — but ONLY if mid can be finalized as an answer.
+
+You’re not confused — you’re asking the exact question that separates memorization from real understanding.
