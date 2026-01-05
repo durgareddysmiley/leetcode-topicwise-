@@ -136,11 +136,11 @@ can I GUARANTEE it is a valid answer and safely discard it?”
 This single question decides everything.
 
 7️⃣ Final clarity in ONE TABLE
-Problem nature	Can finalize mid?	Use ans?	Loop
-Lower / Upper Bound	✅ Yes	✅ Yes	i <= j
-Binary search on answer	✅ Yes	✅ Yes	i <= j
-Peak Element	❌ No	❌ Better not	i < j
-Direction-based search	❌ No	❌	i < j
+Problem nature      	Can finalize mid?	Use ans?	     Loop
+Lower / Upper Bound	        ✅ Yes	       ✅ Yes	         i<=j
+Binary search on answer	    ✅ Yes	       ✅ Yes	         i <= j
+Peak Element	            ❌ No	       ❌ Better not	  i < j
+Direction-based search	    ❌ No	          ❌	           i < j
 🧠 Final one-line takeaway (memorize this)
 
 Using ans lets you discard mid — but ONLY if mid can be finalized as an answer.
