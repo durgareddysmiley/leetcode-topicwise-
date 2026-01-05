@@ -1,6 +1,11 @@
 ## DOUBTS 
 if i use ans(Variable to store ) then i can do i <=j and i = mid + 1 and j = mid - 1 in every sum
 Answer:
+✅ YES — in MOST binary search problems, if you use an ans variable, you CAN use i <= j with i = mid + 1 and j = mid - 1.
+❌ But NOT in every single binary search problem.
+There are clear conditions when this is valid and when it is NOT.
+
+Now I’ll explain slowly, clearly, and honestly, because this doubt is fundamental. 
 1️⃣ What using ans REALLY means
 
 When you use an extra variable ans, you are saying:
