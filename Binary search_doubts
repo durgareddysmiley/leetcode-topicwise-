@@ -29,7 +29,7 @@ while i <= j:
 
 This is completely correct logic.
 
-2️⃣ When this works PERFECTLY (very important)
+2️⃣ When this works PERFECTLY (very important) 
 
 You can safely use
 i <= j + mid ± 1 + ans
