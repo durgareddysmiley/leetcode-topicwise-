@@ -357,3 +357,209 @@ Draw a diagram showing why slope logic can’t finalize mid
 Give a decision checklist you can apply in exams
 
 Just tell 👍
+
+##DOUBT 3 
+Great, this is the last missing piece 👍
+I’ll explain it very clearly, without mixing topics, and connect it to what you already understood about peak element.
+
+You are asking:
+
+“You said in some other problems also we should NOT use ans because they are directional / bidirectional type.
+What does that mean?
+Why is ans not valid there?”
+
+1️⃣ First: What “directional” vs “confirmable” really means
+
+There are two kinds of binary-search problems based on the information you get at mid.
+
+This has NOTHING to do with:
+
+number of answers
+
+interview style
+
+i<j vs i<=j by itself
+
+It depends only on what mid tells you.
+
+2️⃣ Type-A: CONFIRMABLE problems (ans is VALID)
+
+👉 At mid, you can say YES or NO with certainty
+
+Meaning:
+
+If condition is true at mid
+
+Then mid is definitely a valid answer
+
+No extra information needed
+
+Examples:
+
+Lower Bound
+
+Upper Bound
+
+Koko Eating Bananas
+
+Capacity to Ship Packages
+
+Square root / Nth root
+
+Example (Lower Bound)
+nums[mid] >= x
+
+
+This tells you completely:
+
+mid satisfies the requirement
+
+it will remain valid forever
+
+So you can safely do:
+
+ans = mid
+j = mid - 1
+
+
+✅ ans is safe
+✅ discarding mid is safe
+
+3️⃣ Type-B: DIRECTIONAL problems (ans is NOT safe)
+
+👉 At mid, you do NOT know the answer,
+you only know which side to go.
+
+This is the key idea.
+
+🔴 What “directional” means (very important)
+
+“Directional” means:
+
+The condition at mid does NOT confirm mid is an answer
+It only tells you where an answer must exist
+
+Peak Element (your known example)
+
+Condition used:
+
+nums[mid] > nums[mid+1]
+
+
+What does this tell you?
+
+❌ It does NOT tell you:
+
+“mid is a peak”
+
+✅ It only tells you:
+
+“a peak exists on the LEFT side (including mid)”
+
+So mid is not confirmed.
+
+That’s why:
+
+you don’t store ans
+
+you don’t discard mid blindly
+
+you just move in that direction
+
+4️⃣ Another directional example (not peak)
+Find Minimum in Rotated Sorted Array (clean version)
+
+Condition:
+
+if nums[mid] <= nums[j]:
+
+
+What does this tell you?
+
+❌ It does NOT tell you:
+
+“mid is the minimum”
+
+✅ It only tells you:
+
+“the minimum lies on the LEFT side”
+
+Again:
+
+mid is not confirmed
+
+ans is unsafe
+
+must converge pointers
+
+5️⃣ Why ans FAILS in directional problems (core reason)
+
+Let me say this very clearly:
+
+In directional problems,
+mid is only a signpost, not a destination
+
+If you store ans = mid, you may store:
+
+something that is not actually valid
+
+something that just helped you choose a direction
+
+That’s exactly what happened in peak:
+
+slope info ≠ peak confirmation
+
+6️⃣ Why these problems are sometimes called “bidirectional”
+
+You may hear:
+
+directional
+
+bidirectional
+
+slope-based
+
+monotonic on sides
+
+All mean roughly this:
+
+From mid, you can move LEFT or RIGHT,
+but you cannot FINALIZE the answer at mid.
+
+That’s it.
+
+7️⃣ Compare both types side-by-side (THIS IS IMPORTANT)
+Property	                    Confirmable problems	Directional problems
+Mid gives final answer?	             ✅ Yes	                ❌ No
+Condition fully verifies?	         ✅ Yes              	❌ No
+Safe to store ans?	                 ✅ Yes             	❌ No
+Discard mid?	                     ✅ Yes              	❌ No
+Pointer style	i<=j + ans	i<j (converge)
+8️⃣ Final crystal-clear rule (this answers everything)
+
+If mid only tells you WHERE to go → do NOT use ans
+If mid tells you THIS IS VALID → ans is OK
+
+9️⃣ One-line memory sentence (keep this)
+
+Directional problems guide you.
+Confirmable problems decide for you.
+
+You now understand:
+
+why peak does not use ans
+
+why lower bound does
+
+why some problems feel “similar” but behave differently
+
+This doubt is not basic — it’s an advanced binary search insight.
+You’re doing really well.
+
+If you want next:
+
+I can classify 10 problems into confirmable vs directional
+
+Or give you a decision checklist
+
+Or explain why rotated array search mixes both ideas
