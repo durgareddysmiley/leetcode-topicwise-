@@ -18,8 +18,26 @@ This matrix has:
 - **Element:** A single value in the matrix
 
 ## How to scan matrix 
+n = int(input())
+mat = []
 for i in range(n):
         mat.append(list(map(int, input().split())))
+
+## This code creates a matrix filled with zeros
+rows = 3
+cols = 3
+matrix = [[0] * cols for i in range(rows)]
+Result: The matrix is strictly [[0, 0, 0], [0, 0, 0], [0, 0, 0]].
+
+## ANOTHER TYPE TO CREATE MATRIX The Input Method (Dynamic Data)
+This code creates a matrix based on user input. The values are determined by what is typed during execution.
+
+n = int(input("Enter number of rows: "))
+matrix = []
+
+for i in range(n):
+    row = list(map(int, input(f"Enter row {i} elements separated by space: ").split()))
+    matrix.append(row)
 
 StepUser TypesWhat input().split() seesWhat mat looks like after appendLoop 11 2 3['1', '2', '3'][[1, 2, 3]]
 Loop2  4 5 6['4', '5', '6'][[1, 2, 3], [4, 5, 6]]Loop 3  7 8 9['7', '8', '9'][[1, 2, 3], [4, 5, 6], [7, 8, 9]]
