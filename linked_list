@@ -19,6 +19,11 @@ head = ListNode(1) → creates first node with value 1.
 
 head.next = ListNode(2) → second node linked to first.
 
+
+## HERE NUM = [1,2,3] AND WE RETURN HEAD...IT IS LINKED WITH ALL EVEN HEAD IS THE MAIN ELEMENT BECAUSE OF CONNECTING SO THE ENTIRE INPUT IS CAME AS OUTPUT 
+
+IF WE WANT ONLY THAT NUMBER WE USE head.val
+
 ##PATTERNS 
 4️⃣ Two Pointers / Slow-Fast Pattern
 
