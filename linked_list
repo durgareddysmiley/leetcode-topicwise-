@@ -19,6 +19,24 @@ head = ListNode(1) → creates first node with value 1.
 
 head.next = ListNode(2) → second node linked to first.
 
+## BASIC OPETATIONS OF LINKED LIST 
+1.Adding a Node
+To add a node, you first create it, then point its .next to the rest of the list.
+
+-> Add to the Front (At the Head)
+new_node = ListNode(val)
+new_node.next = head
+head = new_node
+
+-> Add to the End (At the Tail)
+new_node = ListNode(val)
+if not head:
+    head = new_node
+else:
+    curr = head
+    while curr.next:
+        curr = curr.next
+    curr.next = new_node
 
 ## HERE NUM = [1,2,3] AND WE RETURN HEAD...IT IS LINKED WITH ALL EVEN HEAD IS THE MAIN ELEMENT BECAUSE OF CONNECTING SO THE ENTIRE INPUT IS CAME AS OUTPUT 
 
