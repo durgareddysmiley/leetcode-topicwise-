@@ -1,0 +1,164 @@
+TIME AND SPACE COMPLEXITIES
+WHAT IS TIME COMPLEXITY?
+
+Time complexity tells how the running time of an algorithm grows as the input size increases.
+It does not measure seconds, it measures number of operations.
+
+We represent it using Big-O notation.
+
+WHAT IS SPACE COMPLEXITY?
+
+Space complexity tells how much extra memory an algorithm uses apart from input data.
+
+BIG-O NOTATION
+Big-O describes the worst-case growth of an algorithm when input size becomes large.
+O(1) – CONSTANT TIME
+MEANING
+Time does not change with input size.
+
+EXAMPLE
+x = arr[0]
+
+NOTES
+
+No loops
+Fastest possible
+O(n) – LINEAR TIME
+
+MEANING
+
+Time grows proportionally with input size.
+
+EXAMPLE
+
+for i in range(n):
+    print(arr[i])
+
+NOTES
+
+One loop
+n elements → n operations
+O(n²) – QUADRATIC TIME
+
+MEANING
+
+Time grows very fast because of nested loops.
+
+EXAMPLE
+
+for i in range(n):
+    for j in range(n):
+        print(i, j)
+
+NOTES
+
+Two loops with same variable
+n × n operations
+Slow for large input
+O(log n) – LOGARITHMIC TIME
+
+MEANING
+
+Input size is reduced by half each step.
+
+EXAMPLE
+
+Binary Search
+
+while low <= high:
+    mid = (low + high) // 2
+
+NOTES
+
+Very fast
+Used in searching
+O(n log n) – LINEARITHMIC TIME
+
+MEANING
+
+For each element, a log n operation is done.
+
+EXAMPLE
+
+Merge Sort
+Quick Sort (average case)
+
+NOTES
+
+Faster than O(n²)
+Slower than O(n)
+O(m × n) – MATRIX TIME COMPLEXITY
+
+MEANING
+
+Two different input sizes are involved.
+
+EXAMPLE
+
+for i in range(m):
+    for j in range(n):
+        print(mat[i][j])
+
+NOTES
+
+Used for matrices
+m = rows, n = columns
+
+DIFFERENCE BETWEEN O(n²) AND O(m × n)
+
+O(n²)
+Both loops depen on same variable
+Used when sizes are equal
+
+O(m × n)
+
+Loops depend on different variables
+Used for rectangular matrices
+
+SPACE COMPLEXITY EXAMPLES
+
+O(1) SPACE
+
+EXAMPLE
+count = 0
+
+NOTES
+
+Only variables
+Constant memory
+O(n) SPACE
+
+EXAMPLE
+arr = [0] * n
+
+NOTES
+
+Extra array of size n
+O(n²) SPACE
+
+EXAMPLE
+
+matrix = [[0]*n for _ in range(n)]
+
+NOTES
+
+Extra 2D matrix
+
+IMPORTANT INTERVIEW RULES
+
+Count loops to find time complexity
+Count extra data structures to find space complexity
+Ignore constants and small terms
+Always consider worst case
+
+ONE-LINE MEMORY TRICKS
+
+One loop → O(n)
+Nested loop → O(n²)
+Halving input → O(log n)
+Matrix → O(m × n)
+
+FINAL THUMB RULE
+
+Time = how many times code runs
+Space = how much extra memory is used
