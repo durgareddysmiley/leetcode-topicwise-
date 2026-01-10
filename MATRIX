@@ -17,6 +17,12 @@ This matrix has:
 - **Column:** A vertical line of elements
 - **Element:** A single value in the matrix
 
+## How to scan matrix 
+for i in range(n):
+        mat.append(list(map(int, input().split())))
+
+StepUser TypesWhat input().split() seesWhat mat looks like after appendLoop 11 2 3['1', '2', '3'][[1, 2, 3]]
+Loop2  4 5 6['4', '5', '6'][[1, 2, 3], [4, 5, 6]]Loop 3  7 8 9['7', '8', '9'][[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 Matrix can be written as `m x n` (m rows and n columns).
 Example: The above matrix is `2 x 3`.
 
