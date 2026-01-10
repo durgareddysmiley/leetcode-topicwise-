@@ -311,4 +311,63 @@ class Solution:
 Time Complexity: O(m × n)
 Space Complexity: O(r × c)
 
+When we got problwms like reshpe we want to use this divivsion operators like // and % so that we can get 
+##DOUBTS I GOT LOT OF THIS SUMS Y WE ARE USING result[count // c][count % c] = mat[i][j] HOW YOU GET THIS IDEA
+count//c is nothing but 🎯 Final answer in ONE sentence
+We use count // c because integer division tells how many complete groups of c elements are filled, and each group corresponds to one row in the reshaped matrix.
+Row = how many full rows of c items are completed → count // c ** When count crosses a multiple of c, count // c tells which row we are in (1st row, 2nd row, etc.).
 
+##Y [count % c]
+Now I’ll explain count % c in the same simple, slow way.
+
+Think again of placing elements one by one
+
+Each row can hold c elements
+
+count = number of elements already placed
+
+You already know:
+
+count // c → which row
+
+Now the question is:
+
+Inside that row, which position (column) is this element?
+
+What does % (modulo) mean?
+
+% means:
+
+remainder after division
+
+Why remainder gives column?
+
+When you divide count by c:
+
+The quotient (count // c) tells how many full rows are done
+
+The remainder (count % c) tells how many elements are already placed in the current row
+
+That number is exactly the column index.
+
+Example with c = 4
+count	count % 4	meaning
+0	0	1st column
+1	1	2nd column
+2	2	3rd column
+3	3	4th column
+4	0	new row, 1st column
+5	1	2nd column
+Simple way to remember
+
+count % c tells the position inside the row.
+
+Or in words:
+
+After filling c elements, column starts again from 0.
+
+Final clear meaning
+
+We use count % c because it tells how many elements are already placed in the current row, which directly gives the column index.
+
+That’s all.
