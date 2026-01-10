@@ -194,4 +194,121 @@ mat → [[1,2,3], [4,5,6]] (one list with 2 rows)
 zip(*mat) → [(1,4), (2,5), (3,6)] (transposed / column-wise view)
 
 
+566. Reshape the Matrix
+📌 Problem Statement
+
+You are given:
+
+A matrix mat of size m × n
+
+Two integers r and c
+
+Your task is to reshape the matrix into a new matrix of size r × c while keeping the same row-wise order of elements.
+
+👉 If reshaping is not possible, return the original matrix.
+
+🔍 Key Observation
+
+Total elements in original matrix = m × n
+
+Total elements in new matrix = r × c
+
+✅ Reshape is possible ONLY IF
+m × n == r × c
+Otherwise:
+
+Return original matrix
+
+🧠 Core Idea (How to Think)
+
+Traverse the original matrix row by row
+
+Store elements into the new matrix in the same order
+
+Use a single counter to map elements correctly
+
+Why counter works?
+
+Because:
+
+count // c → row index in new matrix
+
+count % c → column index in new matrix
+
+✏️ Mapping Logic (Important)
+
+Original matrix is read like:
+
+1 → 2 → 3 → 4
+
+
+New matrix is filled like:
+
+result[count // c][count % c]
+
+
+This keeps row-traversing order intact.
+
+🧪 Example 1
+Input
+mat = [[1,2],
+       [3,4]]
+r = 1, c = 4
+
+Output
+[[1, 2, 3, 4]]
+
+Explanation
+
+Original elements = 4
+
+New matrix capacity = 4
+
+Reshape possible ✅
+
+🧪 Example 2
+Input
+mat = [[1,2],
+       [3,4]]
+r = 2, c = 4
+
+Output
+[[1,2],
+ [3,4]]
+
+Explanation
+
+Original elements = 4
+
+New matrix capacity = 8
+
+Reshape NOT possible ❌
+
+Return original matrix
+
+##CODE 
+class Solution:
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        m = len(mat)
+        n = len(mat[0])
+
+        # Check if reshape is possible
+        if m * n != r * c:
+            return mat
+
+        # Create new matrix
+        result = [[0] * c for _ in range(r)]
+
+        count = 0
+        for i in range(m):
+            for j in range(n):
+                result[count // c][count % c] = mat[i][j]
+                count += 1
+
+        return result
+
+⏱️ Complexity Analysis
+Time Complexity: O(m × n)
+Space Complexity: O(r × c)
+
 
