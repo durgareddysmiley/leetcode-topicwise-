@@ -13,6 +13,7 @@ Space complexity tells how much extra memory an algorithm uses apart from input 
 BIG-O NOTATION
 Big-O describes the worst-case growth of an algorithm when input size becomes large.
 O(1) – CONSTANT TIME
+
 MEANING
 Time does not change with input size.
 
@@ -55,8 +56,8 @@ NOTES
 Two loops with same variable
 n × n operations
 Slow for large input
-O(log n) – LOGARITHMIC TIME
 
+O(log n) – LOGARITHMIC TIME
 MEANING
 
 Input size is reduced by half each step.
@@ -72,6 +73,7 @@ NOTES
 
 Very fast
 Used in searching
+
 O(n log n) – LINEARITHMIC TIME
 
 MEANING
@@ -83,10 +85,17 @@ EXAMPLE
 Merge Sort
 Quick Sort (average case)
 
+Ex:
+The "Log n" Part (Dividing)In algorithms like Merge Sort, the first thing we do is split the pile in half, then split those halves again, 
+until we have individual 8 books -> 4 books -> 2 books  -> 1book
+How many times did we split? 3 times.
+In math, log_2(8) = 3 This "splitting" or "searching" depth is the log n part.
+
 NOTES
 
 Faster than O(n²)
 Slower than O(n)
+
 O(m × n) – MATRIX TIME COMPLEXITY
 
 MEANING
