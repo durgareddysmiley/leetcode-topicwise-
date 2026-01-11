@@ -12,7 +12,7 @@ Pointer (next) → a reference to the next node in the list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val    # stores value
-        self.next = next  # points to next node
+        self.next = next  # points to next node 
 
 
 head = ListNode(1) → creates first node with value 1.
