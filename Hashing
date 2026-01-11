@@ -31,3 +31,80 @@ print(hs)         # {1, 2, 3, 4}
 IF WE NEED TO REMOVE LAST ONE IN THE LIST THEN WE CAN JUST WRITE JUST A.POP()
 POP IS USED FOR REMOVING LAST VALUE AND DELETING THROUGH INDEX
 ## IF WE NEED TO REMOVE A SPECIC VALUE USE LIKE A.REMOVE[S[4]] LIKE THAT 
+
+## 82. Remove Duplicates from Sorted List II
+
+Given the head of a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list. 
+Return the linked list sorted as well.
+
+Input: head = [1,2,3,3,4,4,5]
+Output: [1,2,5]
+
+##CODE 
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]):
+        slow = head
+        hasi = {}
+
+        while slow:
+            hasi[slow.val] = hasi.get(slow.val, 0) + 1
+            slow = slow.next
+
+        return hasi
+## I HAVE DOUBT AND THE ABOVE SUM IS NOT THE COMPLETE ANSWER OF THE CODE BUT IT IS USED TO STORE THE HASH MY MISTAKE IS HERE I USED HASH = {} AND I DIRECTLY ASSIGN 
+INSIDE THE HASH[SLOW.VAL]+=1 BUT IT IS NOT HTE CORRECT ANSWER BECAUSE IT IS KEY VALUE ERRO WE WE ASSING ONLY {} THEN WE GET KEY VALUE ERROR SO INSIDE WHILE WE USE GET OR 
+USE DEFAULTDICT INSTEAD OF {}.. 
+##WHICH ARE VALID 
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]):
+        slow = head
+        hasi = {}
+
+        while slow:
+            hasi[slow.val] = hasi.get(slow.val, 0) + 1
+            slow = slow.next
+
+        return hasi
+✅ Example Dry Output
+
+Input:
+
+[1,2,3,3,4,4,5]
+
+
+Returned hash:
+
+{
+  1:1,
+  2:1,
+  3:2,
+  4:2,
+  5:1
+} 
+## IF WE USE ONLY THESE  hasi = {}
+
+✅ Valid cases using ONLY {}
+
+✔️ Case 1: When you CHECK before using
+hasi = {}
+
+if x not in hasi:
+    hasi[x] = 1
+else:
+    hasi[x] += 1
+
+
+✔️ Safe
+✔️ No error
+
+✔️ Case 2: When you ASSIGN directly (not +=)
+hasi = {}
+hasi[x] = 1
+
+
+✔️ Valid
+
+✔️ Case 3: When you only READ existing keys
+if x in hasi:
+    print(hasi[x])
+JUST USED O USE == NOT TO INCREMENT TO DECREMENT 
