@@ -1,5 +1,5 @@
 ## Linked List:
-
+ 
 A linked list is a way to store a sequence of elements (like numbers) one after another, but unlike arrays, they are not stored in continuous memory.
 
 Each element in a linked list is called a node, and each node has:
@@ -38,7 +38,8 @@ else:
         curr = curr.next
     curr.next = new_node
 
-## HERE NUM = [1,2,3] AND WE RETURN HEAD...IT IS LINKED WITH ALL EVEN HEAD IS THE MAIN ELEMENT BECAUSE OF CONNECTING SO THE ENTIRE INPUT IS CAME AS OUTPUT 
+## HERE NUM = [1,2,3] AND WE RETURN HEAD...IT IS LINKED WITH ALL EVEN HEAD IS THE MAIN ELEMENT BECAUSE OF CONNECTING SO THE ENTIRE 
+INPUT IS CAME AS OUTPUT 
 
 IF WE WANT ONLY THAT NUMBER WE USE head.val
 
