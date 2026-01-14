@@ -60,6 +60,119 @@ class Solution:
             fast = fast.next.next
         prev.next = slow.next
         return head
+
+🔥 TWO POINTERS IN LINKED LIST (ONLY 3 TYPES)
+🧠 Rule to remember
+
+Two pointers ≠ one logic
+Two pointers = 3 different patterns
+
+1️⃣ SPEED DIFFERENCE PATTERN
+(Fast = 2 steps, Slow = 1 step)
+👉 Used for:
+
+Find middle
+
+Detect cycle
+
+🧠 When to use?
+
+Question says:
+
+middle
+
+cycle
+
+half
+
+✅ BASIC TEMPLATE
+slow = fast = head
+
+while fast and fast.next:
+    slow = slow.next
+    fast = fast.next.next
+
+# slow is middle OR meet point
+
+2️⃣ FIXED DISTANCE PATTERN ⭐ (IMPORTANT)
+(Fast starts first, Slow follows)
+👉 Used for:
+
+Nth node from end
+
+Kth node from last
+
+Remove from end
+
+🧠 When to use?
+
+Question says:
+
+from end
+
+last k
+
+one pass
+
+✅ BASIC TEMPLATE
+slow = fast = head
+
+# create distance
+for _ in range(k):
+    fast = fast.next
+
+# move together
+while fast:
+    slow = slow.next
+    fast = fast.next
+
+# slow is answer
+
+3️⃣ MEET / COMPARE PATTERN
+(Two pointers meet or compare)
+👉 Used for:
+
+Palindrome linked list
+
+Intersection of two lists
+
+🧠 When to use?
+
+Question says:
+
+palindrome
+
+intersection
+
+✅ BASIC TEMPLATE
+p1 = head1
+p2 = head2
+
+while p1 != p2:
+    p1 = p1.next if p1 else head2
+    p2 = p2.next if p2 else head1
+
+return p1
+
+🧠 ONE-LINE MEMORY (PUT IN GITHUB README)
+Two Pointer Linked List:
+
+1) Speed diff → middle, cycle
+2) Distance diff → from end problems
+3) Meet/compare → palindrome, intersection
+
+🧠 SUPER SHORT DECISION RULE (EXAM)
+
+Ask only one question:
+
+❓ Does problem mention END / LAST?
+➡ use distance pattern
+
+❓ Does it mention MIDDLE / CYCLE?
+➡ use speed pattern
+
+❓ Does it mention MATCH / PALINDROME?
+➡ use meet pattern
             
             
         
