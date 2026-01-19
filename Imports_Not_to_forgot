@@ -76,3 +76,6 @@ print(list_b)
 Result: [1, 2, 3, 4, 5] (The length increased by 2)
 
 ##IN SMART INTREVIEW TRY d.reverse()
+
+##TO PRINT UP TO POINTS 2 DO LIKE THIS 
+print(f'{mean:.2f}') we need to adjust like that 
