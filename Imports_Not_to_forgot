@@ -52,3 +52,27 @@ print(math.ceil(5/2))   # 3
 
 ##
 SOMETIMES APPEND NOT WORKS TRY EXTEND
+
+.append()
+The .append() method adds its argument as a single element to the end of the list. If you pass a list to .append(), it adds the entire list as a nested object.
+
+Python
+
+list_a = [1, 2, 3]
+list_a.append([4, 5])
+
+print(list_a)
+Result: [1, 2, 3, [4, 5]] (The length increased by 1)
+
+.extend()
+The .extend() method iterates over its argument and adds each item to the list individually. It essentially "unpacks" the collection you provide.
+
+Python
+
+list_b = [1, 2, 3]
+list_b.extend([4, 5])
+
+print(list_b)
+Result: [1, 2, 3, 4, 5] (The length increased by 2)
+
+##IN SMART INTREVIEW TRY d.reverse()
