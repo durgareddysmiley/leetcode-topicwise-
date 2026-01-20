@@ -1,6 +1,6 @@
 ## Doubts 
 When to use i < j and i <=j confusion when to use 
-
+ 
 🟢 CASE 1: End with ONE index → i < j
 
 Use this when:
