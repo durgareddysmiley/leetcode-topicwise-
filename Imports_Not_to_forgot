@@ -84,3 +84,23 @@ print(f'Mean : {Mean: .2f} )
 Mean : 25.46
 
 Nth Term of GP bookmark_border formula is a *(b ** (c-1)) 
+
+📌 Complete List (YOU MUST MEMORIZE)
+Function	What it does
+list.sort()	Sorts list
+list.reverse()	Reverses list
+list.append(x)	Adds element
+list.extend(x)	Adds many
+list.insert(i,x)	Insert
+list.remove(x)	Remove value
+list.pop()	Remove element
+list.clear()	Clears list
+
+## MISTAKES I HAVE DONE 
+❌ WRONG
+b = a.sort()
+b = a.reverse()
+
+✅ CORRECT
+a.sort()
+a.reverse()
