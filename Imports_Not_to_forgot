@@ -82,3 +82,5 @@ print(f'{mean:.2f}') we need to adjust like that  we we want only value  like 25
 BUT IF WE WANT WITH NAME LIKE MEAN : 32.30 NOW I WANT TO DO LIKE 
 print(f'Mean : {Mean: .2f} ) 
 Mean : 25.46
+
+Nth Term of GP bookmark_border formula is a *(b ** (c-1)) 
