@@ -1,6 +1,6 @@
 🧱 1. What is a Stack?
 
-A stack is a linear data structure that follows LIFO (Last In, First Out).
+A stack is a linear data structure that follows LIFO (Last In, First Out).  
 👉 The element added last is the one removed first.
 
 Common operations:
