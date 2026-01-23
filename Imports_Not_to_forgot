@@ -101,10 +101,17 @@ list.clear()	Clears list
 b = a.sort()
 b = a.reverse()
 
-## FORMULA ## ARTHEMTIC PROGRESSION
-a,d,n  = (a+(n-1)*d)
-
-
 ✅ CORRECT
 a.sort()
 a.reverse()
+
+## FORMULA ## ARTHEMTIC PROGRESSION
+a,d,n  = (a+(n-1)*d)
+
+## TRIANGLE VALIDATOR formula
+a+b > c
+a+c > b 
+b+c > a
+
+
+
