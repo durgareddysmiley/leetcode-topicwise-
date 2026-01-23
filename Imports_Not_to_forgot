@@ -113,5 +113,9 @@ a+b > c
 a+c > b 
 b+c > a
 
+## nth term of gp 
+a * r **(n-1)
+
+
 
 
