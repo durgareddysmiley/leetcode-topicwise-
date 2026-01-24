@@ -152,6 +152,9 @@ n << k = n × (2^k)
 🔹 Example 1
 5 << 1
 
+here  n = 5 , k= 1 
+2 * 1 = 2 
+now 5 * 2 = 10
 
 Binary:
 
@@ -194,3 +197,20 @@ Fast multiplication
 n * 2 → n << 1
 
 n * 4 → n << 2
+
+🔹 WHERE TO USE LEFT SHIFT (<<)
+1️⃣ When multiplying by power of 2
+
+Use left shift when multiplication is:
+
+×2, ×4, ×8, ×16, ...
+
+Example:
+n = 5
+n << 1   # 5 × 2 = 10
+n << 2   # 5 × 4 = 20
+n << 3   # 5 × 8 = 40
+
+
+👉 Used when * is not allowed.
+
