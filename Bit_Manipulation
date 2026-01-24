@@ -214,3 +214,45 @@ n << 3   # 5 × 8 = 40
 
 👉 Used when * is not allowed.
 
+🔹 RIGHT SHIFT (>>)
+1️⃣ What is Right Shift?
+
+👉 Moves binary bits to the RIGHT
+👉 Removes the last bit
+👉 Divides the number by 2 (integer division)
+
+2️⃣ Example (VERY CLEAR)
+Example 1
+10 >> 1
+
+
+Binary:
+
+10 = 1010
+
+
+Right shift by 1:
+
+1010 → 101
+
+
+Decimal:
+
+101 = 5
+
+
+✅ Result:
+
+10 >> 1 = 5
+
+3️⃣ Where to Use Right Shift?
+✅ Use Case 1: Divide by Power of 2
+
+When question says:
+
+Divide without using /
+
+n >> 1  →  n ÷ 2
+n >> 2  →  n ÷ 4
+n >> 3  →  n ÷ 8
+
