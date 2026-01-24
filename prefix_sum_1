@@ -11,7 +11,7 @@ We use prefix sums when we need to quickly calculate the sum of elements in a ra
 Pattern Name → Prefix Sum / Running Sum 
 
 🔹 Definition of the Pattern 
-
+ 
 The prefix sum pattern is used when you need: 
 
 The sum of elements from the start up to an index, or
