@@ -36,7 +36,7 @@ dq.append(x)
 dq.popleft()
 
 ##PROBLEMS
-# 🍱 LeetCode #1700 — Number of Students Unable to Eat Lunch
+# 🍱 LeetCode #1700 — Number of Students Unable to Eat Lunch 
 
 ---
 
