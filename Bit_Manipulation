@@ -130,3 +130,67 @@ ans = 0
 for x in nums:
     ans ^= x
 print(ans)
+
+🔹 SHIFT OPERATORS — SHORT NOTES
+
+There are 2 types:
+1️⃣ Left Shift <<
+2️⃣ Right Shift >>
+
+1️⃣ LEFT SHIFT (<<)
+👉 What it does
+
+Shifts bits to the LEFT
+
+Adds 0 at the right end
+
+Multiplies the number by 2
+
+🔹 Rule (IMPORTANT ⭐)
+n << k = n × (2^k)
+
+🔹 Example 1
+5 << 1
+
+
+Binary:
+
+5 = 101
+→ 1010
+
+
+Decimal:
+
+1010 = 10
+
+
+✅ Result:
+
+5 << 1 = 10
+
+🔹 Example 2
+6 << 2
+
+
+Binary:
+
+6 = 110
+→ 11000
+
+
+Decimal:
+
+11000 = 24
+
+
+✅ Result:
+
+6 << 2 = 24
+
+🔹 When to use <<
+
+Fast multiplication
+
+n * 2 → n << 1
+
+n * 4 → n << 2
