@@ -67,6 +67,36 @@ Example:
 ---------
     001 = 1
 
+##IT IS USED TO CHECK EVEN OR ODD 
+3️⃣ Example (VERY CLEAR)
+Example 1: EVEN number
+6 & 1
+
+
+Binary:
+
+6 = 110
+1 = 001
+
+
+AND:
+
+110
+001
+---
+000  → 0
+
+
+✅ Result = 0 → EVEN
+
+n = 7
+
+if n & 1:
+    print("Odd")
+else:
+    print("Even")
+
+
 2️⃣ OR (|)
 
 👉 If any one is 1, result is 1
