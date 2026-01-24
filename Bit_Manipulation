@@ -113,6 +113,29 @@ Example:
 ---
 111 = 7
 
+##WHEN IT IS USED 
+USED TO CHECK AT LEAST THERE IS 1 
+✅ Use Case 1: TURN ON A BIT (MOST IMPORTANT)
+
+OR is used to set / turn ON a bit.
+
+Example:
+
+x = 4      # 100
+x = x | 1  # turn ON last bit
+
+
+Binary:
+
+100 | 001 = 101
+
+
+Result:
+
+5
+
+
+👉 Used in bit masking
 3️⃣ XOR (^) ⭐ IMPORTANT
 
 👉 Same → 0
