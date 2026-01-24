@@ -1,0 +1,101 @@
+🔹 What is Bit Manipulation?
+
+Bit manipulation means working with numbers in binary (0 and 1) using special operators.
+
+👉 Computer does NOT understand 10, 20, 50
+👉 Computer understands only 0 and 1
+
+So bit manipulation =
+playing with 0s and 1s to solve problems faster
+
+🔹 What is a BIT?
+
+A bit is the smallest unit of data
+
+Bit → 0 or 1
+
+
+Examples:
+
+5 in binary = 101
+8 in binary = 1000
+
+🔹 Why learn Bit Manipulation?
+
+Because:
+
+Faster solutions 🚀
+
+Used in LeetCode, HackerRank, exams
+
+Used in DSA, OS, networking
+
+🔹 Binary Numbers (VERY IMPORTANT)
+Decimal	Binary
+1	1
+2	10
+3	11
+4	100
+5	101
+6	110
+7	111
+8	1000
+
+👉 Every number = sum of powers of 2
+
+Example:
+
+5 = 4 + 1
+  = 100 + 001
+  = 101
+
+🔹 Bitwise Operators (MAIN THING)
+1️⃣ AND (&)
+
+👉 Both bits must be 1
+
+1 & 1 = 1
+1 & 0 = 0
+0 & 0 = 0
+
+
+Example:
+
+5 & 3
+5 = 101
+3 = 011
+---------
+    001 = 1
+
+2️⃣ OR (|)
+
+👉 If any one is 1, result is 1
+
+1 | 0 = 1
+0 | 0 = 0
+
+
+Example:
+
+5 | 3
+101
+011
+---
+111 = 7
+
+3️⃣ XOR (^) ⭐ IMPORTANT
+
+👉 Same → 0
+👉 Different → 1
+
+1 ^ 1 = 0
+1 ^ 0 = 1
+
+
+Example:
+
+5 ^ 3
+101
+011
+---
+110 = 6 
