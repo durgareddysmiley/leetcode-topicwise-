@@ -99,3 +99,34 @@ Example:
 011
 ---
 110 = 6 
+
+2️⃣ Important Properties (VERY IMPORTANT ⭐)
+a ^ a = 0        → same number cancels
+a ^ 0 = a        → XOR with 0 gives same number
+a ^ b ^ a = b    → order does not matter
+
+3️⃣ Why XOR Removes Duplicates?
+
+Duplicate numbers appear twice
+
+XOR of same numbers becomes 0
+
+So duplicates cancel each other
+
+Only the single number remains
+
+Example:
+
+[2, 3, 2]
+→ (2 ^ 2) ^ 3
+→ 0 ^ 3
+→ 3
+
+##WHEN IT IS NOT USED 
+IF THERE ARE MORE THAN ONE SINGLE ELEMENT IN THE ARRAY COR IS NOT USE FULL
+
+5️⃣ Python Code (Exam Ready)
+ans = 0
+for x in nums:
+    ans ^= x
+print(ans)
