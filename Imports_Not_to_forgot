@@ -116,6 +116,12 @@ b+c > a
 ## nth term of gp 
 a * r **(n-1)
 
+## LEAF YEAR  CODE 
+d % 400 == 0 true 
+d % 100 == 0 not true 
+d % 4 == 0 true 
+else print (false)
+
 
 
 
