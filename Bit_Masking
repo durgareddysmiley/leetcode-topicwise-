@@ -1,0 +1,117 @@
+🔹 BIT MASKING (MOST IMPORTANT NEXT TOPIC)
+
+Bit masking means using bits to control / check values.
+
+We’ll follow this exact format again:
+
+What → Example → Where to use
+
+1️⃣ TURN ON (SET) A BIT
+👉 What it means
+
+Make a particular bit 1, no matter what.
+
+Example
+
+Turn ON bit at position 2 (0-based index)
+
+n = 0
+mask = 1 << 2
+n = n | mask
+print(n)
+
+
+Binary:
+
+1 << 2 = 100
+0 | 100 = 100
+
+
+Result:
+
+4
+
+Where to use?
+
+Enable features
+
+Permissions
+
+Flags
+
+2️⃣ CHECK IF A BIT IS ON
+👉 What it means
+
+Check whether a particular bit is 1 or 0.
+
+Example
+
+Check bit at position 2
+
+n = 4      # 100
+mask = 1 << 2
+
+if n & mask:
+    print("Bit is ON")
+else:
+    print("Bit is OFF")
+
+Where to use?
+
+Permission checking
+
+Feature enabled or not
+
+3️⃣ TURN OFF (CLEAR) A BIT
+👉 What it means
+
+Make a particular bit 0.
+
+Example
+
+Turn OFF bit at position 2
+
+n = 4      # 100
+mask = ~(1 << 2)
+n = n & mask
+print(n)
+
+
+Binary:
+
+~100 = 011
+100 & 011 = 000
+
+
+Result:
+
+0
+
+Where to use?
+
+Disable features
+
+Remove permissions
+
+4️⃣ TOGGLE A BIT
+👉 What it means
+
+If bit is 1 → make 0
+If bit is 0 → make 1
+
+Example
+
+Toggle bit at position 2
+
+n = 0
+n = n ^ (1 << 2)
+print(n)   # 4
+
+n = n ^ (1 << 2)
+print(n)   # 0
+
+Where to use?
+
+Switch ON/OFF
+
+Toggle settings
