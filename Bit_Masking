@@ -237,3 +237,95 @@ n & (n - 1)            # remove rightmost set bit
 n & -n                 # get rightmost set bit
 n | (n + 1)            # set rightmost unset bit
 n & (n - 1) == 0       # power of 2
+
+🟢 AND (&) — CHECK / REMOVE
+1️⃣ Check Odd or Even
+
+Concept: n & 1
+
+GFG:
+https://www.geeksforgeeks.org/program-to-check-even-or-odd/
+
+2️⃣ Check ith Bit is Set or Not
+
+Concept: n & (1 << i)
+
+GFG:
+https://www.geeksforgeeks.org/check-whether-k-th-bit-set-not/
+
+3️⃣ Remove Rightmost Set Bit
+
+Concept: n & (n - 1)
+
+GFG:
+https://www.geeksforgeeks.org/program-to-turn-off-the-rightmost-set-bit/
+
+4️⃣ Check Power of Two
+
+Concept: n & (n - 1) == 0
+
+LeetCode 231 – Power of Two:
+https://leetcode.com/problems/power-of-two/
+
+GFG:
+https://www.geeksforgeeks.org/program-to-find-whether-a-given-number-is-power-of-2/
+
+5️⃣ Count Set Bits
+
+Concept: repeated n & (n - 1)
+
+LeetCode 191 – Number of 1 Bits:
+https://leetcode.com/problems/number-of-1-bits/
+
+GFG:
+https://www.geeksforgeeks.org/count-set-bits-in-an-integer/
+
+6️⃣ Clear ith Bit
+
+Concept: n & ~(1 << i)
+
+GFG:
+https://www.geeksforgeeks.org/clear-kth-bit-number/
+
+🔵 OR (|) — SET
+7️⃣ Set ith Bit
+
+Concept: n | (1 << i)
+
+GFG:
+https://www.geeksforgeeks.org/set-kth-bit-number/
+
+8️⃣ Set Rightmost Unset Bit
+
+Concept: n | (n + 1)
+
+GFG:
+https://www.geeksforgeeks.org/set-the-rightmost-unset-bit/
+
+9️⃣ Set All Bits After MSB
+
+Concept: n | (n - 1)
+
+GFG:
+https://www.geeksforgeeks.org/set-all-the-bits-after-the-most-significant-bit/
+
+🎯 MUST-DO LeetCode Using AND / OR
+🔟 Single Number
+
+Concept: AND / XOR combo
+
+LeetCode 136 – Single Number:
+https://leetcode.com/problems/single-number/
+
+1️⃣1️⃣ Missing Number
+
+Concept: Bit logic
+
+LeetCode 268 – Missing Number:
+https://leetcode.com/problems/missing-number/
+
+🧠 INTERVIEW MEMORY LINE (VERY IMPORTANT)
+AND (&) → check / remove
+OR (|)  → set
+XOR (^) → toggle / unique
+SHIFT   → move bits
