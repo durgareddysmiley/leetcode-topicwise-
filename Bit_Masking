@@ -27,6 +27,7 @@ Binary:
 0 | 100 = 100
 
 
+
 Result:
 
 4
@@ -115,3 +116,124 @@ Where to use?
 Switch ON/OFF
 
 Toggle settings
+
+🔥 BIT MANIPULATION QUICK REVISION (WHEN & WHERE TO USE)
+1️⃣ AND (&) — CHECK / REMOVE
+✅ WHEN to use &
+
+When you want to CHECK a bit
+
+When you want to REMOVE a bit
+
+When you want to filter bits
+
+📌 WHERE to use
+n & 1
+
+
+👉 Check odd / even
+
+n & (1 << i)
+
+
+👉 Check ith bit is 1 or not
+
+n & (n - 1)
+
+
+👉 Remove rightmost set bit
+
+n & ~(1 << i)
+
+
+👉 Clear ith bit
+
+2️⃣ OR (|) — SET
+✅ WHEN to use |
+
+When you want to SET a bit to 1
+
+When you want to keep existing 1s
+
+📌 WHERE to use
+n | 1
+
+
+👉 Set last bit
+
+n | (1 << i)
+
+
+👉 Set ith bit
+
+n | (n + 1)
+
+
+👉 Set rightmost unset (0) bit
+
+3️⃣ XOR (^) — TOGGLE / UNIQUE
+✅ WHEN to use ^
+
+When you want to TOGGLE a bit
+
+When duplicates exist and only one is unique
+
+📌 WHERE to use
+n ^ 1
+
+
+👉 Toggle last bit
+
+n ^ (1 << i)
+
+
+👉 Toggle ith bit
+
+a ^ a = 0
+a ^ 0 = a
+
+
+👉 Used in Single Number problems
+
+4️⃣ LEFT SHIFT (<<) — MOVE LEFT / MULTIPLY
+✅ WHEN to use <<
+
+When you want to create a bit mask
+
+When you want to multiply by 2
+
+📌 WHERE to use
+1 << i
+
+
+👉 Mask for ith bit
+
+n << 1
+
+
+👉 Multiply n by 2
+
+5️⃣ RIGHT SHIFT (>>) — MOVE RIGHT / DIVIDE
+✅ WHEN to use >>
+
+When you want to divide by 2
+
+When you want to check bits one by one
+
+📌 WHERE to use
+n >> 1
+
+
+👉 Divide by 2
+
+(n >> i) & 1
+
+
+👉 Check ith bit
+
+🧠 MOST IMPORTANT INTERVIEW FORMULAS ⭐
+n & 1                  # odd / even
+n & (n - 1)            # remove rightmost set bit
+n & -n                 # get rightmost set bit
+n | (n + 1)            # set rightmost unset bit
+n & (n - 1) == 0       # power of 2
