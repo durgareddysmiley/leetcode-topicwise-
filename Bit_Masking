@@ -5,7 +5,7 @@ Bit masking means using bits to control / check values.
 We’ll follow this exact format again:
 
 What → Example → Where to use
-
+ 
 1️⃣ TURN ON (SET) A BIT
 👉 What it means
 
