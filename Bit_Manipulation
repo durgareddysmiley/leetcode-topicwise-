@@ -312,3 +312,6 @@ n >> 3  →  n ÷ 8
 ##SMLL TRICK THERE IS NUMBER 
 LIKE N = 11 WE WANT LIKE IN BINARY FORMAT 
 then use (bin(n)[2:])
+
+## n & 1: This looks only at the very last bit. If the last bit is 1, 
+the result is 1. If it's 0, the result is 0.
