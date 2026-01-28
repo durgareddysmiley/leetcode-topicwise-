@@ -122,10 +122,22 @@ d % 100 == 0 not true
 d % 4 == 0 true 
 else print (false)
 
+##HASHING
+
 h.items() → key + value
 
 h.keys() → key only
 
 h.values() → value only
 
+Prefix leftsum , right sum 
+n = int(input())
+nums = list(map(int,input().split()))
+l = [0] * n
+p = [0] * n
+c = [0] * n
+for i in range(n-2,-1,-1):
+    p[i] = p[i+1] + nums[i+1] // right sum 
+for j in range(1,n):
+    l[j] = l[j-1] + nums[j-1] // left sum 
 
