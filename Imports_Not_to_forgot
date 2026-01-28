@@ -122,6 +122,10 @@ d % 100 == 0 not true
 d % 4 == 0 true 
 else print (false)
 
+h.items() → key + value
 
+h.keys() → key only
+
+h.values() → value only
 
 
