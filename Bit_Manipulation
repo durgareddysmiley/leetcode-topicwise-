@@ -391,3 +391,39 @@ then use (bin(n)[2:])
 
 ## n & 1: This looks only at the very last bit. If the last bit is 1, 
 the result is 1. If it's 0, the result is 0.
+
+## PROBLEM 
+Set the rightmost bit
+
+
+
+3
+
+Problem Statement: Given a positive integer n, set the rightmost unset (0) bit of its binary representation to 1 and return the resulting integer.
+If all bits are already set, return the number as it is.
+
+Examples
+Example 1:
+Input:
+ n = 10 (binary: 1010)  
+Output:
+ 11 (binary: 1011)  
+Explanation:
+  The rightmost unset bit is the least significant bit (LSB). Setting it to 1 gives 1011 = 11.
+
+##CODE 
+✅ Code Being Dry-Run
+n = 10
+bi = bin(n)[2:]
+t = n
+le = len(bi)
+
+for i in range(le):
+    if (t >> i) & 1 == 0:
+        t = t | (1 << i)
+        break
+
+print(t)
+
+MY DOUBT 
+SEE 
