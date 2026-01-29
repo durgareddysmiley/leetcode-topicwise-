@@ -41,6 +41,82 @@ Decimal	Binary
 7	111
 8	1000
 
+🔑 STEP-1: Ask THIS question to yourself
+
+Am I touching individual bits (0 / 1)?
+
+If ❌ NO → normal math / logic
+
+If ✅ YES → BIT MANIPULATION
+
+In your code:
+(t >> i) & 1
+(1 << i)
+t | (1 << i)
+
+
+You are checking, shifting, setting individual bits
+👉 So BIT MANIPULATION ✔
+
+🔑 STEP-2: Ask THIS second question
+
+Am I creating a pattern like 0001, 0010, 0100 to target one bit?
+
+If YES → BIT MASKING
+
+In your code:
+(1 << i)
+
+
+Examples:
+
+i = 0 → 0001
+i = 1 → 0010
+i = 2 → 0100
+
+
+This pattern is called a MASK because:
+
+it targets one bit
+
+hides others
+
+👉 So BIT MASKING ✔
+
+🔍 How to IDENTIFY in exams / interviews
+See these operators? 🚨
+<<   >>   &   |   ^
+
+
+👉 Immediately think:
+
+BIT MANIPULATION
+
+See this pattern? 🚨
+1 << i
+n & (1 << i)
+n | (1 << i)
+
+
+👉 Immediately think:
+
+BIT MASKING
+
+🧠 Very simple real-life analogy
+Bit manipulation = working with switches
+[1][0][1][0]
+
+
+You are turning individual switches ON/OFF
+
+Bit masking = using tape to touch only one switch
+Mask → 0001
+
+✅ One-line exam answer (remember this)
+
+When a problem uses bitwise operators to access or modify individual bits, it is bit manipulation.
+If it uses patterns like 1 << i to target a specific bit, it is bit masking.
+
 👉 Every number = sum of powers of 2
 
 Example:
