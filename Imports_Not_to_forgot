@@ -91,7 +91,7 @@ list.sort()	Sorts list
 list.reverse()	Reverses list
 list.append(x)	Adds element
 list.extend(x)	Adds many
-list.insert(i,x)	Insert
+list.insert(i,x)	Insert 
 list.remove(x)	Remove value
 list.pop()	Remove element
 list.clear()	Clears list
