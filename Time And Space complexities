@@ -240,3 +240,22 @@ No recursion used
 Only the array contributes to memory growth
 
 ✅ Maximum memory grows linearly with input → O(n)
+
+3. Recursive O(n)
+def factorial(n):
+    if n == 0:
+        return 1
+    return n * factorial(n-1)
+
+
+Input example: n = 3
+
+Step	Operation	Stack content	Memory explanation
+1	factorial(3) called	factorial(3) waiting	1 stack frame
+2	factorial(2) called	factorial(3), factorial(2) waiting	2 stack frames
+3	factorial(1) called	factorial(3), factorial(2), factorial(1) waiting	3 stack frames
+4	factorial(0) called	factorial(3), factorial(2), factorial(1), factorial(0) waiting	4 stack frames
+5	factorial(0) returns 1	start returning	stack frames removed one by one
+
+✅ Why O(n): Each recursive call adds a stack frame; max depth = n → memory grows linearly.
+THIS IS 0(N) BECAUSE factorial(3) , factorial(2),factorial(1) these are new boxes creating every time how many times n there  they want to create   
