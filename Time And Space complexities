@@ -171,3 +171,33 @@ FINAL THUMB RULE
 
 Time = how many times code runs
 Space = how much extra memory is used
+
+##SPACE COMPLEXITY 
+1. CONSTANT SPACE O(1) – Dry Run
+def sum_array(arr):
+    total = 0
+    for x in arr:
+        total += x
+    return total
+
+Input example:
+arr = [2, 4, 6]
+
+Step-by-step execution
+Step	Operation	total value	Memory explanation
+1	Initialize total	0	One variable created → O(1)
+2	x = 2 (first loop)	total = 0 + 2 = 2	No new memory created, just update existing total
+3	x = 4 (second loop)	total = 2 + 4 = 6	Same total variable updated, memory still constant
+4	x = 6 (third loop)	total = 6 + 6 = 12	Still the same variable, no extra memory per element
+5	Return total	12	Only one variable exists → O(1)
+Why space is O(1)
+
+total does not multiply with array size.
+
+Whether arr has 3 elements or 3 million, memory used by total = 1 variable.
+
+The loop variable x is temporary and overwrites itself each iteration.
+
+No extra arrays or recursion are used.
+
+✅ Maximum memory never grows with n → O(1)
