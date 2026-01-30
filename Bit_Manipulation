@@ -343,6 +343,57 @@ n << 3   # 5 × 8 = 40
 
 👉 Used when * is not allowed.
 
+## DOUBT IN LEFT SHIFT MEAN WHILE THIS IS ALSO DOUBT FOR RIGHT SHIFT THAT IS 
+LETS SUPPOSE N = 6 
+IF I DO N >> 1 IT WILL WORK IN THE SAME WAY I DONE SOME THING DIFFERENT THAT 
+BINARY OF 6  I DONE BIN(6) [2:]IS '1 1 0' I DONE '1 1 0' >> 1 THEN IT WILL NOT WORK BOTH ARE SAME  EVEN IF WE DO LIKE 6 ITS TREATES AS BINARY BUT WE CANT INITIALISE BINARY DIRECTLY  
+BECAUSE THESE BIT WISE OPERATORS >> , << WORKS ONLY WITH INTEGERS NOT LIKE THES STRINGS('110') BUT 110 IT WILL WORK  BEACUSE IT IS INTEGET 
+Case 1️⃣ '110' >> 1 ❌
+'110' >> 1
+
+
+❌ Will NOT work
+
+Reason:
+
+'110' → string
+
+Bitwise operators (>>, <<, &, |, ^)
+👉 work ONLY on integers
+
+Python error:
+
+TypeError: unsupported operand type(s) for >>: 'str' and 'int'
+
+Case 2️⃣ 110 >> 1 ✅ (BUT careful!)
+110 >> 1
+
+
+✔️ This WILL work
+
+Output:
+
+55
+
+Why 55?
+
+110 here is a decimal number, NOT binary
+
+Decimal 110 in binary is:
+
+110 (decimal) = 1101110 (binary)
+
+
+Right shift by 1:
+
+1101110  →  110111
+
+
+110111 (binary) = 55
+
+👉 Python does NOT think 110 is binary
+👉 Python thinks 110 is decimal
+
 🔹 RIGHT SHIFT (>>)
 1️⃣ What is Right Shift?
 
