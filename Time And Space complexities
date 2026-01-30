@@ -201,3 +201,42 @@ The loop variable x is temporary and overwrites itself each iteration.
 No extra arrays or recursion are used.
 
 ✅ Maximum memory never grows with n → O(1)
+
+2. Linear Space O(n) – Dry Run
+def double_array(arr):
+    new_arr = []
+    for x in arr:
+        new_arr.append(x * 2)
+    return new_arr
+
+Input example:
+arr = [2, 4, 6]
+
+Step-by-step execution
+Step	Operation	new_arr value	Memory explanation
+1	Initialize new_arr	[]	Empty array created → memory proportional to 0 now
+2	x = 2 (first loop)	[4]	Added 1 element → extra memory grows with input
+3	x = 4 (second loop)	[4, 8]	Added another element → memory grows linearly
+4	x = 6 (third loop)	[4, 8, 12]	Added another element → memory still grows with n
+5	Return new_arr	[4, 8, 12]	Array contains 3 elements → memory = 3 elements
+Why space is O(n)
+
+new_arr grows as input grows
+
+If arr has 3 elements → new_arr has 3 elements
+
+If arr has 1,000 elements → new_arr has 1,000 elements
+
+Memory is proportional to n
+
+Each element in new_arr takes space → total memory = n units
+
+Loop variable x is temporary
+
+Overwrites itself each iteration → does not add extra space
+
+No recursion used
+
+Only the array contributes to memory growth
+
+✅ Maximum memory grows linearly with input → O(n)
