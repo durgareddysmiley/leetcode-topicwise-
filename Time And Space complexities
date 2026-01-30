@@ -232,7 +232,7 @@ Memory is proportional to n
 Each element in new_arr takes space → total memory = n units
 
 Loop variable x is temporary
-
+ 
 Overwrites itself each iteration → does not add extra space
 
 No recursion used
@@ -259,3 +259,21 @@ Step	Operation	Stack content	Memory explanation
 
 ✅ Why O(n): Each recursive call adds a stack frame; max depth = n → memory grows linearly.
 THIS IS 0(N) BECAUSE factorial(3) , factorial(2),factorial(1) these are new boxes creating every time how many times n there  they want to create   
+
+7. Nested loops O(1)  ##REMEMBER MORE LOOPS != MORE SPACE 
+def count_pairs(n):
+    count = 0
+    for i in range(n):
+        for j in range(n):
+            count += 1
+    return count
+
+
+Input example: n = 3
+
+Step	Operation	Variables	Memory explanation
+Loop	All iterations	count variable	Only 1 variable used; loops do not create extra memory
+
+✅ Why O(1): Loops affect time, not space; only count exists. 
+
+
