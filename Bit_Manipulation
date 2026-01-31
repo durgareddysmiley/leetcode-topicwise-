@@ -4,7 +4,7 @@ Bit manipulation means working with numbers in binary (0 and 1) using special op
 
 👉 Computer does NOT understand 10, 20, 50 
 👉 Computer understands only 0 and 1
-
+ 
 So bit manipulation =
 playing with 0s and 1s to solve problems faster
 
