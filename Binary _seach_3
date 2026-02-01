@@ -5,7 +5,7 @@ When to use i < j and i <=j confusion when to use
 
 Use this when:
 
-The problem guarantees one answer exists
+The problem guarantees one answer exists 
 
 You keep mid sometimes (j = mid or i = mid)
 
