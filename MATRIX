@@ -1,7 +1,7 @@
 # Matrix Definition
 
 A **matrix** is a rectangular arrangement of numbers in rows and columns.
-
+   
 Example:
 [
 [1, 2, 3],     
@@ -17,6 +17,9 @@ This matrix has:
 - **Column:** A vertical line of elements
 - **Element:** A single value in the matrix
 
+##In Leet code type problems to scan row and data
+row = len(mt) 
+column = len(mt[0])
 ## How to scan matrix 
 n = int(input())
 mat = []
