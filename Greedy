@@ -1,0 +1,300 @@
+What is Greedy Algorithm (from zero)
+
+👉 Greedy = take the best option right now, hoping it leads to the final best answer.
+
+You don’t think about future
+
+You don’t try all possibilities
+
+You decide step by step, locally best choice
+
+📌 One-line definition for exams
+
+A Greedy algorithm makes the locally optimal choice at each step to reach a globally optimal solution.
+
+🔑 When does Greedy work?
+
+Greedy works ONLY when the problem has this property:
+
+Choosing the best option now will NOT spoil the final answer.
+
+If wrong choice now can’t be fixed later ❌ → Greedy fails
+If wrong choice never happens ✔️ → Greedy works
+
+## WHEN GREEDY FAILS 
+Step 2️⃣: Convert the problem so GREEDY FAILS
+❌ Change the coin set
+
+Let’s change it to:
+
+{1, 3, 4}
+
+
+⚠️ Only this change is enough
+Problem statement remains SAME:
+
+Given infinite supply of coins {1, 3, 4}, find minimum number of coins for n.
+
+Step 3️⃣: Show GREEDY FAILING (Very important)
+Take n = 6
+Greedy thinking (wrong)
+Take 4 → remaining 2
+Take 1 → remaining 1
+Take 1 → remaining 0
+Total coins = 3
+
+Optimal solution (better)
+3 + 3 = 6
+Total coins = 2
+
+
+❌ Greedy failed
+✔️ Optimal used fewer coins
+
+Step 4️⃣: WHY greedy failed here (Key intuition)
+
+Because:
+
+Coin 4 looks attractive locally
+
+But 3 + 3 is globally better
+
+📌 Greedy got trapped by a local optimum
+
+Step 5️⃣: Write this as an EXAM ANSWER
+
+You can write 👇
+
+If the coin denominations are {1, 3, 4}, greedy strategy fails.
+For n = 6, greedy picks 4 first and uses 3 coins (4,1,1), whereas optimal solution uses only 2 coins (3,3).
+Hence greedy does not guarantee optimal solution for all coin systems.
+
+Step 6️⃣: General Rule to Detect Greedy FAILURE
+
+Greedy fails when:
+
+A larger coin blocks a better combination
+
+Medium coins together beat a large coin
+
+🔑 One-line rule (remember this forever)
+
+If a coin is NOT a good replacement of smaller coins, greedy may fail.
+
+Step 7️⃣: Another greedy-failing example
+
+Coin set:
+
+{1, 5, 6, 9}
+
+
+n = 11
+
+Greedy:
+
+9 + 1 + 1 = 3 coins
+
+
+Optimal:
+
+5 + 6 = 2 coins
+
+
+❌ Greedy fails again
+
+🔥 SUPER IMPORTANT EXAM LINE
+
+Greedy algorithm works for canonical coin systems (like Indian currency), but fails for arbitrary denominations.
+
+(💯 teacher-impression line)
+
+🧠 How to IDENTIFY Greedy (Very Important Patterns)
+
+These patterns appear again and again 👇
+If you see them → think GREEDY
+
+Pattern 1️⃣: Sorting + Selection
+
+If the problem says:
+
+maximum / minimum
+
+select activities / jobs / intervals
+
+based on time, profit, weight, deadline
+
+👉 First step = SORT something
+
+Example
+
+Activity Selection
+
+Job Sequencing
+
+Minimum Platforms
+
+📌 Clue words
+start time, end time, deadline, profit, interval
+
+🧠 Logic:
+
+Sort → Pick best → Move forward
+
+Pattern 2️⃣: Take the Best Ratio / Value
+
+If problem involves:
+
+weight & value
+
+profit per unit
+
+efficiency
+
+👉 Choose maximum ratio
+
+Example
+
+Fractional Knapsack
+
+📌 Formula idea (don’t panic):
+
+value / weight
+
+
+🧠 Logic:
+
+Take the most beneficial item first
+
+Pattern 3️⃣: Minimize something step by step
+
+If question says:
+
+minimum cost
+
+minimum operations
+
+minimum number of items
+
+👉 At every step, pick smallest / cheapest
+
+Example
+
+Minimum coins
+
+Connect ropes with minimum cost
+
+🧠 Logic:
+
+Small choices reduce total cost
+
+Pattern 4️⃣: Always extend the current best
+
+If problem says:
+
+reach end
+
+cover distance
+
+jumps / refills
+
+👉 Use current maximum reach
+
+Example
+
+Jump Game
+
+Minimum refueling stops
+
+🧠 Logic:
+
+Go as far as possible with what you have
+
+Pattern 5️⃣: Greedy with Frequency / Count
+
+If problem involves:
+
+characters
+
+frequency
+
+rearranging to avoid conflict
+
+👉 Always pick most frequent / least frequent carefully
+
+Example
+
+Rearrange string
+
+Task scheduling with cooldown
+
+🧠 Logic:
+
+Balance frequent elements first
+
+🪜 Standard Greedy Learning Order (Follow This)
+Step 1: Very Easy (Start here)
+
+Coin Change (Indian coins)
+
+Activity Selection
+
+Minimum Platforms
+
+Step 2: Medium
+
+Fractional Knapsack
+
+Job Sequencing
+
+Jump Game
+
+Step 3: Slightly Tricky
+
+Gas Station
+
+Candy Distribution
+
+Connect Ropes
+
+🧩 How to Solve ANY Greedy Problem (Exam + Coding)
+
+Use this 5-step thinking template:
+
+What should I maximize or minimize?
+
+What is the best choice right now?
+
+Can I sort something?
+
+After choosing, can I never regret?
+
+Repeat till end
+
+📌 If answers feel natural → Greedy is correct
+
+❌ Common Mistake (Important)
+
+🚫 Greedy is NOT
+
+Recursion
+
+DP
+
+Try all cases
+
+Greedy = single path, no backtracking
+
+What I suggest NEXT (very important)
+
+For 5–6 days, solve ONLY these 👇
+I’ll guide you step by step.
+
+Coin Change (Greedy)
+
+Activity Selection
+
+Fractional Knapsack
+
+Job Sequencing
+
+Jump Game
