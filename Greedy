@@ -12,6 +12,85 @@ You decide step by step, locally best choice
 
 A Greedy algorithm makes the locally optimal choice at each step to reach a globally optimal solution.
 
+✅ Use GREEDY when:
+
+Local best choice always leads to global best
+
+Once you make a choice, you never regret it
+
+The problem says:
+
+maximum profit
+
+minimum time
+
+earliest finish
+
+largest value first
+
+Sorting + one pass works
+
+📌 Examples:
+
+Activity Selection
+
+Fractional Knapsack
+
+Minimum platforms
+
+Huffman coding
+
+❌ Greedy FAILS when:
+
+Two or more smaller choices together beat one big choice
+
+Current decision affects future options
+
+You need to try all combinations
+
+➡️ This is where DP comes in.
+
+🧠 YOUR EXAMPLE (Target = 12)
+
+Let’s use it properly 👇
+
+Case 1️⃣ Greedy WORKS
+coins = [1, 5, 10]
+target = 12
+
+Greedy:
+10 + 1 + 1 = 3 coins ✅
+
+
+Here:
+
+No combination of small coins beats 10
+
+Local choice is safe
+➡️ Greedy OK
+
+Case 2️⃣ Greedy FAILS
+coins = [1, 6, 7]
+target = 12
+
+Greedy:
+7 + 1 + 1 + 1 + 1 + 1 = 6 coins ❌
+
+Better:
+6 + 6 = 2 coins ✅
+
+
+📌 Two small > one big
+➡️ DP REQUIRED
+
+🚨 MOST IMPORTANT SIGNAL (THIS IS GOLD)
+
+🔔 If you can form the target in multiple ways and
+🔔 you must compare them
+👉 Use DP
+
+Coin Change, Subset Sum, Partition → ALL DP
+
 🔑 When does Greedy work?
 
 Greedy works ONLY when the problem has this property:
