@@ -37,6 +37,122 @@ Sliding window logic involves two pointers moving independently (start/end).
 IF QUESTION SAYS -- find maximum length -- (maxi = max(maxi,r-l+1)
 IF QUESTION SAYS -- find all subarrays -- (maxi+=r-l+1)
 
+// THIS SUM DOWN SEE THERE IS LOT OF EXPLANATION 
+3719. Longest Balanced Subarray I // HERE I UNDERSTAND 
+Attempted
+Medium
+Topics
+premium lock icon
+Companies
+Hint
+You are given an integer array nums.
+
+A subarray is called balanced if the number of distinct even numbers in the subarray is equal to the number of distinct odd numbers.
+
+Return the length of the longest balanced subarray.
+
+ 
+
+Example 1:
+
+Input: nums = [2,5,4,3]
+
+Output: 4
+
+Explanation:
+
+The longest balanced subarray is [2, 5, 4, 3].
+It has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [5, 3]. Thus, the answer is 4.
+Example 2:
+
+Input: nums = [3,2,2,5,4]
+
+Output: 5
+
+Explanation:
+
+The longest balanced subarray is [3, 2, 2, 5, 4].
+It has 2 distinct even numbers [2, 4] and 2 distinct odd numbers [3, 5]. Thus, the answer is 5.
+Example 3:
+
+Input: nums = [1,2,3,2]
+
+Output: 3
+
+Explanation:
+
+The longest balanced subarray is [2, 3, 2].
+It has 1 distinct even number [2] and 1 distinct odd number [3]. Thus, the answer is 3.
+ 
+
+Constraints:
+
+1 <= nums.length <= 1500
+1 <= nums[i] <= 105 
+## HERE WHILE DOING SUMS LIKE THIS I  THINK WE WANT TO USE SLIDING WINDOW AND WASTE MY ALL TIME BUT IT IS NOT SLIDING WINDOW BECAUSE 
+If you use sliding window here, what ACTUALLY happens?
+Example
+nums = [1, 5, 4, 3]
+
+
+Condition:
+distinct even == distinct odd
+
+Correct answer = 4
+
+What sliding window will do (step-by-step)
+Start
+l = 0
+window = []
+
+Add 1
+window = [1] → bad
+
+
+Sliding window logic says:
+
+“window is bad → shrink”
+
+So it removes 1.
+
+window = []
+l = 1
+
+Add 5
+window = [5] → bad
+
+
+Shrink again:
+
+window = []
+l = 2
+
+Add 4
+window = [4] → bad
+
+
+Shrink again:
+
+window = []
+l = 3
+
+Add 3 
+window = [3] → bad
+
+
+Shrink again:
+
+window = []
+
+Final result
+
+You never keep elements long enough to form:
+
+[1, 5, 4, 3]
+
+
+So answer becomes 0 ❌
+
 ##### PROBLEMS
 ## VARIABLE SIZE WINDOW 
 ### 3. Longest Substring Without Repeating Characters
