@@ -10,7 +10,7 @@ playing with 0s and 1s to solve problems faster
 
 🧠 The 5 Core Bitwise Magic Tricks
 
-These 5 patterns solve ~90% of bit manipulation problems.
+These 5 patterns solve ~90% of bit manipulation problems. 
 
 1️⃣ n & (n - 1) → Removes the Rightmost Set Bit
 💡 What it does:
@@ -119,6 +119,16 @@ n &= ~(1 << i)
 a = a ^ b
 b = a ^ b
 a = a ^ b
+
+## IF WE WANT TO CHANGE 0  0 0 1 TO 1 1 1 0 JUST FLIPPING BITS LIKE 0 TO 1 OTR 1 TO 0
+JUST USE XOR 
+N ^ 1 
+Operation         Binary     Decimal
+--------------------------------------
+Original (n)       1010       10
+Mask               1111       15
+--------------------------------------
+Result (n ^ Mask)  0101        5
 
 
 (Not recommended in real code, but common interview trick.)
