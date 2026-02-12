@@ -5,7 +5,7 @@ A **matrix** is a rectangular arrangement of numbers in rows and columns.
 Example:
 [
 [1, 2, 3],     
-[4, 5, 6]
+[4, 5, 6] 
 ]
 
 This matrix has:
@@ -16,6 +16,12 @@ This matrix has:
 - **Row:** A horizontal line of elements
 - **Column:** A vertical line of elements
 - **Element:** A single value in the matrix
+
+##HOW TO COPY MATRIX 
+Input: matrix = [[1,2,3],
+                 [4,5,6], 
+                 [7,8,9]]
+ c = [r.copy() for r in matrix]
 
 ##In Leet code type problems to scan row and data
 row = len(mt) 
