@@ -7,7 +7,7 @@ Bit manipulation means working with numbers in binary (0 and 1) using special op
  
 So bit manipulation =
 playing with 0s and 1s to solve problems faster
-
+ 
 🧠 The 5 Core Bitwise Magic Tricks
 
 These 5 patterns solve ~90% of bit manipulation problems. 
@@ -63,6 +63,12 @@ It gives only the lowest set bit.
 ✔ Find first set bit position
 ✔ Used in Fenwick Tree (BIT)
 ✔ Used in subset / mask problems
+
+They are very similar, but they do the opposite things. Think of them as two different tools in the same toolbox.
+
+n & -n is a Filter: It keeps ONLY the rightmost 1 and turns everything else to 0.
+
+n & (n - 1) is a Eraser: It keeps everything ELSE and turns ONLY the rightmost 1 to 0
 
 3️⃣ x ^ y → Finds Where Bits Differ
 💡 What it does:
