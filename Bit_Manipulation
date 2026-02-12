@@ -484,7 +484,9 @@ OUTPUT = 12
 
 
 ❌ Will NOT work
-
+s = 1100 
+n = int(s,2)
+print(n) 
 Reason:
 
 '110' → string
