@@ -52,8 +52,10 @@ Example:
 n = 12 → 1100
 -n = two’s complement
 n & -n = 0100
-
-
+HOW IT CAME MEANS 1 1 0 0 
+       COMPLEMENT 0 0 1 1 
+          ADD 1   0 0 0 1 
+          FINAL   0 1 0 0 
 It gives only the lowest set bit.
 
 ✅ Uses:
