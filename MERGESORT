@@ -9,7 +9,7 @@ Divide: Split the array into two halves.
 
 Conquer: Recursively sort each half. 
 
-Combine: Merge the two sorted halves into one sorted array.
+Combine: Merge the two sorted halves into one sorted array. 
 
 ##CODE  
 def merge_sort(arr):
