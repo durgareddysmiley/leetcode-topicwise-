@@ -4,7 +4,7 @@ Bit manipulation means working with numbers in binary (0 and 1) using special op
  
 👉 Computer does NOT understand 10, 20, 50 
 👉 Computer understands only 0 and 1
- 
+  
 So bit manipulation =
 playing with 0s and 1s to solve problems faster
  
@@ -39,6 +39,51 @@ count = 0
 while n:
     n = n & (n - 1)
     count += 1
+
+## SOME TIMES WE WILL USE 
+(n & (n-1)) ^ n
+🧠 Simple Understanding
+Step 1: Remove rightmost 1
+Step 2: Compare with original using XOR
+Step 3: You get only that removed bit
+
+✅ Example 2
+n = 12
+Binary = 1100
+
+n-1 = 1011
+
+n & (n-1)
+1100
+1011
+-----
+1000
+
+Now XOR:
+1000
+1100
+-----
+0100
+
+Result = 4
+Rightmost set bit of 12 = 4 ✅
+
+⚡ Important
+This is used in:
+
+
+Finding lowest set bit
+
+
+Binary Indexed Tree
+
+
+Bit manipulation problems
+
+
+
+If you want, I can also show why n & -n gives same result 👀
+That trick is even more powerful 🚀
 
 
 Time complexity = O(number of set bits)
