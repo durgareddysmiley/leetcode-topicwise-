@@ -16,7 +16,7 @@ These 5 patterns solve ~90% of bit manipulation problems.
 💡 What it does:
 
 It removes the lowest (rightmost) 1 bit from n.
-
+ 
 Example:
 n = 12 → 1100
 n-1 = 11 → 1011
@@ -625,6 +625,10 @@ n >> 3  →  n ÷ 8
 ##SMLL TRICK THERE IS NUMBER 
 LIKE N = 11 WE WANT LIKE IN BINARY FORMAT 
 then use (bin(n)[2:])
+// here it works only for 26 bits 
+
+## FOR 32 BITS 
+    r = bin(n)[2:].zfill(32) 
 
 ## n & 1: This looks only at the very last bit. If the last bit is 1, 
 the result is 1. If it's 0, the result is 0.
