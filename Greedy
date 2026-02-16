@@ -334,6 +334,92 @@ Gas Station
 Candy Distribution
 
 Connect Ropes
+Gemini said
+This is a great way to study. Instead of memorizing 50 different problems, you only need to memorize these 3 Templates. When you read a new problem, you just "plug in" the logic.
+
+Here are the Code Templates for the three Greedy patterns you've identified:
+
+1. The Selection Pattern (Sort by End Time)
+Use this when: You want to pick the maximum number of non-overlapping tasks.
+Key Logic: "Finish the current task as early as possible to save time for the next one."
+
+Python
+def selectionTemplate(intervals):
+    # Sort by the SECOND element (End Time)
+    intervals.sort(key=lambda x: x[1])
+    
+    count = 0
+    last_end_time = -1
+    
+    for start, end in intervals:
+        if start > last_end_time: # No overlap
+            count += 1
+            last_end_time = end
+            
+    return count
+2. The Resource Pattern (Sort and Two Pointers)
+Use this when: You must handle all items and need to find the minimum resources (rooms/platforms) to avoid overlaps.
+Key Logic: "Treat arrivals and departures as independent events to find the peak pressure."
+
+Python
+def resourceTemplate(arr, dep):
+    arr.sort()
+    dep.sort()
+    
+    n = len(arr)
+    i = 0 # Arrival pointer
+    j = 0 # Departure pointer
+    
+    current_active = 0
+    max_needed = 0
+    
+    while i < n and j < n:
+        if arr[i] <= dep[j]: # New arrival needs space
+            current_active += 1
+            i += 1
+        else: # Someone left, space freed
+            current_active -= 1
+            j += 1
+        
+        max_needed = max(max_needed, current_active)
+        
+    return max_needed
+3. The Ratio Pattern (Sort by Value/Weight)
+Use this when: You have a limit (capacity) and want to get the most value. Usually involves "fractions" or "densities."
+Key Logic: "Pick the item that gives the most 'bang for your buck' first."
+
+Python
+def ratioTemplate(items, capacity):
+    # Calculate ratio (Value/Weight) and sort descending
+    # items = [[value, weight], ...]
+    items.sort(key=lambda x: (x[0]/x[1]), reverse=True)
+    
+    total_value = 0
+    for val, wt in items:
+        if capacity >= wt:
+            capacity -= wt
+            total_value += val
+        else:
+            # Take the fraction if allowed (Fractional Knapsack)
+            fraction = capacity / wt
+            total_value += val * fraction
+            break
+            
+    return total_value
+How to use these in an interview:
+Read the Problem: Is it asking for "Max number of tasks" (Selection), "Min number of rooms" (Resource), or "Max value" (Ratio)?
+
+Pick the Template: Mentaly load the sorting criteria.
+
+Selection → x[1] (End)
+
+Resource → Two separate sorts
+
+Ratio → val/wt
+
+Adjust for "Edge Cases": (e.g., "If times are equal, does it count as an overlap?")
+
+Would you like me to give you a "Mystery Problem" so you can try to identify which template it belongs to?
 
 🧩 How to Solve ANY Greedy Problem (Exam + Coding)
 
