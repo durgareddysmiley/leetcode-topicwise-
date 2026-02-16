@@ -339,7 +339,7 @@ This is a great way to study. Instead of memorizing 50 different problems, you o
 
 Here are the Code Templates for the three Greedy patterns you've identified:
 
-1. The Selection Pattern (Sort by End Time)
+1. The Selection Pattern (Sort by End Time) / the problem asks you to ignore some items to save time, it's the Selection Template.
 Use this when: You want to pick the maximum number of non-overlapping tasks.
 Key Logic: "Finish the current task as early as possible to save time for the next one."
 
@@ -357,7 +357,7 @@ def selectionTemplate(intervals):
             last_end_time = end
             
     return count
-2. The Resource Pattern (Sort and Two Pointers)
+2. The Resource Pattern (Sort and Two Pointers) // IF the question ask about peak time how mny needed then sort both 
 Use this when: You must handle all items and need to find the minimum resources (rooms/platforms) to avoid overlaps.
 Key Logic: "Treat arrivals and departures as independent events to find the peak pressure."
 
