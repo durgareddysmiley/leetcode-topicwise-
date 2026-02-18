@@ -95,7 +95,7 @@ def solve(idx, arr, current):
     # 3️⃣ CHOICE 2 — EXCLUDE arr[idx]
     solve(idx + 1, arr, current)
 
-🧠 KEY THINKING STEPS
+🧠 KEY THINKING STEPS                                                      
 STEP	QUESTION	ACTION
 1️⃣	What’s the smallest problem?	When idx == len(arr) (all elements processed)
 2️⃣	What’s the decision per element?	Include or exclude
