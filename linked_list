@@ -38,6 +38,43 @@ else:
         curr = curr.next
     curr.next = new_node
 
+-> Remember how to remove node Gemini said
+The reason your code is wrong is that you are moving your pointer, but you aren't changing the list.
+
+Dry Run
+Let's use the example: 2 → 2 → 4
+
+Initial State:
+
+slow points to the first 2.
+
+List: [2] -> [2] -> [4] -> None
+
+First Iteration:
+
+Check: if slow.data == slow.next.data (is 2 == 2?) → Yes.
+
+Your Code: slow = slow.next.next.
+
+Result: The variable slow now points to the node 4. But the list is still 2 -> 2 -> 4. You didn't tell the first 2 to stop pointing at the second 2.
+
+Second Iteration:
+
+Check: while slow and slow.next.
+
+slow is 4, but slow.next is None. The loop ends.
+
+Return head:
+
+The head still points to the first 2.
+
+The first 2 still points to the second 2.
+
+Output: 2 -> 2 -> 4 (Nothing was removed!)
+
+In a linked list, to "remove" a node, you must change the .next pointer of the node before it. Your code just moves the slow variable to a different node,
+leaving the actual links in the list exactly as they were.
+
 ## HERE NUM = [1,2,3] AND WE RETURN HEAD...IT IS LINKED WITH ALL EVEN HEAD IS THE MAIN ELEMENT BECAUSE OF CONNECTING SO THE ENTIRE 
 INPUT IS CAME AS OUTPUT 
 
