@@ -102,6 +102,9 @@ fast.next = None
 Python checks fast.next.next
 
 That means None.next
+
+## Remove Duplicate Elements from Sorted Linked List // try this sum also 
+
 ## PROBLEM 
 # 2095. Delete the Middle Node of a Linked List
 
