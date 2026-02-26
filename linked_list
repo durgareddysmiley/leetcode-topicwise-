@@ -86,6 +86,22 @@ class Solution:
             slow = slow.next 
             fast = fast.next.next
         return slow 
+
+##DOUBTS 
+
+❌ Error: 'NoneType' object has no attribute 'next' Y ERROR CAAME THT IS DOUBT 
+
+🔴 Why while fast.next.next: can crash
+
+List has 1 node
+
+fast = head
+
+fast.next = None
+
+Python checks fast.next.next
+
+That means None.next
 ## PROBLEM 
 # 2095. Delete the Middle Node of a Linked List
 
