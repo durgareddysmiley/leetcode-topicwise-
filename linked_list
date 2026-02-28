@@ -8,7 +8,7 @@ Value (val) → the data it holds.
 
 Pointer (next) → a reference to the next node in the list.
 
-## Node in Python 
+## Node in Python  
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val    # stores value
@@ -553,7 +553,47 @@ class Solution(object):
 
 ##MY CODE Y WE NEED TO WRITE 2 WHILE LOOPS IN FIRST WHILE LOOP ONLY WE GOT THE ANSWER 
 
-                                         
+4️⃣ Two Pointer Traversal Pattern
+
+Not fast/slow. Different.
+
+Both move same speed, but start at different times.
+
+Used In:
+Remove Nth from end
+
+Find intersection
+
+Rotate list
+
+##QUESTION 
+Kth from End of Linked List
+Difficulty: EasyAccuracy: 41.18%Submissions: 450K+Points: 2Average Time: 30m
+You are given the head of a linked list and the number k, You have to return the kth node from the end of linkedList. If k is more than the number of nodes, then the return -1.
+
+Examples
+
+Input: LinkedList: 1->2->3->4->5->6->7->8->9, k = 2
+Output: 8
+Explanation: The given linked list is 1->2->3->4->5->6->7->8->9. The 2nd node from end is 8.
+
+##CODE 
+lass Solution:
+    def getKthFromLast(self, head, k):
+        #code here
+        a = head
+        b = head
+        for i in range(k-1):
+            a = a.next
+            if not a:
+                return -1
+        while a and a.next:
+            a = a.next 
+            b = b.next
+        if b:
+            return b.data 
+        return -1
+
             
             
         
