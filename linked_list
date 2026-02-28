@@ -1,5 +1,5 @@
 ## Linked List:
- 
+  
 A linked list is a way to store a sequence of elements (like numbers) one after another, but unlike arrays, they are not stored in continuous memory.
 
 Each element in a linked list is called a node, and each node has:
