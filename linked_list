@@ -566,6 +566,57 @@ Find intersection
 
 Rotate list
 
+✅ TYPE 1 — Fixed Gap (K Distance)
+
+Used in:
+
+Kth from end
+
+Remove Nth from end
+
+Template:
+fast = head
+slow = head
+
+# create gap of k
+for _ in range(k):
+    if not fast:
+        return -1
+    fast = fast.next
+
+# move together
+while fast:
+    fast = fast.next
+    slow = slow.next
+
+return slow
+
+That’s it.
+
+No other variation.
+
+✅ TYPE 2 — Path Equalization (Length Balancing)
+
+Used in:
+
+Find intersection of two lists
+
+Template:
+p1 = headA
+p2 = headB
+
+while p1 != p2:
+    p1 = p1.next if p1 else headB
+    p2 = p2.next if p2 else headA
+
+return p1
+
+That’s it.
+
+No length calculation.
+No extra logic. 
+
+
 ##QUESTION 
 Kth from End of Linked List
 Difficulty: EasyAccuracy: 41.18%Submissions: 450K+Points: 2Average Time: 30m
