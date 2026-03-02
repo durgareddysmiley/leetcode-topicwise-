@@ -6,7 +6,7 @@ This recursion pattern is used when each element in a collection has two indepen
 
 It explores all possible combinations (or subsequences) of the input — forming a recursion tree of size 2ⁿ.
 Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum. 
-
+   
 🕒 WHEN TO USE
    
 Use this pattern when:
