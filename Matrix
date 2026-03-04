@@ -1,5 +1,5 @@
 📘 MATRIX – COMPLETE FOUNDATION NOTES (BEGINNER)
-1️⃣ What is a Matrix?
+1️⃣ What is a Matrix?    
 
 A matrix is a 2D collection of values arranged in:
 
@@ -9,7 +9,7 @@ Columns
 
 Example:
 
-1  2  3
+1  2  3 
 4  5  6
 
 
@@ -19,7 +19,7 @@ This is a 2 × 3 matrix
 👉 In code:
 
 Python → list of lists
-
+ 
 Java → 2D array
 
 2️⃣ Why do we use Matrix?
@@ -29,7 +29,7 @@ We use matrix when data naturally fits in rows & columns.
 Real-life reasons:
 Situation	Why Matrix
 Student marks	Student × Subject
-Images	Pixels × Pixels
+Images	Pixels × Pixels 
 Games	Board / Grid
 Tables	Rows & Columns
 Maps	Coordinates
@@ -44,7 +44,7 @@ You need grid-based data
 Array (1D)	Matrix (2D)
 One direction	Two directions
 arr[i]	mat[i][j]
-Simple list	Table / grid
+Simple list	Table / grid 
 Linear problems	Grid problems
 
 👉 If problem mentions:
@@ -54,9 +54,9 @@ rows
 columns
 
 grid
-
+  
 table
-
+ 
 board
 
 ➡️ Use matrix
@@ -66,7 +66,7 @@ Python:
 mat = [
   [1, 2, 3],
   [4, 5, 6]
-]
+] 
 
 👉 Access:
 
@@ -78,9 +78,11 @@ mat[row][col]
 1 row, many columns
 
 1 2 3
+to write in loops for rows
+for j in range(len(mat)):
 
 🔹 Column Matrix
-
+  for j in range(len(mat[0])): # column index
 Many rows, 1 column
 
 1
