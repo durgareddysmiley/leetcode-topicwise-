@@ -24,7 +24,7 @@ head.next = ListNode(2) → second node linked to first.
 To add a node, you first create it, then point its .next to the rest of the list.
 
 -> Add to the Front (At the Head)
-new_node = ListNode(val)
+new_node = ListNode(val)  
 new_node.next = head
 head = new_node
 
