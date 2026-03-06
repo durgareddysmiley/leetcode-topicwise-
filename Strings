@@ -1,6 +1,6 @@
 
 🔤 isupper() & islower()
-ch = "A"
+ch = "A"  
 
 ch.isupper()  # True
 ch.islower()  # False  
@@ -92,7 +92,7 @@ Lists use .append()
 Pattern	Meaning
 [a-z]	lowercase letter
 [A-Z]	uppercase letter
-+	1 or more
++	1 or more  
 *	0 or more
 `	`
 \d	digit
@@ -103,6 +103,14 @@ check_split("abCv")
 
 🎯 SUMMARY TABLE
 Code	What It Removes	From Where?
+Strip = strip() removes characters only from the start and end of a string, not from the middle.
+
+s = ",20,30,40,50,"
+print(s.strip(','))
+
+Output = 20,30,40,50
+
+
 lstrip('L')	Remove L’s	From left side only
 lstrip('R')	Remove R’s	From left side only
 rstrip('R')	Remove R’s	From right side only
