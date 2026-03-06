@@ -7,7 +7,7 @@ ch.islower()  # False
 
 ✔️ Usage:
 
-isupper() → checks if character is uppercase
+isupper() → checks if character is uppercase 
 
 islower() → checks if character is lowercase
 
@@ -46,6 +46,16 @@ print(s.split(","))
 s = "hello world python"
 print(s.split())  
 # ['hello', 'world', 'python']   (default: split on spaces)
+
+Split want to use as an seperator 
+
+You should use split(), because the numbers are separated by commas.
+
+s = "20,30,40,50"
+nums = s.split(',')
+print(nums)
+
+Output = ['20', '30', '40', '50']
 
 ✔️ Summary:
 
