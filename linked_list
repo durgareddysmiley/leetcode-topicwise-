@@ -10,7 +10,7 @@ Pointer (next) → a reference to the next node in the list.
 
 ## Node in Python  
 class ListNode:
-    def __init__(self, val=0, next=None):
+    def __init__(self, val=0, next=None): 
         self.val = val    # stores value
         self.next = next  # points to next node    
 
@@ -30,7 +30,6 @@ class Node:
 def create_list(arr):
     head = Node(arr[0])
     cur = head
-
     for i in range(1, len(arr)):
         cur.next = Node(arr[i])
         cur = cur.next
