@@ -1,4 +1,4 @@
-## Linked List:
+## Linked List:    
   
 A linked list is a way to store a sequence of elements (like numbers) one after another, but unlike arrays, they are not stored in continuous memory.
 
@@ -18,6 +18,93 @@ class ListNode:
 head = ListNode(1) → creates first node with value 1.
 
 head.next = ListNode(2) → second node linked to first.
+
+##FULL CODE TEMPLATE WHILE WANT TO SOLVE LINKED LIST PROBLEMS IN OTHER NRML CODING PLAT FORMS  
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+def create_list(arr):
+    head = Node(arr[0])
+    cur = head
+
+    for i in range(1, len(arr)):
+        cur.next = Node(arr[i])
+        cur = cur.next
+
+    return head
+
+
+def print_list(head):
+    cur = head
+    while cur:
+        print(cur.data, end=" ")
+        cur = cur.next
+
+IN THE ABOVE CODE 
+
+def create_list(arr):
+    head = Node(arr[0])
+    cur = head  MY DOUBT IS INSTEAD OF WRITING LIKE THIS Y I CANT WRITE ONLLY cur = Node(arr[0]) 
+
+## ANSWER 
+
+our thinking is reasonable, but if you write only
+
+cur = Node(arr[0])
+
+you will lose the head of the list, and that breaks the function. Let’s examine it carefully.
+
+What Your Current Code Does
+head = Node(arr[0])
+cur = head
+
+Both variables point to the same first node.
+
+
+Example:
+
+arr = [1,2,3]
+
+Memory view:
+
+head ──► [1 | None]
+cur  ───►
+
+Then you build the list using cur.
+
+After loop:
+
+head ──► 1 → 2 → 3
+cur  ───────────► 3
+
+You return head, which still points to the start of the list.
+
+What Happens If You Only Write
+cur = Node(arr[0])
+
+Then you build the list:
+
+cur → 1 → 2 → 3
+
+But you have no variable storing the start.
+
+At the end:
+
+cur → 3
+
+Now if you return cur, you return:
+
+3
+
+not
+
+1 → 2 → 3
+
+You lost the head node.
 
 ## BASIC OPETATIONS OF LINKED LIST 
 1.Adding a Node
