@@ -16,7 +16,7 @@ class ListNode:
 
 
 head = ListNode(1) → creates first node with value 1.
-
+  
 head.next = ListNode(2) → second node linked to first.
 
 ##FULL CODE TEMPLATE WHILE WANT TO SOLVE LINKED LIST PROBLEMS IN OTHER NRML CODING PLAT FORMS  
