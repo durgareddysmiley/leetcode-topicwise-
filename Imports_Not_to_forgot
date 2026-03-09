@@ -71,7 +71,7 @@ Python
 
 list_b = [1, 2, 3]
 list_b.extend([4, 5])
-
+ 
 print(list_b)
 Result: [1, 2, 3, 4, 5] (The length increased by 2)
 
