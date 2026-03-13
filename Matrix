@@ -22,6 +22,32 @@ Python → list of lists
  
 Java → 2D array
 
+## HOW TO CREATE A MATRIX
+
+Input: m = 3, n = 7
+
+and you want to create a grid/array, you create a 3 × 7 matrix.
+
+1. Python code to create the array
+m = 3
+n = 7
+I WANT TO CREATE 3 * 7 MATRIC
+
+grid = [[0]*n for _ in range(m)]
+print(grid)
+
+Output:
+
+[
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0],
+[0,0,0,0,0,0,0]
+]
+
+That is a 3 rows × 7 columns grid.
+
+
+
 2️⃣ Why do we use Matrix?
 
 We use matrix when data naturally fits in rows & columns.
@@ -80,7 +106,7 @@ mat[row][col]
 1 2 3
 to write in loops for rows
 for j in range(len(mat)):
-
+ 
 🔹 Column Matrix
   for j in range(len(mat[0])): # column index
 Many rows, 1 column
