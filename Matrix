@@ -2,7 +2,7 @@
 1️⃣ What is a Matrix?    
 
 A matrix is a 2D collection of values arranged in:
-
+         
 Rows
 
 Columns
@@ -12,9 +12,9 @@ Example:
 1  2  3 
 4  5  6
 
-
+                          
 This is a 2 × 3 matrix
-(2 rows, 3 columns)
+(2 rows, 3 columns)       
 
 👉 In code:
 
@@ -46,6 +46,16 @@ Output:
 
 That is a 3 rows × 7 columns grid.
 
+## IF WE WANT MATRIX LIKE TRIANGULAR 
+[[0],
+ [0,0],
+ [0,0,0],
+ [0,0,0,0]]
+
+## CODE 
+n = 4
+tri = [[0]*(i+1) for i in range(n)]
+print(tri)
 
 
 2️⃣ Why do we use Matrix?
