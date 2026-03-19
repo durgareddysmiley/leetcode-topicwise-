@@ -27,7 +27,7 @@ After 1 minute, you again ask:
 
 📌 Remembering the answer = DP
 
-🔹 Why do we need DP?
+🔹 Why do we need DP? 
 
 Because normal recursion is slow 🐌
 It repeats the same work many times.
@@ -428,3 +428,11 @@ class Solution:
                 d[i][j] = triangle[i][j] + min(d[i+1][j],d[i+1][j+1])
         return d[0][0]
 ## AFTER SEEING THIS TYPE OF QUESTIONS REMEMBER ONE THING THAT  WHEN YOU TRIED A  APPROCH FOR TOP TO BOTTOM IT IS NOT WORKING NOW DO TOT BOTTOM TO TOP 
+
+⚠️ Brutal Insight
+
+Top → Bottom fails when:
+
+future decisions affect current choice
+
+and you don’t store/compute them properly
