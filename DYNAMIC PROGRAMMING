@@ -362,3 +362,69 @@ dp[i] = min(dp[i-1], dp[i-2]) + cost
 If you skip this step, you’ll keep brute-forcing problems and wasting hours.
 
 If you want, I can also show you the exact 10 LeetCode problems that build DP intuition fastest (the order matters). Most students practice them in the wrong order.
+
+## NOW WE ARE DISCUSSING ABOUT 
+5. Grid DP Pattern
+
+Movement on a matrix/grid.
+
+Typical formula:
+
+dp[i][j] = dp[i-1][j] + dp[i][j-1]
+Example Problems
+
+Unique Paths
+
+Minimum Path Sum
+
+Example situations
+
+Robot grid movement
+Only right or down moves.
+
+Maze problems
+Count paths avoiding obstacles.
+
+
+## PROBLEM 
+120. Triangle
+Solved
+Medium
+Topics
+premium lock icon
+Companies
+Given a triangle array, return the minimum path sum from top to bottom.
+
+For each step, you may move to an adjacent number of the row below. More formally, if you are on index i on the current row, you may move to either index i or index i + 1 on the next row.
+
+ 
+
+Example 1:
+
+Input: triangle = [[2],[3,4],[6,5,7],[4,1,8,3]]
+Output: 11
+Explanation: The triangle looks like:
+   2
+  3 4
+ 6 5 7
+4 1 8 3
+The minimum path sum from top to bottom is 2 + 3 + 5 + 1 = 11 (underlined above).
+Example 2:
+
+Input: triangle = [[-10]]
+Output: -10
+
+## CODE 
+class Solution:
+    def minimumTotal(self, triangle: List[List[int]]) -> int:
+        c = 0
+        r = len(triangle)
+        d = [ [0] * len(triangle[i]) for i in range(r)]
+        le = len(triangle) - 1 
+        for i in range(0,le+1):
+            d[le][i] = triangle[le][i]
+        for i in range(len(triangle) - 2 , -1 ,-1):
+            for j in range(len(triangle[i])):
+                d[i][j] = triangle[i][j] + min(d[i+1][j],d[i+1][j+1])
+        return d[0][0]
+## AFTER SEEING THIS TYPE OF QUESTIONS REMEMBER ONE THING THAT  WHEN YOU TRIED A  APPROCH FOR TOP TO BOTTOM IT IS NOT WORKING NOW DO TOT BOTTOM TO TOP 
