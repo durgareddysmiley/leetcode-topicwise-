@@ -4,7 +4,7 @@ DP = Dynamic Programming
 👉 Dynamic Programming means 
 
 Do not solve the same problem again and again. Save the answer and reuse it.
-
+ 
 That’s it. 
 This is the whole idea of DP.
 
@@ -233,6 +233,9 @@ Or formula
 ✔ How answers are reused
 ✔ How DP builds step by step
 ✔ DP is just remembering results
+
+🔴 Recurrence = Decision Rule
+Recurrence = “How do I compute current answer using smaller answers?”
 
 Below are 5 DP patterns you must recognize immediately.
 
