@@ -523,5 +523,10 @@ class Solution:
                 else:
                     dp[i][j] = max(dp[i-1][j], dp[i][j-1])
         return dp[n][m]
+## MY DOUBTS 
+SEE HERE IN IF CONDITION WHEN BOTH ARE EQUAL WE NEED TO DO DP[I-1][J-1] I DIDNT UNDERSTAND THAT Y WE WANT LIKE THAT WHEN IT IS EQUAL Y WE NEED TO ADD THAT I DIDNT UNDERSTAD 
+SO DONT THINK LIKE THAT 
+ANSWER IS LET SEE THERE ARE t1 = "abc" , t2 = "acd" then lets think  index = 0 now now we are comaparing t1 a and t2 a when both are equal we need to go back of t1 and t2 
+and see wheater parevius elements are there rea not so no elements 0 we need 0 so we are ruuning i and j from 1 
 
 
