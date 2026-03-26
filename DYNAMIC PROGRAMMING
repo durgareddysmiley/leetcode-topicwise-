@@ -1,6 +1,6 @@
  🔴 First: What is DP? (No coding, no big words)  
 DP = Dynamic Programming                                                              
-
+ 
 👉 Dynamic Programming means  
 
 Do not solve the same problem again and again. Save the answer and reuse it.
@@ -529,4 +529,6 @@ SO DONT THINK LIKE THAT
 ANSWER IS LET SEE THERE ARE t1 = "abc" , t2 = "acd" then lets think  index = 0 now now we are comaparing t1 a and t2 a when both are equal we need to go back of t1 and t2 
 and see wheater parevius elements are there rea not so no elements 0 we need 0 so we are ruuning i and j from 1 
 
-
+## DOUBT 2 
+TAKING SAME EXAMPLE  t1 = "abc" , t2 = "acd" then lets think  index = 0  BOTH ARE EQUAL NOW T2 INDEX WILL MOVE 1 T1 INDEX IS REMAINS AS O IT WAN TO COMAPRE WITH AC AND AD 
+I THINK THAT Y WE ARE DOING LIKE THAT BOTH ARE EQUAL SO Y IT IS WRONG TO INCREMENT BOTH 
