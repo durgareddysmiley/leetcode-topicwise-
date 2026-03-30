@@ -506,3 +506,22 @@ Area = 4
 Area ≠ number of 1s
 Area = largest rectangle of 1s
 Connected shape is not enough — it must be a solid block
+
+## ANOTHER DOUBT 
+
+❓ Doubt
+
+I was confused about rectangles in a binary matrix.
+For example, if the input is [[1],[1],[1]], the area comes as 3, but I thought this is not a rectangle because it is just a vertical line.
+So I didn’t understand why it is considered a valid rectangle.
+
+✅ Clarification
+
+A rectangle in a matrix does not have to be a square or wide shape.
+It just needs to be a continuous block of 1s with no gaps.
+
+Key Rules:
+Rectangle = continuous rows × continuous columns
+Width can be 1
+Height can be 1 or more
+All values inside must be 1
