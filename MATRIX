@@ -15,7 +15,7 @@ This matrix has:
 - 3 columns → [1,4], [2,5], [3,6]
 
 ### Key Terms: 
-- **Row:** A horizontal line of elements
+- **Row:** A horizontal line of elements  
 - **Column:** A vertical line of elements
 - **Element:** A single value in the matrix
 
@@ -406,3 +406,103 @@ Final clear meaning
 We use count % c because it tells how many elements are already placed in the current row, which directly gives the column index.
 
 That’s all.
+
+
+1727. Largest Submatrix With Rearrangements
+
+You are given a binary matrix of size m x n, and you are allowed to rearrange the columns of the matrix in any order.
+
+Return the area of the largest submatrix within matrix where every element of the submatrix is 1 after reordering the columns optimally.
+
+Example 1:
+Input: matrix = [[0,0,1],[1,1,1],[1,0,1]]
+Output: 4
+Explanation: You can rearrange the columns as shown above.
+The largest submatrix of 1s, in bold, has an area of 4.
+
+##CODE 
+class Solution:
+    def largestSubmatrix(self, matrix):
+        m, n = len(matrix), len(matrix[0])
+        for i in range(1, m):
+            for j in range(n):
+                if matrix[i][j]:
+                    matrix[i][j] += matrix[i-1][j]
+        ans = 0
+        for i in range(m):
+            row = sorted(matrix[i], reverse=True)
+            for j in range(n):
+                ans = max(ans, row[j] * (j + 1))
+        return ans
+## MY DOUBT 
+❓ Doubt
+
+I was confused about what “area” means in a binary matrix.
+For example, in the matrix [[1,0],[1,1]], I thought the area should be 3 because there are 3 ones and they are connected.
+But the answer comes as 2.
+At the same time, for [[1,1],[1,1]], the area is 4.
+So I didn’t understand why connected 1s are not always giving the area.
+
+## ANSWER
+
+✅ Clarification
+
+“Area” in these problems does not mean the total count of 1s.
+It means the area of the largest rectangle made only of 1s.
+
+Key Rules:
+The shape must be a perfect rectangle
+All cells inside must be 1
+No gaps (no 0s inside the rectangle)
+Area = height × width
+
+
+🔍 Example 1
+
+Matrix:
+
+1 0
+1 1
+
+Possible rectangles:
+
+Vertical:
+
+1
+1
+
+→ Area = 2
+
+Horizontal:
+
+1 1
+
+→ Area = 2
+
+❌ You cannot form a rectangle of area 3
+Because the shape is L-shaped, not a rectangle
+
+👉 Final Answer = 2
+
+
+🔍 Example 2
+
+Matrix:
+
+1 1
+1 1
+
+This forms a perfect rectangle:
+
+1 1
+1 1
+Height = 2
+Width = 2
+Area = 4
+
+👉 Final Answer = 4
+
+🔥 Final Understanding
+Area ≠ number of 1s
+Area = largest rectangle of 1s
+Connected shape is not enough — it must be a solid block
