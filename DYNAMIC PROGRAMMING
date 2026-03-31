@@ -532,3 +532,34 @@ and see wheater parevius elements are there rea not so no elements 0 we need 0 s
 ## DOUBT 2 
 TAKING SAME EXAMPLE  t1 = "abc" , t2 = "acd" then lets think  index = 0  BOTH ARE EQUAL NOW T2 INDEX WILL MOVE 1 T1 INDEX IS REMAINS AS O IT WAN TO COMAPRE WITH AC AND AD 
 I THINK THAT Y WE ARE DOING LIKE THAT BOTH ARE EQUAL SO Y IT IS WRONG TO INCREMENT BOTH 
+
+## Doubt 3
+Why do we include empty string cases in LCS DP (dp[0][*], dp[*][0]) and start loops from 1?
+
+**Answer:**
+In LCS, `dp[i][j]` represents the LCS of the first `i` characters of `t1` and first `j` characters of `t2`.
+
+To compute any state like `dp[i][j]`, we depend on smaller states such as:
+
+* `dp[i-1][j]`
+* `dp[i][j-1]`
+* `dp[i-1][j-1]`
+
+These eventually require values like:
+
+* `dp[0][j]` (empty vs non-empty)
+* `dp[i][0]` (non-empty vs empty)
+
+So we must define:
+
+* LCS of empty string with any string = 0
+
+This acts as the **base case** and ensures all transitions are valid.
+
+Because of this definition:
+
+* DP table size becomes `(n+1) x (m+1)`
+* Loops start from `1` to correctly map characters using `i-1`, `j-1`
+
+Without including empty cases, DP states like `dp[1][1]` would depend on undefined values, breaking the solution.
+
