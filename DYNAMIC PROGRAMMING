@@ -563,3 +563,57 @@ Because of this definition:
 
 Without including empty cases, DP states like `dp[1][1]` would depend on undefined values, breaking the solution.
 
+🧠 Doubt
+
+Why don’t we move both i and j together when characters don’t match?
+Why do we move only one index (i or j) at a time?
+
+✅ Answer
+
+In LCS, we are trying to find the longest subsequence, so we must consider all possibilities, not force matching.
+
+🔹 If characters match:
+if s[i-1] == rev[j-1]:
+    dp[i][j] = 1 + dp[i-1][j-1]
+
+👉 Move both i and j (diagonal) because we found a valid match.
+
+🔹 If characters don’t match:
+else:
+    dp[i][j] = max(dp[i-1][j], dp[i][j-1])
+
+👉 Two choices:
+
+dp[i-1][j]
+→ Skip current character of s (move i, keep j same)
+dp[i][j-1]
+→ Skip current character of rev (move j, keep i same)
+❌ Why NOT move both?
+
+If you do:
+
+dp[i][j] = dp[i-1][j-1]  # WRONG when not matching
+
+👉 You are skipping both characters at once
+👉 You might miss a valid subsequence
+
+🔍 Example 1
+
+s = "abc"
+rev = "cba"
+
+At (i=1, j=1) → 'a' != 'c'
+
+If you move both → you skip both → lose chance to match 'a' later
+Correct → try both options separately
+🔍 Example 2
+
+s = "abcde"
+rev = "ace"
+
+To get "ace":
+
+You must skip b and d
+That means sometimes move only i, sometimes only j
+
+
