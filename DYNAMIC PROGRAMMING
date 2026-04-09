@@ -833,5 +833,147 @@ Optimal "bc" → gives 2 ✅
 
 👉 LCS = "Best ordered match, not maximum matching count"
 
+# LCS — Common Doubts & Clear Answers
 
+---
 
+## ❓ Doubt 1
+
+**“If characters match, why are we still moving `j`?”**
+
+### ✅ Answer
+
+Because that match may NOT give the best final answer.
+
+👉 We must check:
+
+* maybe skipping this match gives a longer subsequence later
+
+### 🔹 Example
+
+```text
+t1 = "abc"
+t2 = "bac"
+```
+
+* Early match → 'a' → length = 1 ❌
+* Better option → 'b' + 'c' → length = 2 ✅
+
+👉 So we continue moving `j` to explore better matches.
+
+---
+
+## ❓ Doubt 2
+
+**“Why not stop after first match?”**
+
+### ✅ Answer
+
+Because LCS is NOT greedy.
+
+👉 First match ≠ best answer
+
+### 🔹 Example
+
+```text
+t1 = "axbyc"
+t2 = "abc"
+```
+
+* If you match early wrong → small result
+* If you skip smartly → "abc" → length = 3
+
+---
+
+## ❓ Doubt 3
+
+**“What is d[i-1][j] and d[i][j-1] actually?”**
+
+### ✅ Answer
+
+* `d[i-1][j]` → ignore current char of t1
+* `d[i][j-1]` → ignore current char of t2
+
+👉 We try both and take best.
+
+### 🔹 Example
+
+```text
+d[3][1] = max(d[2][1], d[3][0])
+
+means:
+LCS("ab","b") vs LCS("abc","")
+→ max(1,0) = 1
+```
+
+---
+
+## ❓ Doubt 4
+
+**“If there are multiple same characters, will count increase multiple times?”**
+
+### ✅ Answer
+
+NO.
+
+👉 One character can match only once in sequence.
+
+### 🔹 Example
+
+```text
+t1 = "a"
+t2 = "aa"
+LCS = 1 (not 2)
+```
+
+---
+
+## ❓ Doubt 5
+
+**“What is the real goal of DP here?”**
+
+### ✅ Answer
+
+👉 For every `(i, j)`:
+**Find best LCS till this point**
+
+NOT:
+
+* follow one path
+* or commit to one match
+
+---
+
+## ❓ Doubt 6
+
+**“Why do we check all i and j?”**
+
+### ✅ Answer
+
+Because:
+👉 Optimal subsequence may come from ANY position
+
+### 🔹 Example
+
+```text
+t1 = "abc"
+t2 = "cab"
+```
+
+Best LCS = "ab"
+👉 comes from middle, not start
+
+---
+
+## 🔥 Final Understanding
+
+👉 Matching does NOT mean final answer
+👉 Skipping does NOT mean losing answer
+
+👉 DP checks BOTH and stores BEST
+
+---
+
+## 🧠 One-line Memory
+
+👉 **“Always explore, never commit early.”**
