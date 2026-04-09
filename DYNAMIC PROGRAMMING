@@ -3,7 +3,7 @@ DP = Dynamic Programming
  
 👉 Dynamic Programming means  
 
-Do not solve the same problem again and again. Save the answer and reuse it.
+Do not solve the same problem again and again. Save the answer and reuse it. 
  
 That’s it. 
 This is the whole idea of DP. 
@@ -615,5 +615,223 @@ To get "ace":
 
 You must skip b and d
 That means sometimes move only i, sometimes only j
+
+# Longest Common Subsequence (LCS) — Clear Dry Run & Explanation
+
+## 🔹 Problem
+
+Given two strings:
+
+```
+t1 = "abc"
+t2 = "bac"
+```
+
+Find the length of the Longest Common Subsequence.
+
+---
+
+## 🔹 DP Definition
+
+`d[i][j]` = LCS of:
+
+* first `i` characters of `t1`
+* first `j` characters of `t2`
+
+---
+
+## 🔹 Code Logic
+
+```
+if t1[i-1] == t2[j-1]:
+    d[i][j] = 1 + d[i-1][j-1]
+else:
+    d[i][j] = max(d[i-1][j], d[i][j-1])
+```
+
+---
+
+## 🔹 Base Case
+
+If any string is empty:
+
+```
+d[i][0] = 0   → LCS(anything, "")
+d[0][j] = 0   → LCS("", anything)
+```
+
+---
+
+## 🔹 Dry Run (Step-by-Step)
+
+### i = 1 ('a')
+
+#### j = 1 ('b')
+
+Compare: `"a"` vs `"b"` → ❌ no match
+
+```
+d[1][1] = max(d[0][1], d[1][0])
+        = max(LCS("", "b"), LCS("a", ""))
+        = max(0, 0) = 0
+```
+
+---
+
+#### j = 2 ('a')
+
+Compare: `"a"` vs `"a"` → ✅ match
+
+```
+d[1][2] = 1 + d[0][1]
+        = 1 + LCS("", "b")
+        = 1
+```
+
+---
+
+#### j = 3 ('c')
+
+Compare: `"a"` vs `"c"` → ❌
+
+```
+d[1][3] = max(d[0][3], d[1][2])
+        = max(0, 1)
+        = 1
+```
+
+---
+
+### i = 2 ('b')
+
+#### j = 1 ('b')
+
+Compare: `"ab"` vs `"b"` → ✅
+
+```
+d[2][1] = 1 + d[1][0]
+        = 1 + LCS("a", "")
+        = 1
+```
+
+---
+
+#### j = 2 ('a')
+
+Compare: `"ab"` vs `"ba"` → ❌
+
+```
+d[2][2] = max(d[1][2], d[2][1])
+        = max(1, 1)
+        = 1
+```
+
+---
+
+#### j = 3 ('c')
+
+Compare: `"ab"` vs `"bac"` → ❌
+
+```
+d[2][3] = max(d[1][3], d[2][2])
+        = max(1, 1)
+        = 1
+```
+
+---
+
+### i = 3 ('c')
+
+#### j = 1 ('b')
+
+Compare: `"abc"` vs `"b"` → ❌
+
+```
+d[3][1] = max(d[2][1], d[3][0])
+        = max(1, 0)
+        = 1
+```
+
+---
+
+#### j = 2 ('a')
+
+Compare: `"abc"` vs `"ba"` → ❌
+
+```
+d[3][2] = max(d[2][2], d[3][1])
+        = max(1, 1)
+        = 1
+```
+
+---
+
+#### j = 3 ('c')
+
+Compare: `"abc"` vs `"bac"` → ✅
+
+```
+d[3][3] = 1 + d[2][2]
+        = 1 + 1
+        = 2
+```
+
+---
+
+## 🔹 Final DP Table
+
+```
+      b a c
+    0 1 2 3
+0   0 0 0 0
+a   0 0 1 1
+b   0 1 1 1
+c   0 1 1 2
+```
+
+---
+
+## 🔹 Final Answer
+
+```
+LCS Length = 2
+```
+
+---
+
+## 🔹 Key Understanding (VERY IMPORTANT)
+
+* We do NOT follow one match path
+* We compute best result for every prefix
+* DP automatically keeps optimal result
+
+---
+
+## 🔹 Two Important Examples
+
+### Example 1
+
+```
+t1 = "a", t2 = "aa"
+LCS = 1 (not 2)
+→ one character cannot match twice
+```
+
+---
+
+### Example 2
+
+```
+t1 = "abc", t2 = "bac"
+Greedy match "a" → gives 1 ❌
+Optimal "bc" → gives 2 ✅
+```
+
+---
+
+## 🔹 Final One-Line Concept
+
+👉 LCS = "Best ordered match, not maximum matching count"
+
 
 
