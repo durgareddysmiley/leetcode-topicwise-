@@ -51,7 +51,7 @@ def create_list(arr):
 
 ## ANSWER 
 
-our thinking is reasonable, but if you write only
+our thinking is reasonable, but if you write only 
 
 cur = Node(arr[0])
 
@@ -166,6 +166,14 @@ leaving the actual links in the list exactly as they were.
 INPUT IS CAME AS OUTPUT 
 
 IF WE WANT ONLY THAT NUMBER WE USE head.val
+
+
+## QUESTION WHEN I WANT TO CHANGE THE VALUE LIKE THERE IS A INPUT  1 -> 2 -> 5 LETS IMAGINE  NOW I WANT TO CHANGE 5 AS 2 
+
+THINK THAT NODE = 2  I WROTE NODE = NODE.NEXT THEN IT DOESNT CHANGE ONLY THE LOCAL VARIBALE POINTS TO 5 IT DOESNT CHANGE 
+
+SO VAL IS IMPORTANT node.val = node.next.val THEN IT WILL CHANGE 
+
 
 ##PATTERNS 
 4️⃣ Two Pointers / Slow-Fast Pattern
