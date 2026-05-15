@@ -366,6 +366,223 @@ now input = [1,2,3,4,5]
 output = [5,4,3,2,1] 
 
 
+REVERSE AN ARRAY USIGN LINKED LIST 2
+
+92. Reverse Linked List II
+
+Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, 
+and return the reversed list.
+
+Input: head = [1,2,3,4,5], left = 2, right = 4
+Output: [1,4,3,2,5]
+
+## CODE 
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution(object):
+    def reverseBetween(self, head, left, right):
+        """
+        :type head: Optional[ListNode]
+        :type left: int
+        :type right: int
+        :rtype: Optional[ListNode]
+        """
+        a = ListNode(0)
+        a.next = head 
+        b = a 
+        prev = None
+        for i in range(left-1):
+            b = b.next 
+        curr = b.next 
+        for i in range(right-left+1):
+            c = curr.next 
+            curr.next = prev 
+            prev = curr
+            curr = c 
+        b.next.next = curr
+        b.next = prev 
+        return a.next 
+
+## WORKING 
+
+Example
+
+Original list:
+
+1 -> 2 -> 3 -> 4 -> 5
+
+Reverse from position:
+
+left = 2
+right = 4
+
+So we reverse:
+
+2 -> 3 -> 4
+
+Before Reversal
+
+b = node 1
+
+because b stops before reversal starts.
+
+And:
+
+b.next = 2
+
+VERY IMPORTANT.
+
+After Reversal Loop
+
+Reversed part becomes:
+
+4 -> 3 -> 2 -> None
+
+And:
+
+curr = 5
+prev = 4
+
+Now MOST IMPORTANT observation:
+
+WHO IS b.next NOW?
+
+People think:
+
+b.next = 4
+
+WRONG.
+
+Still:
+
+b.next = 2
+
+because nobody changed:
+
+1.next
+
+yet.
+
+VERY IMPORTANT STRUCTURE NOW
+
+Currently memory looks like:
+
+1 -> 2 -> None
+
+4 -> 3 -> 2 -> None
+
+5
+
+Node 2 became LAST node of reversed part.
+
+This is the key idea.
+
+WHY DID 2 BECOME LAST?
+
+Original:
+
+2 -> 3 -> 4
+
+After reversal:
+
+4 -> 3 -> 2
+
+So original FIRST node (2) became LAST node.
+
+Always happens in reversal.
+
+Now Understand THIS LINE
+b.next.next = curr
+
+Since:
+
+b.next = 2
+
+then:
+
+b.next.next
+
+means:
+
+2.next
+
+So:
+
+2.next = 5
+
+Now structure becomes:
+
+4 -> 3 -> 2 -> 5
+
+GOOD.
+
+
+THEN THIS LINE
+b.next = prev
+
+means:
+
+1.next = 4
+
+Now final list:
+
+1 -> 4 -> 3 -> 2 -> 5
+
+DONE.
+
+MOST IMPORTANT NOTE FOR YOU
+
+After reversing:
+
+Old Node	New Role
+Original first node (2)	becomes LAST
+Original last node (4)	becomes FIRST
+
+That is why:
+
+b.next
+
+still points to old first node (2),
+
+which is now tail of reversed section.
+
+So:
+
+b.next.next = curr
+
+connects LAST node of reversed part to remaining list.
+
+Write This In Notes EXACTLY
+After reversal:
+
+prev = new head of reversed part
+
+b.next = old first node of reversed part
+
+old first node becomes last node after reversal
+
+Therefore:
+
+b.next.next = curr
+
+means:
+
+tail of reversed part points to remaining list
+
+And:
+
+b.next = prev
+
+means:
+
+node before reversal connects to new head
+        
+
 
 ##LINKED LIST USING MERGE SORT 
 1️⃣ Idea
