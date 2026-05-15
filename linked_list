@@ -7,7 +7,7 @@ Each element in a linked list is called a node, and each node has:
 Value (val) → the data it holds.
 
 Pointer (next) → a reference to the next node in the list.
-
+   
 ## Node in Python  
 class ListNode:
     def __init__(self, val=0, next=None): 
