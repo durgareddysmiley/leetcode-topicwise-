@@ -344,6 +344,29 @@ class Solution(object):
                 current  = current.next
             l = m 
         return a.next
+
+
+REVERSE AN ARRAY USIGN LINKED LIST 
+
+Core Reverse Logic
+
+This is the important part:
+
+prev = None
+cur = head
+
+while cur:
+    nxt = cur.next
+    cur.next = prev
+    prev = cur
+    cur = nxt
+
+now input = [1,2,3,4,5] 
+
+output = [5,4,3,2,1] 
+
+
+
 ##LINKED LIST USING MERGE SORT 
 1️⃣ Idea
 
