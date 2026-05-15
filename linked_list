@@ -19,6 +19,21 @@ head = ListNode(1) → creates first node with value 1.
   
 head.next = ListNode(2) → second node linked to first.
 
+Minimum Problems You Should Solve
+
+If you can solve these WITHOUT copying:
+
+Reverse Linked List
+Middle of Linked List
+Merge Two Sorted Lists
+Remove Nth Node From End
+Linked List Cycle
+Palindrome Linked List
+Reverse Between
+Reverse in K Groups
+
+then your fundamentals are solid.
+
 ##FULL CODE TEMPLATE WHILE WANT TO SOLVE LINKED LIST PROBLEMS IN OTHER NRML CODING PLAT FORMS  
 
 class Node:
