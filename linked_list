@@ -2,7 +2,7 @@
     
 A linked list is a way to store a sequence of elements (like numbers) one after another, but unlike arrays, they are not stored in continuous memory.
 
-Each element in a linked list is called a node, and each node has:
+Each element in a linked list is called a node, and each node has: 
 
 Value (val) → the data it holds.
 
@@ -119,6 +119,111 @@ not
 1 → 2 → 3
 
 You lost the head node.
+
+Doubt: In Linked List, when we write b = a.next, does b contain only one node or the remaining linked list also?
+
+Example
+
+Suppose linked list is:
+
+1 -> 2 -> 3 -> 4
+
+and:
+
+a = node 2
+
+Visual:
+
+1 -> 2 -> 3 -> 4
+     ↑
+     a
+
+Now we write:
+
+b = a.next
+Confusion
+
+Does b mean:
+
+only 3
+
+OR
+
+3 -> 4
+
+Correct Understanding
+
+b directly points to only node 3.
+
+BUT node 3 is already connected to node 4.
+
+So practically:
+
+b -> 3 -> 4
+Important Concept
+
+A linked list variable never stores the whole list directly.
+
+It only stores:
+
+reference/pointer to starting node
+
+So:
+
+b = node 3
+
+Since node 3 contains:
+
+next -> node 4
+
+b can still access the remaining chain.
+
+Internal Structure of Node 3
+
+Node 3 internally looks like:
+
+[3 | address_of_4]
+
+That means:
+
+value = 3
+next points to node 4
+Example 1
+print(b.val)
+
+Output:
+
+3
+
+because b directly points to node 3.
+
+Example 2
+print(b.next.val)
+
+Output:
+
+4
+
+because node 3 points to node 4.
+
+Visual Memory Diagram
+b
+↓
+[3 | • ] ----> [4 | None]
+
+b points only to node 3.
+
+But through node 3, remaining nodes are connected.
+
+Final Understanding
+b points to ONE node
+But through .next, it can access the remaining linked list
+
+That is why:
+
+b = 3 -> 4
+
+is practically true.
 
 ## BASIC OPETATIONS OF LINKED LIST 
 1.Adding a Node
