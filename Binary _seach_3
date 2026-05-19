@@ -169,7 +169,7 @@ Step 1: Always ask this ONE question
 ❓ Am I finding an EXACT value or a BOUND (first true)?
 
 Case A — Exact match
-
+ 
 Example:
 Find integer x such that x*x == n
 
