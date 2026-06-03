@@ -1,6 +1,6 @@
 TIME COMPLEXITY
 WHAT IS TIME COMPLEXITY?
-
+ 
 Time complexity tells how the running time of an algorithm grows as the input size increases.
 It does not measure seconds, it measures number of operations.
 
