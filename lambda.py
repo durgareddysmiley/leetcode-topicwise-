@@ -2,7 +2,7 @@
 
 👉 Lambda function is an anonymous (no name) one-line function used for small operations.
 
-Syntax
+Syntax   
 lambda arguments : expression
 
 🔹 Where we use Lambda Functions
