@@ -22,6 +22,22 @@ Clues in the problem:
  
 “Compute the average of every 5 elements in the array.”
 
+
+Pattern for Fixed-Size Window Sum
+
+def max_sum_k(nums, k):
+    window_sum = sum(nums[:k])
+    ans = window_sum
+
+    for i in range(k, len(nums)):
+        window_sum += nums[i]      # add new element
+        window_sum -= nums[i-k]    # remove old element
+        ans = max(ans, window_sum)
+
+    return ans
+
+Time Complexity: O(n)
+
 ✅ Key point: The window size is given or constant.
  ## PROBLEMS
 
