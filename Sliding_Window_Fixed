@@ -19,7 +19,7 @@ Clues in the problem:
 “Find the maximum sum of k consecutive elements.”
 
 “Longest substring of size n with certain properties.”
-
+ 
 “Compute the average of every 5 elements in the array.”
 
 ✅ Key point: The window size is given or constant.
@@ -110,7 +110,10 @@ Explanation: Sub-arrays [2,5,5],[5,5,5] and [5,5,8] have averages 4, 5 and 6 res
 if __name__ == "__main__":
     sol = Solution()
     print(sol.numOfSubarrays([2,2,2,2,5,5,5,8], 3, 4))  
-    print(sol.numOfSubarrays([11,13,17,23,29,31,7,5,2,3], 3, 5))  
+    print(sol.numOfSubarrays([11,13,17,23,29,31,7,5,2,3], 3, 5)) 
+
+## SUGGESTION : SEE HERE WHILE DOING THIS FIXED SIZE SUMS REMEMBER ONE THING IT IS BETTER TO DO FIRST 3 ELEMENTS AS ONE LOOP ANOTHER LOOP FOR MEMAINIGN 
+ONES NOT LIKE EVERY THING AT ONCE 
 
 ##"""
 209. Minimum Size Subarray Sum
