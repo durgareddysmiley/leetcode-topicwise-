@@ -64,7 +64,7 @@ def create_list(arr):
     return head
 
 
-def print_list(head):
+def print_list(head): 
     cur = head
     while cur:
         print(cur.data, end=" ")
