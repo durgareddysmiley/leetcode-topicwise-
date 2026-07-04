@@ -5,8 +5,22 @@ Bit manipulation means working with numbers in binary (0 and 1) using special op
 👉 Computer does NOT understand 10, 20, 50 
 👉 Computer understands only 0 and 1
   
-So bit manipulation =
+So bit manipulation =    
 playing with 0s and 1s to solve problems faster 
+
+.zfill(32) in Python means:
+
+👉 Pad a string with leading zeros until its length becomes 32 characters.
+
+🔹 Example:
+
+binary = "101"
+
+print(binary.zfill(32))
+
+Output:
+
+00000000000000000000000000000101
  
 🧠 The 5 Core Bitwise Magic Tricks
 
