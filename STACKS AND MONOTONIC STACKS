@@ -45,27 +45,6 @@ STACKS AND MONOTONIC STACKS
 ChatGPT said:
 Let’s go step-by-step and make this super clear 👇
 
-🧱 1. What is a Stack?
-A stack is a linear data structure that follows LIFO (Last In, First Out).
-👉 The element added last is the one removed first.
-
-Common operations:
-Operation	Description
-push(x)	Add element x on top of the stack
-pop()	Remove the top element
-peek() or top()	See the top element without removing it
-isEmpty()	Check if stack is empty
-Example (using array as stack):
-Stack<Integer> st = new Stack<>();
-st.push(10);
-st.push(20);
-st.push(30);
-System.out.println(st.pop()); // Output: 30
-System.out.println(st.peek()); // Output: 20
-⚙️ 2. What is a Monotonic Stack?
-A monotonic stack is a special kind of stack where the elements are arranged in a monotonic (increasing or decreasing) order.
-It helps solve problems like:
-
 Next Greater Element
 
 Previous Smaller Element
@@ -75,6 +54,21 @@ Stock Span
 Trapping Rain Water
 
 Largest Rectangle in Histogram
+
+
+The Monotonic Stack Rule
+
+When reading a new character ch:
+
+While
+
+stack is not empty
+AND ch < stack[-1]
+AND stack[-1] appears later again
+
+pop the stack.
+
+Then push ch.
 
 ##UNDERSTANDING 
 It’s simply a normal stack used in a specific way — such that the elements inside follow a monotonic (ordered) property while solving certain problems.
