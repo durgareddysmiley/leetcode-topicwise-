@@ -1,19 +1,23 @@
 🧱 1. What is a Stack?
 
 A stack is a linear data structure that follows LIFO (Last In, First Out).  
-👉 The element added last is the one removed first.
+👉 The element added last is the one removed first.   
 
 Common operations:
-Operation	Description
-push(x)	Add element x on top of the stack
-pop()	Remove the top element
-peek() or top()	See the top element without removing it
-isEmpty()	Check if stack is empty
+
+Operation	             Description
+
+push(x)	                Add element x on top of the stack
+pop()	                Remove the top element
+peek() or top()	        See the top element without removing it
+isEmpty()	            Check if stack is empty
 
 # create empty stack
+
 stack = []
 
 # push(x) → add element on top
+
 stack.append(10)
 stack.append(20)
 stack.append(30)
