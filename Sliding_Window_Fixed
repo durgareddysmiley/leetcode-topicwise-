@@ -4,7 +4,7 @@ Sliding Window problems generally follow these patterns:
 
 ## 1. Fixed-Size Sliding Window
 
-Window size is fixed.
+Window size is fixed. 
  
 Common problems: maximum sum of k-length subarray, average of subarrays, etc.
 
@@ -207,7 +207,7 @@ a running sum (curr_sum)
 left pointer (l)
 right pointer (r)
 
-##CODE 0(n)
+##CODE 0(n) 
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]):
