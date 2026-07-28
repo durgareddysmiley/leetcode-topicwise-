@@ -1,7 +1,7 @@
 🔹 Prefix Sum (Simple Definition)
 
 A prefix sum is the running total of an array up to a certain index.
-
+ 
 At each position, it stores the sum of all elements before and including that position.
 
 🔹 When to Use Prefix Sum.  
