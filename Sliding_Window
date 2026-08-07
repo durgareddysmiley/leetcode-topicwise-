@@ -147,7 +147,7 @@ window = [3] → bad
 Shrink again:
 
 window = []
-
+ 
 Final result
 
 You never keep elements long enough to form:
