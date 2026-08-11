@@ -4,7 +4,7 @@ Binary search
 Definition (Interview-ready):
 
 Binary Search is an efficient searching algorithm used to find an element in a sorted array by repeatedly dividing the search space into half.
-
+   
 🔹 Why Binary Search is Efficient? 
 
 It does not check elements one by one
