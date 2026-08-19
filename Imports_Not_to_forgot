@@ -1,6 +1,6 @@
 📌 Most Common Imports You Forget (IMPORTANT)
 1️⃣ Counter 
-from collections import Counter   
+from collections import Counter    
  
 2️⃣ defaultdict
 from collections import defaultdict
@@ -213,3 +213,26 @@ And:
 pairs[0][0]   # 10
 pairs[0][1]   # 20
 
+
+Then the input will look like:
+
+3
+
+10 20
+30 40
+50 60
+
+See here when the input is like that it is saying for first iteration the input want to be (10,20) and for second iteratoin (30,40) 
+then we need to write code like 
+
+n = int(input())
+
+for i in range(n):
+    a, b = map(int, input().split())
+    print(a, b)
+means:
+
+n = 3
+
+repeat 3 times:
+    read two numbers
