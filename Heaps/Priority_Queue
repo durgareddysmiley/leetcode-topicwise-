@@ -1,0 +1,198 @@
+Heaps
+
+In Python heapq, assume:
+
+import heapq
+
+h = []
+
+1. Add an element → heappush()
+
+Syntax:
+
+heapq.heappush(h, value)
+
+Example:
+
+import heapq
+
+h = []
+
+heapq.heappush(h, 10)
+heapq.heappush(h, 5)
+heapq.heappush(h, 8)
+
+print(h)
+
+The heap will be:
+
+[5, 10, 8]
+
+The important thing is:
+
+h[0]
+
+is always the minimum.
+
+print(h[0])
+
+Output:
+
+5
+
+2. Delete an element → heappop()
+
+Syntax:
+
+heapq.heappop(h)
+
+It removes the minimum element.
+
+Example:
+
+import heapq
+
+h = []
+
+heapq.heappush(h, 10)
+heapq.heappush(h, 5)
+heapq.heappush(h, 8)
+
+x = heapq.heappop(h)
+
+print(x)
+print(h)
+
+Output:
+
+5
+
+[8, 10]
+
+So:
+
+heapq.heappop(h)
+
+means:
+
+Remove and return the smallest element.
+
+3. Dry run
+
+Suppose:
+
+h = []
+Add 10
+heapq.heappush(h, 10)
+h = [10]
+Add 5
+heapq.heappush(h, 5)
+h = [5, 10]
+
+Why did 5 come to the front?
+
+Because it's a min heap.
+
+Add 8
+heapq.heappush(h, 8)
+h = [5, 10, 8]
+
+Conceptually:
+
+       5
+      / \
+    10   8
+
+Delete
+
+heapq.heappop(h)
+
+It removes:
+
+5
+
+Now:
+
+h = [8, 10]
+
+Conceptually:
+
+      8
+     /
+   10
+
+
+4. Very important: heappop() does NOT delete any element you choose
+
+This is where beginners often make a mistake.
+
+If:
+
+h = [2, 5, 8, 10]
+
+then:
+
+heapq.heappop(h)
+
+removes:
+
+2
+
+
+because 2 is the minimum.
+
+It does not mean:
+
+remove 10
+
+or:
+
+remove any element I want
+
+It's specifically:
+
+Remove the minimum.
+
+
+5. What about deleting a specific element?
+
+Python's heapq does not have a simple:
+
+heapq.delete(h, 8)
+
+There is no such function.
+
+If you specifically need to remove an arbitrary value, you can do something like:
+
+h.remove(8)
+heapq.heapify(h)
+
+But for normal heap interview problems, don't focus on arbitrary deletion yet.
+
+Focus on these:
+
+Operation	Python
+Create heap	h = []
+Add	heapq.heappush(h, x)
+Remove minimum	heapq.heappop(h)
+See minimum	h[0]
+Number of elements	len(h)
+
+
+215. Kth Largest Element in an Array
+Given an integer array nums and an integer k, return the kth largest element in the array.
+
+Note that it is the kth largest element in the sorted order, not the kth distinct element.
+
+Can you solve it without sorting?
+
+##CODE 
+
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        h = []
+        for i in range(len(nums)):
+            heapq.heappush(h,nums[i])
+            if len(h) > k:
+                heapq.heappop(h)
+        return h[0]
