@@ -236,3 +236,10 @@ n = 3
 
 repeat 3 times:
     read two numbers
+
+Sum of n terms of a Geometric Progression (GP) 
+
+if r == 1:
+    s = a * n
+else:
+    s = a * (r**n - 1) / (r - 1)
