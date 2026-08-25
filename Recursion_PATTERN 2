@@ -9,7 +9,7 @@ Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum.
     
 🕒 WHEN TO USE
    
-Use this pattern when:
+Use this pattern when: 
 
 You need to generate all possible combinations or selections of elements.
   
@@ -299,6 +299,82 @@ So YES, your statement here is also correct.
 The important thing is:
 
 Case 3's idx remains 2, but Case 3's curr can now contain 4.
+
+ANOTHER DOUBT BASED ON RES 
+
+Version 1 — res created outside
+def subsets(nums):
+    res = []
+    self.sub(nums, res, cur=[], idx=0)
+    return res
+
+def sub(nums, res, cur, idx):
+    if idx >= len(nums):
+        res.append(cur[:])
+        return
+
+Here:
+
+subsets()
+   |
+   | creates
+   ↓
+res = []
+   |
+   | passes SAME list
+   ↓
+sub(..., res, ...)
+
+So res is created once.
+
+Every recursive call receives that same res.
+
+Call 1 ──┐
+Call 2 ──┤
+Call 3 ──┼──→ SAME res = [...]
+Call 4 ──┤
+Call 5 ──┘
+
+Therefore, when one call does:
+
+res.append(cur[:])
+
+the shared res gets bigger.
+
+What if you put res = [] inside sub()?
+Suppose you did this:
+
+def subsets(nums):
+    self.sub(nums, cur=[], idx=0)
+
+def sub(nums, cur, idx):
+    res = []   # NEW list every time
+
+Now it's completely different.
+
+Every recursive call creates a new res:
+
+Call 1 → res = []
+
+    ↓
+
+Call 2 → res = []
+
+    ↓
+
+Call 3 → res = []
+
+They are different lists.
+
+So if Call 3 does:
+
+res.append([1,2,3])
+
+only Call 3's res gets that value.
+
+Call 2's res doesn't magically get it.
+
+
 
 🪜 Start Point
 idx = 0, current = [], nums = [1,2,3]
