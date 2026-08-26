@@ -3,7 +3,7 @@
                                                                                             
 This recursion pattern is used when each element in a collection has two independent choices:
 👉 Include it or 👉 Exclude it from the curre nt result. 
-
+ 
 It explores all possible combinations (or subsequences) of the input — forming a recursion tree of size 2ⁿ.
 Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum. 
     
@@ -530,7 +530,50 @@ Return to []
 ✅ Reached end → record []
 Return to main — recursion completed ✅
 
+## THESE ARE LOOKS LIKE SAME BUT HERE WE DONT WANT TO WRITE EVERY TIME (IDX+1) POP AND (IDX+1) SOME TIME WENEED TOWRITE (IDX_) FUNCTION (IDX +1) LIKE ABOUVE SUM 
+
+39. Combination Sum
+
+Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+
+The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+
+The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+
+ 
+Example 1:
+
+Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
+Explanation:
+2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
+7 is a candidate, and 7 = 7.
+These are the only two combinationS
+
+##CODE 
+
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        res = []
+        cur = []
+        self.sub(res,cur,candidates,target,0)
+        return res
+    def sub(self,res,cur,candidates,target,idx):
+        if sum(cur) == target:
+            res.append(cur[:])
+            return
+        if idx >= len(candidates) or sum(cur) > target:
+            return
+        cur.append(candidates[idx])
+        self.sub(res,cur,candidates,target,idx)
+        cur.pop()
+        self.sub(res,cur,candidates,target,idx+1)
+        
+
+        
+
 ## REMEMBER THERE ARE THE SUMS WHICH CAN BE SOLVED BY USING INCLUDE OR EXCLUDE BUT ADDITIONALLY WE NEED TO ADD WHILE LOOP AND SOME CONDITIONS FOR SOME TIME LIKE THIS BELOW SUM
+
 
 Problem: 90 : Subsets II
 
