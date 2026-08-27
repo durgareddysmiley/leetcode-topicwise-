@@ -6,7 +6,7 @@ This recursion pattern is used when each element in a collection has two indepen
  
 It explores all possible combinations (or subsequences) of the input — forming a recursion tree of size 2ⁿ.
 Common in problems like Subsets, Subsequences, Combination Sum, and Target Sum. 
-    
+        
 🕒 WHEN TO USE
    
 Use this pattern when: 
@@ -568,9 +568,11 @@ class Solution:
         self.sub(res,cur,candidates,target,idx)
         cur.pop()
         self.sub(res,cur,candidates,target,idx+1)
-        
 
-        
+## in the above code y we are writing return in the if condition idx>= len(candidates) inside y you write return 
+
+just a simple thing i want to tell when i want to find the combinations [1,2] [1,3] then combinations with 1 are completed so only 1 remaining so when idx >= len(candidates)
+then 1 return and pop happend then cur [] then [2,3] can also be another combination 
 
 ## REMEMBER THERE ARE THE SUMS WHICH CAN BE SOLVED BY USING INCLUDE OR EXCLUDE BUT ADDITIONALLY WE NEED TO ADD WHILE LOOP AND SOME CONDITIONS FOR SOME TIME LIKE THIS BELOW SUM
 
