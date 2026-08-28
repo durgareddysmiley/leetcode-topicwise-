@@ -1,5 +1,5 @@
 🧩 SUBSET / SUBSEQUENCE (INCLUDE–EXCLUDE) RECURSION PATTERN    
-🧠 DEFINITION 
+🧠 DEFINITION    
                                                                                              
 This recursion pattern is used when each element in a collection has two independent choices:
 👉 Include it or 👉 Exclude it from the curre nt result. 
@@ -143,6 +143,9 @@ Return the solution in any order.
 📥 INPUT
 nums = [1, 2, 3]
 
+## See here clearly when i want to return all combinations we know we want to use recursion + back tracking  but how it works 
+first it will go [1,2,3] it return back and pop 3 then [1,2] then 2 pop then another combination is [1,3] then 1 pop , 3 pop then its come to 2 and [2,3] like that 
+the process is actually happens 
 📤 OUTPUT
 [[], [1], [2], [1, 2], [3], [1, 3], [2, 3], [1, 2, 3]]
 
