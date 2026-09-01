@@ -1,7 +1,7 @@
 🧩 SUBSET / SUBSEQUENCE (INCLUDE–EXCLUDE) RECURSION PATTERN    
 🧠 DEFINITION    
                                                                                              
-This recursion pattern is used when each element in a collection has two independent choices:
+This recursion pattern is used when each element in a collection has two independent choices: 
 👉 Include it or 👉 Exclude it from the curre nt result. 
  
 It explores all possible combinations (or subsequences) of the input — forming a recursion tree of size 2ⁿ.
@@ -95,6 +95,8 @@ def solve(idx, arr, current):
 
     # 3️⃣ CHOICE 2 — EXCLUDE arr[idx]
     solve(idx + 1, arr, current)
+
+## SOME TIMES IN SUMS LIKE PERMUTATION FUNCTION AND POP ANOTHER FUNCTION WE DONT NEED TO WRITE BECAUSE IT IS IN FOR LOOP 
 
 🧠 KEY THINKING STEPS                                                      
 STEP	QUESTION	ACTION
