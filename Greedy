@@ -12,6 +12,28 @@ You decide step by step, locally best choice
 
 A Greedy algorithm makes the locally optimal choice at each step to reach a globally optimal solution.
 
+
+9. Your mental checklist from now on
+
+When you get a new placement question, don't ask first:
+
+"Is this Greedy?"
+
+Instead ask:
+
+1. What decision am I making?
+             ↓
+2. What are my choices?
+             ↓
+3. Which choice looks best RIGHT NOW?
+             ↓
+4. If I choose it, what happens to future choices?
+             ↓
+5. Can I prove this choice cannot hurt the optimal answer?
+
+If you can answer those, then you're doing Greedy thinking.
+
+
 ✅ Use GREEDY when:
 
 Local best choice always leads to global best
