@@ -1,4 +1,4 @@
-What is Greedy Algorithm (from zero) -> JUmp game , 
+What is Greedy Algorithm (from zero) -> JUmp game ,  
 
 👉 Greedy = take the best option right now, hoping it leads to the final best answer.
 
@@ -225,6 +225,21 @@ select activities / jobs / intervals
 based on time, profit, weight, deadline
 
 👉 First step = SORT something
+
+
+def activity_selection(activities):
+    # Sort by end time
+    activities.sort(key=lambda x: x[1])
+
+    count = 0
+    last_end = float('-inf')
+
+    for start, end in activities:
+        if start >= last_end:
+            count += 1
+            last_end = end
+
+    return count
 
 Example
 
