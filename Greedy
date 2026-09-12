@@ -277,9 +277,24 @@ Fractional Knapsack
 value / weight
 
 
-🧠 Logic:
+How to recognize this pattern in an interview
 
-Take the most beneficial item first
+Look for phrases like:
+
+"maximum value"
+"limited capacity"
+"value per unit"
+"profit per unit"
+"efficiency"
+"cost per unit"
+
+Then ask yourself:
+
+Can I take a fraction of an item?
+
+If YES → calculate value / weight, sort descending, and greedily take the best ratio.
+
+If NO → don't blindly use ratio greedy.
 
 Pattern 3️⃣: Minimize something step by step
 
