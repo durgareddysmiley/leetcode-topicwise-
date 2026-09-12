@@ -5,7 +5,7 @@ What is Greedy Algorithm (from zero) -> JUmp game ,
 You don’t think about future 
 
 You don’t try all possibilities
-
+ 
 You decide step by step, locally best choice
 
 📌 One-line definition for exams   
@@ -256,7 +256,7 @@ start time, end time, deadline, profit, interval
 
 Sort → Pick best → Move forward
 
-Pattern 2️⃣: Take the Best Ratio / Value
+Pattern 2️⃣: Take the Best Ratio / Value  // leet code 1710 → 826 → 857 → 1383 → 948
 
 If problem involves:
 
