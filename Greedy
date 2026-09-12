@@ -1,7 +1,7 @@
 What is Greedy Algorithm (from zero) -> JUmp game ,  
 
 👉 Greedy = take the best option right now, hoping it leads to the final best answer. let cdoe 435 , 452 , 1353 , 56, 1029
-
+ 
 You don’t think about future 
 
 You don’t try all possibilities
@@ -214,7 +214,7 @@ Greedy algorithm works for canonical coin systems (like Indian currency), but fa
 These patterns appear again and again 👇
 If you see them → think GREEDY
 
-Pattern 1️⃣: Sorting + Selection
+Pattern 1️⃣: Sorting + Selection // if that is 2d or 3d mostly and we think we need to sort that and the question asks for minimum then it belong to this pattern 
 
 If the problem says:
 
