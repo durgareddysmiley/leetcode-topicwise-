@@ -1,0 +1,7 @@
+HEAP 
+A heap is a complete binary tree that follows a specific ordering property. In a min heap, the smallest element is always at the root, and in a max heap, the largest element is always at 
+the root. When we remove the root, the heap rearranges itself to maintain the heap property
+
+PRIORITY QUEUE 
+“A priority queue is a data structure in which elements are processed based on their priority rather than their insertion order. It is commonly implemented using a heap.
+
